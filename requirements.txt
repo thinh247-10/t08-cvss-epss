@@ -1,0 +1,27 @@
+# Thu thap du lieu
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# Xu ly du lieu
+pandas>=2.0.0
+pyarrow>=14.0.0
+numpy>=1.24.0
+
+# Baseline model
+scikit-learn>=1.3.0
+
+# DistilBERT
+torch>=2.0.0
+transformers>=4.35.0
+datasets>=2.14.0
+
+# Truc quan hoa
+matplotlib>=3.7.0
+seaborn>=0.13.0
+
+# Explainability (chon 1)
+# shap>=0.44.0
+# captum>=0.7.0
+
+# Notebook
+jupyter>=1.0.0

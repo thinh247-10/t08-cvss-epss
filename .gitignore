@@ -1,0 +1,34 @@
+# Secrets — KHONG BAO GIO commit
+.env
+*.key
+credentials.json
+
+# Du lieu
+data/raw/*
+data/processed/*
+!data/**/.gitkeep
+*.parquet
+*.db
+*.sqlite3
+sample_CVE-*.json
+
+# Model artifacts (dung lon, day len S3 thay vi Git)
+models/
+*.bin
+*.safetensors
+*.pt
+*.ckpt
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
