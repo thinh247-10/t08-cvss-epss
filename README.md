@@ -2,6 +2,13 @@
 
 > Đồ án môn học — Chương C3 (Đánh giá tác động, thang đo rủi ro)
 
+Kế hoạch nhóm: [Lộ trình 30 ngày, 6 phase và phân công chi tiết cho 3 người](docs/05-ke-hoach-phan-cong.md).
+
+> Bắt đầu từ [Phase 0 — Phạm vi Web/mobile và thiết kế](docs/phases/phase-0-pham-vi-va-thiet-ke.md).
+> Các module nghiệp vụ hiện chủ yếu là TODO; lệnh chạy bên dưới cần được hoàn thiện/đối chiếu theo kế hoạch trước khi sử dụng. Schema bàn giao: [data contract](docs/data_contract.md).
+
+Quy trình làm nhóm: [chia branch, commit, push và Pull Request](docs/06-git-workflow.md).
+
 ## Câu hỏi nghiên cứu
 
 Đồ án này **không** nhằm xây dựng một mô hình học máy tốt nhất. Mô hình NLP ở đây là
@@ -14,23 +21,24 @@ Bốn câu hỏi con:
 
 | # | Câu hỏi | Phương pháp |
 |---|---------|-------------|
-| RQ1 | Có thể ước lượng mức nghiêm trọng của một CVE chỉ từ mô tả văn bản không? | Mô hình NLP dự đoán vector CVSS |
-| RQ2 | Các thang đo ưu tiên (CVSS / EPSS / KEV / SSVC) bất đồng với nhau ở đâu? | Phân tích xếp hạng và tương quan |
-| RQ3 | Bối cảnh hệ thống làm thay đổi mức rủi ro như thế nào? | CVSS Environmental Metrics trên tổ chức giả định |
-| RQ4 | Quy trình ưu tiên vá nào là hợp lý trong thực tế? | Patch Prioritization Playbook |
+| RQ1 | Có thể ước lượng tám thành phần CVSS v3.1 từ mô tả CVE chính xác đến đâu? | Baseline NLP, mô hình đa nhiệm nếu đủ thời gian và phân tích lỗi |
+| RQ2 | Các thang đo ưu tiên (CVSS / EPSS / KEV) bất đồng với nhau ở đâu trong thực tiễn? | Phân tích xếp hạng, vẽ biểu đồ tương quan và đánh giá sự sai lệch |
+| RQ3 | Bối cảnh hệ thống (White/Gray-box) làm thay đổi mức rủi ro như thế nào so với CVSS tĩnh? | Áp dụng CVSS Environmental Metrics trên mô hình kiến trúc giả định |
+| RQ4 | Quy trình ưu tiên vá nào phù hợp với hệ thống Web/mobile giả định? | Xây dựng báo cáo phân tích bảo mật và Patch Prioritization Playbook |
 
-**Sản phẩm trọng tâm là RQ2–RQ4.** RQ1 chỉ là bước đệm.
+**Sản phẩm trọng tâm là RQ2–RQ4 ở góc độ bảo mật.** Mô hình AI trong RQ1 là phương pháp hỗ trợ ước lượng severity; kết quả dự đoán không tự quyết định CVE nào phải vá trước.
 
 ## Bối cảnh: tại sao đề tài này có ý nghĩa thực tế
 
 - CVSS đo **mức nghiêm trọng nếu bị khai thác**, không đo **khả năng bị khai thác**.
 - EPSS đo xác suất bị khai thác trong 30 ngày tới, nhưng không biết gì về hệ thống của bạn.
-- KEV cho biết lỗ hổng **đã** bị khai thác, nhưng chắc chắn bỏ sót (chỉ gồm những gì CISA xác nhận được).
+- KEV ghi nhận lỗ hổng đã bị khai thác theo tiêu chí của catalog; CVE không có trong KEV không phải nhãn âm chắc chắn.
 - Không thang nào trong ba thang trên biết tài sản nào quan trọng với tổ chức của bạn.
 
-Một tổ chức chỉ vá theo CVSS sẽ tiêu tốn nguồn lực vào hàng nghìn lỗ hổng gần như
-không ai khai thác, đồng thời bỏ sót những lỗ hổng điểm trung bình nhưng đang bị
-khai thác thực tế trên hệ thống trọng yếu.
+Một tổ chức chỉ sắp thứ tự theo CVSS có thể ưu tiên một lỗ hổng rất nghiêm trọng nhưng
+không áp dụng cho tài sản đang vận hành, đồng thời xếp thấp hơn một lỗ hổng điểm vừa phải
+đang có tín hiệu khai thác và ảnh hưởng tới tài sản trọng yếu. Đồ án sẽ đo mức bất đồng
+trên dataset thực tế thay vì giả định trước CVSS hoặc EPSS luôn tốt hơn.
 
 ## Ngoài phạm vi
 
@@ -63,24 +71,31 @@ cp .env.example .env             # rồi điền NVD_API_KEY
 Đăng ký NVD API key miễn phí tại https://nvd.nist.gov/developers/request-an-api-key
 (không có key thì giới hạn còn 5 request/30 giây).
 
-## Quy trình chạy
+## Quy trình dự kiến sau khi triển khai
+
+Các module dưới đây đang được xây theo [kế hoạch phase](docs/05-ke-hoach-phan-cong.md).
+Chỉ đưa lệnh đã chạy được vào [runbook](docs/phases/phase-4-tich-hop-va-demo.md) ở Phase 4;
+không dùng khối này như bằng chứng repo hiện đã hoàn thiện pipeline.
 
 ```bash
 # 1. Khám phá schema API (chạy 1 lần để hiểu dữ liệu)
 python src/collect/explore_apis.py CVE-2021-44228
 
-# 2. Thu thập dữ liệu
-python src/collect/nvd_collector.py --start 2020-01-01 --end 2025-12-31
+# 2. Thu thập và chuẩn hóa dữ liệu công khai
+python src/collect/nvd_collector.py --start 2023-01-01 --end 2024-12-31
 python src/collect/epss_client.py
 python src/collect/kev_client.py
 
-# 3. Huấn luyện
+# 3. Huấn luyện mô hình dự đoán vector CVSS
 python src/model/baseline.py
 python src/model/distilbert_multihead.py
 
-# 4. Phân tích (phần trọng tâm)
-python src/environmental/apply_environmental.py
-python src/analysis/compare_rankings.py
+# 4. Tính CVSS theo bối cảnh tài sản giả định
+python -m src.environmental.cvss_environmental
+
+# 5. Phân tích và xuất hình báo cáo
+python -m src.analysis.compare_rankings
+python -m src.analysis.plots
 ```
 
 ## Lưu ý về dữ liệu (quan trọng)
@@ -97,9 +112,9 @@ cung cấp sẽ không được NVD chấm lại, và phần lớn CVE tồn đ�
 
 | Vai trò | Phụ trách |
 |---------|-----------|
-| Data / Infra | Pipeline thu thập, deploy AWS |
-| ML / NLP | Baseline, DistilBERT multi-head, explainability |
-| Security Analysis | Environmental metrics, so sánh thang đo, playbook |
+| **Người 1 — Data/Integration, nhóm trưởng** | Thu thập NVD/EPSS/KEV, quản lý snapshot và provenance, làm sạch/ghép dữ liệu, EDA, runbook và bản tích hợp. |
+| **Người 2 — Security Analysis** | Xác định phạm vi Web/mobile, kiểm tra applicability, tính CVSS Environmental, so sánh ranking, viết case study và playbook ưu tiên vá. |
+| **Người 3 — NLP/Demo** | Xây baseline, thử DistilBERT trong giới hạn thời gian, đánh giá tám metric và tích hợp artifact vào demo local. |
 
 ## Tài liệu tham khảo
 
