@@ -31,7 +31,7 @@ neu dung EPSS hom nay de xep hang CVE cu, mo hinh "biet truoc tuong lai".
 - **Han che:** chac chan undercount — chi gom nhung gi CISA xac nhan duoc.
   Phai neu ro trong phan ban luan.
 
-## SSVC (Stakeholder-Specific Vulnerability Categorization)
+## SSVC (Stakeholder-Specific Vulnerability Categorization) Phần này tham khảo, Ánh ko cần thêm vào đồ án
 
 - **Khac biet:** cho ra **hanh dong** (Track / Track* / Attend / Act), khong phai con so
 - **Dau vao:** Exploitation, Automatable, Technical Impact, Mission Prevalence...
@@ -41,7 +41,7 @@ neu dung EPSS hom nay de xep hang CVE cu, mo hinh "biet truoc tuong lai".
 
 ## Bang so sanh
 
-| | CVSS | EPSS | KEV | SSVC |
+| | CVSS | EPSS | KEV | SSVC ( Tham khảo cho vui ) |
 |---|---|---|---|---|
 | Tra loi | Nguy hiem den dau? | Co bi khai thac khong? | Da bi khai thac chua? | Nen lam gi? |
 | Dang ket qua | Diem 0-10 | Xac suat 0-1 | Co/Khong | Hanh dong |
