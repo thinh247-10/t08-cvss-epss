@@ -23,7 +23,10 @@ load_dotenv()
 
 NVD_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 EPSS_URL = "https://api.first.org/data/v1/epss"
-KEV_URL = "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+KEV_URL = (
+    "https://raw.githubusercontent.com/cisagov/kev-data/"
+    "develop/known_exploited_vulnerabilities.json"
+)
 
 
 def fetch_nvd(cve_id: str) -> dict:
@@ -137,16 +140,17 @@ def main() -> None:
     print(f"\n>>> Dang kham pha: {cve_id}\n")
 
     payload = fetch_nvd(cve_id)
-    inspect_nvd(payload)
-    fetch_epss(cve_id)
-    check_kev(cve_id)
 
-    # Luu raw JSON de doc ky bang mat / dung lam mau khi thiet ke schema
+    # Luu ngay khi NVD tra du lieu thanh cong.
     out = f"sample_{cve_id}.json"
     with open(out, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
-    print(f"Da luu raw JSON vao: {out}")
+    print(f"Da luu raw NVD JSON vao: {out}")
 
+    inspect_nvd(payload)
+    fetch_epss(cve_id)
 
+    print(f"Nguon tai KEV: {KEV_URL}")
+    check_kev(cve_id)
 if __name__ == "__main__":
     main()
