@@ -1,0 +1,65 @@
+project:
+  name: "t08-cvss-epss"
+  schema_version: "0.1"
+  dataset_version: "pilot-v0.1"
+  seed: 42
+
+# Khoảng dữ liệu đề xuất; điều chỉnh sau khi chạy pilot.
+collection:
+  start_date: "2023-01-01"
+  end_date: "2024-12-31"
+  description_language: "en"
+
+cvss:
+  version: "3.1"
+  metrics: ["AV", "AC", "PR", "UI", "S", "C", "I", "A"]
+  preferred_source: "nvd@nist.gov"
+  preserve_all_raw_metrics: true
+
+# Chọn ngày thực tế khi bắt đầu thu thập.
+# Collector phải yêu cầu điền ngày, không tự đổi sang hôm nay.
+epss:
+  snapshot_date: null
+
+kev:
+  save_raw_catalog: true
+  record_retrieved_at: true
+
+scope:
+  domains: ["web", "mobile"]
+  policy_version: "draft-v0.1"
+  require_evidence: true
+
+# Quy ước: start được tính, end_exclusive không được tính.
+# Ví dụ: train bao gồm toàn bộ năm 2023.
+split:
+  status: "provisional"
+  strategy: "published_time"
+  train:
+    start: "2023-01-01"
+    end_exclusive: "2024-01-01"
+  validation:
+    start: "2024-01-01"
+    end_exclusive: "2024-07-01"
+  test:
+    start: "2024-07-01"
+    end_exclusive: "2025-01-01"
+
+data_quality:
+  keep_missing_cvss_in_master: true
+  fill_missing_epss_with_zero: false
+  require_complete_kev_catalog: true
+  require_unique_cve_id: true
+
+ranking:
+  top_k: 50
+  policies: ["cvss_first", "epss_first", "kev_first"]
+
+paths:
+  raw_dir: "data/raw"
+  dataset: "data/processed/cves.parquet"
+  metadata: "data/metadata.json"
+  sample: "data/sample/cves_sample.csv"
+  sample_metadata: "data/sample/metadata.json"
+  scope_annotations: "data/annotations/scope_review.csv"
+  reports_dir: "reports"
