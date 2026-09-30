@@ -1,0 +1,6 @@
+# Environment for NVD/EPSS/KEV collection and reading the shared sample.
+requests>=2.31.0
+python-dotenv>=1.0.0
+pandas>=2.0.0
+pyarrow>=14.0.0
+PyYAML>=6.0

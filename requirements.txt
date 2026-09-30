@@ -1,10 +1,5 @@
-# Thu thap du lieu
-requests>=2.31.0
-python-dotenv>=1.0.0
-
-# Xu ly du lieu
-pandas>=2.0.0
-pyarrow>=14.0.0
+# Thu thap va xu ly du lieu
+-r requirements-data.txt
 numpy>=1.24.0
 
 # Baseline model

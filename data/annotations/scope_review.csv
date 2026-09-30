@@ -1,0 +1,129 @@
+cve_id,proposed_domain_tags,final_domain_tags,scope_status,reason,evidence_url,reviewer,reviewed_at,scope_policy_version,description,cvss_vector,cvss_source,reference_urls,dataset_version
+CVE-2010-10002,[],[],needs_review,Chua danh gia,,,,draft-v0.1,** UNSUPPORTED WHEN ASSIGNED ** A vulnerability classified as problematic has been found in SimpleSAMLphp simplesamlphp-module-openid. Affected is an unknown function of the file templates/consumer.php of the component OpenID Handler. The manipulation of the argument AuthState leads to cross site scripting. It is possible to launch the attack remotely. The complexity of an attack is rather high. The exploitability is told to be difficult. Upgrading to version 1.0 is able to address this issue. The patch is identified as d652d41ccaf8c45d5707e741c0c5d82a2365a9a3. It is recommended to upgrade the affected component. VDB-217170 is the identifier assigned to this vulnerability. NOTE: This vulnerability only affects products that are no longer supported by the maintainer.,CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N,nvd@nist.gov,"[""https://github.com/simplesamlphp/simplesamlphp-module-openid/commit/d652d41ccaf8c45d5707e741c0c5d82a2365a9a3"", ""https://github.com/simplesamlphp/simplesamlphp-module-openid/releases/tag/v1.0"", ""https://vuldb.com/?ctiid.217170"", ""https://vuldb.com/?id.217170""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2014-125052,[],[],needs_review,Chua danh gia,,,,draft-v0.1,A vulnerability was found in JervenBolleman sparql-identifiers and classified as critical. This issue affects some unknown processing of the file src/main/java/org/identifiers/db/RegistryDao.java. The manipulation leads to sql injection. The patch is named 44bb0db91c064e305b192fc73521d1dfd25bde52. It is recommended to apply a patch to fix this issue. The associated identifier of this vulnerability is VDB-217571.,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H,nvd@nist.gov,"[""https://github.com/JervenBolleman/sparql-identifiers/commit/44bb0db91c064e305b192fc73521d1dfd25bde52"", ""https://vuldb.com/?ctiid.217571"", ""https://vuldb.com/?id.217571""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2015-10007,[],[],needs_review,Chua danh gia,,,,draft-v0.1,** UNSUPPORTED WHEN ASSIGNED ** A vulnerability was found in 82Flex WEIPDCRM and classified as problematic. Affected by this issue is some unknown functionality. The manipulation leads to cross site scripting. The attack may be launched remotely. The name of the patch is 43bad79392332fa39e31b95268e76fbda9fec3a4. It is recommended to apply a patch to fix this issue. The identifier of this vulnerability is VDB-217184. NOTE: This vulnerability only affects products that are no longer supported by the maintainer.,CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N,nvd@nist.gov,"[""https://github.com/82Flex/WEIPDCRM/commit/43bad79392332fa39e31b95268e76fbda9fec3a4"", ""https://vuldb.com/?ctiid.217184"", ""https://vuldb.com/?id.217184""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2015-10026,[],[],needs_review,Chua danh gia,,,,draft-v0.1,A vulnerability was found in tiredtyrant flairbot. It has been declared as critical. This vulnerability affects unknown code of the file flair.py. The manipulation leads to sql injection. The patch is identified as 5e112b68c6faad1d4699d02c1ebbb7daf48ef8fb. It is recommended to apply a patch to fix this issue. VDB-217618 is the identifier assigned to this vulnerability.,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H,nvd@nist.gov,"[""https://github.com/tiredtyrant/flairbot/commit/5e112b68c6faad1d4699d02c1ebbb7daf48ef8fb"", ""https://vuldb.com/?ctiid.217618"", ""https://vuldb.com/?id.217618""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2015-10028,[],[],needs_review,Chua danh gia,,,,draft-v0.1,A vulnerability has been found in ss15-this-is-sparta and classified as problematic. This vulnerability affects unknown code of the file js/roomElement.js of the component Main Page. The manipulation leads to cross site scripting. The attack can be initiated remotely. The name of the patch is ba2f71ad3a46e5949ee0c510b544fa4ea973baaa. It is recommended to apply a patch to fix this issue. The identifier of this vulnerability is VDB-217624.,CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N,nvd@nist.gov,"[""https://github.com/mauriciosoares/ss15-this-is-sparta/commit/ba2f71ad3a46e5949ee0c510b544fa4ea973baaa"", ""https://github.com/mauriciosoares/ss15-this-is-sparta/pull/1"", ""https://vuldb.com/?ctiid.217624"", ""https://vuldb.com/?id.217624""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2017-20161,[],[],needs_review,Chua danh gia,,,,draft-v0.1,A vulnerability classified as problematic has been found in rofl0r MacGeiger. Affected is the function dump_wlan_at of the file macgeiger.c of the component ESSID Handler. The manipulation leads to injection. Access to the local network is required for this attack to succeed. The complexity of an attack is rather high. The exploitability is told to be difficult. The name of the patch is 57f1dd50a4821b8c8e676e8020006ae4bfd3c9cb. It is recommended to apply a patch to fix this issue. The identifier of this vulnerability is VDB-217188.,CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H,nvd@nist.gov,"[""https://github.com/rofl0r/MacGeiger/commit/57f1dd50a4821b8c8e676e8020006ae4bfd3c9cb"", ""https://vuldb.com/?ctiid.217188"", ""https://vuldb.com/?id.217188""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2018-25067,[],[],needs_review,Chua danh gia,,,,draft-v0.1,"A vulnerability, which was classified as critical, was found in JoomGallery up to 3.3.3. This affects an unknown part of the file administrator/components/com_joomgallery/views/config/tmpl/default.php of the component Image Sort Handler. The manipulation leads to sql injection. Upgrading to version 3.3.4 is able to address this issue. The identifier of the patch is dc414ee954e849082260f8613e15a1c1e1d354a1. It is recommended to upgrade the affected component. The identifier VDB-217569 was assigned to this vulnerability.",CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H,nvd@nist.gov,"[""https://github.com/JoomGallery/JoomGallery/commit/dc414ee954e849082260f8613e15a1c1e1d354a1"", ""https://github.com/JoomGallery/JoomGallery/pull/122"", ""https://github.com/JoomGallery/JoomGallery/releases/tag/v3.3.4"", ""https://vuldb.com/?ctiid.217569"", ""https://vuldb.com/?id.217569""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2019-25096,[],[],needs_review,Chua danh gia,,,,draft-v0.1,A vulnerability has been found in soerennb eXtplorer up to 2.1.12 and classified as problematic. Affected by this vulnerability is an unknown functionality. The manipulation leads to cross site scripting. The attack can be launched remotely. Upgrading to version 2.1.13 is able to address this issue. The patch is named b8fcb888f4ff5e171c16797a4b075c6c6f50bf46. It is recommended to upgrade the affected component. The associated identifier of this vulnerability is VDB-217435.,CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N,nvd@nist.gov,"[""https://github.com/soerennb/extplorer/commit/b8fcb888f4ff5e171c16797a4b075c6c6f50bf46"", ""https://github.com/soerennb/extplorer/releases/tag/v2.1.13"", ""https://vuldb.com/?ctiid.217435"", ""https://vuldb.com/?id.217435""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2021-4306,[],[],needs_review,Chua danh gia,,,,draft-v0.1,A vulnerability classified as problematic has been found in cronvel terminal-kit up to 2.1.7. Affected is an unknown function. The manipulation leads to inefficient regular expression complexity. Upgrading to version 2.1.8 is able to address this issue. The name of the patch is a2e446cc3927b559d0281683feb9b821e83b758c. It is recommended to upgrade the affected component. The identifier of this vulnerability is VDB-217620.,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H,nvd@nist.gov,"[""https://github.com/cronvel/terminal-kit/commit/a2e446cc3927b559d0281683feb9b821e83b758c"", ""https://github.com/cronvel/terminal-kit/releases/tag/v2.1.8"", ""https://vuldb.com/?ctiid.217620"", ""https://vuldb.com/?id.217620""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-3863,[],[],needs_review,Chua danh gia,,,,draft-v0.1,Use after free in Browser History in Google Chrome prior to 100.0.4896.75 allowed a remote attacker to potentially exploit heap corruption via a crafted HTML page. (Chrome security severity: High),CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:N/I:N/A:H,nvd@nist.gov,"[""https://chromereleases.googleblog.com/2022/04/stable-channel-update-for-desktop.html"", ""https://crbug.com/1306507""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-39073,[],[],needs_review,Chua danh gia,,,,draft-v0.1,"There is a command injection vulnerability in ZTE MF286R, Due to insufficient validation of the input parameters, an attacker could use the vulnerability to execute arbitrary commands.",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H,nvd@nist.gov,"[""https://support.zte.com.cn/support/news/LoopholeInfoDetail.aspx?newsId=1028664""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-39104,[],[],needs_review,Chua danh gia,,,,draft-v0.1,"In contacts service, there is a missing permission check. This could lead to local denial of service in Contacts service with no additional execution privileges needed.",CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H,nvd@nist.gov,"[""https://www.unisoc.com/en_us/secy/announcementDetail/1610118225591336001""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-39118,[],[],needs_review,Chua danh gia,,,,draft-v0.1,"In sprd_sysdump driver, there is a possible out of bounds write due to a missing bounds check. This could lead to local denial of service in kernel.",CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H,nvd@nist.gov,"[""https://www.unisoc.com/en_us/secy/announcementDetail/1610118225591336001""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-3927,[],[],needs_review,Chua danh gia,,,,draft-v0.1,"
+The affected products store both public and private key that are used to sign and
+protect Custom Parameter Set (CPS) file from modification. An attacker that manages to exploit this vulnerability will be able to change
+the CPS file, sign it so that it is trusted as the legitimate CPS file.
+
+
+
+
+
+
+
+
+This issue affects 
+
+
+
+  *  FOXMAN-UN product: FOXMAN-UN R15B, FOXMAN-UN R15A, FOXMAN-UN R14B, FOXMAN-UN R14A, FOXMAN-UN R11B, FOXMAN-UN R11A, FOXMAN-UN R10C, FOXMAN-UN R9C; 
+  *  UNEM product: UNEM R15B, UNEM R15A, UNEM R14B, UNEM R14A, UNEM R11B, UNEM R11A, UNEM R10C, UNEM R9C.
+
+
+
+
+List of CPEs: 
+  *  cpe:2.3:a:hitachienergy:foxman-un:R15B:*:*:*:*:*:*:*
+
+  *  cpe:2.3:a:hitachienergy:foxman-un:R15A:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:foxman-un:R14B:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:foxman-un:R14A:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:foxman-un:R11B:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:foxman-un:R11A:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:foxman-un:R10C:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:foxman-un:R9C:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:unem:R15B:*:*:*:*:*:*:*
+
+  *  cpe:2.3:a:hitachienergy:unem:R15A:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:unem:R14B:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:unem:R14A:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:unem:R11B:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:unem:R11A:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:unem:R10C:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:unem:R9C:*:*:*:*:*:*:*
+
+
+
+
+
+
+
+
+",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H,nvd@nist.gov,"[""https://search.abb.com/library/Download.aspx?DocumentID=8DBD000083&LanguageCode=en&DocumentPartId=&Action=Launch"", ""https://search.abb.com/library/Download.aspx?DocumentID=8DBD000084&LanguageCode=en&DocumentPartId=&Action=Launch""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-3929,[],[],needs_review,Chua danh gia,,,,draft-v0.1,"
+Communication between the client and the server application of the affected products is partially done using CORBA (Common Object Request Broker Architecture) over TCP/IP. This protocol is not encrypted and allows tracing of internal messages.
+
+
+This issue affects 
+
+
+
+  *  FOXMAN-UN product: FOXMAN-UN R15B, FOXMAN-UN R15A, FOXMAN-UN R14B, FOXMAN-UN R14A, FOXMAN-UN R11B, FOXMAN-UN R11A, FOXMAN-UN R10C, FOXMAN-UN R9C; 
+  *  UNEM product: UNEM R15B, UNEM R15A, UNEM R14B, UNEM R14A, UNEM R11B, UNEM R11A, UNEM R10C, UNEM R9C.
+
+
+
+
+List of CPEs: 
+  *  cpe:2.3:a:hitachienergy:foxman-un:R15B:*:*:*:*:*:*:*
+
+  *  cpe:2.3:a:hitachienergy:foxman-un:R15A:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:foxman-un:R14B:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:foxman-un:R14A:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:foxman-un:R11B:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:foxman-un:R11A:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:foxman-un:R10C:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:foxman-un:R9C:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:unem:R15B:*:*:*:*:*:*:*
+
+  *  cpe:2.3:a:hitachienergy:unem:R15A:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:unem:R14B:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:unem:R14A:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:unem:R11B:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:unem:R11A:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:unem:R10C:*:*:*:*:*:*:*
+  *  cpe:2.3:a:hitachienergy:unem:R9C:*:*:*:*:*:*:*
+
+
+
+
+
+
+
+
+",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H,nvd@nist.gov,"[""https://search.abb.com/library/Download.aspx?DocumentID=8DBD000083&LanguageCode=en&DocumentPartId=&Action=Launch"", ""https://search.abb.com/library/Download.aspx?DocumentID=8DBD000084&LanguageCode=en&DocumentPartId=&Action=Launch""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-4198,[],[],needs_review,Chua danh gia,,,,draft-v0.1,"The WP Social Sharing WordPress plugin through 2.2 does not sanitise and escape some of its settings, which could allow high privilege users such as admin to perform Stored Cross-Site Scripting attacks even when the unfiltered_html capability is disallowed (for example in multisite setup).",CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:L/A:N,nvd@nist.gov,"[""https://security.gentoo.org/glsa/202305-33"", ""https://wpscan.com/vulnerability/ba372400-96f7-45a9-9e89-5984ecc4d1e2""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-4200,[],[],needs_review,Chua danh gia,,,,draft-v0.1,"The Login with Cognito WordPress plugin through 1.4.8 does not sanitise and escape some of its settings, which could allow high privilege users such as admin to perform Stored Cross-Site Scripting attacks even when the unfiltered_html capability is disallowed (for example in multisite setup).",CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:L/A:N,nvd@nist.gov,"[""https://wpscan.com/vulnerability/ac2e3fea-e1e6-4d90-9945-d8434a00a3cf""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-43448,[],[],needs_review,Chua danh gia,,,,draft-v0.1,Out-of-bounds write vulnerability in V-SFT v6.1.7.0 and earlier and TELLUS v4.0.12.0 and earlier allows a local attacker to obtain the information and/or execute arbitrary code by having a user to open a specially crafted image file.,CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H,nvd@nist.gov,"[""https://jvn.jp/en/vu/JVNVU90679513/index.html"", ""https://monitouch.fujielectric.com/site/download-e/09vsft6_inf/index.php""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-43532,[],[],needs_review,Chua danh gia,,,,draft-v0.1," A vulnerability in the web-based management interface of ClearPass Policy Manager could allow an authenticated remote attacker to conduct a stored cross-site scripting (XSS) attack against an administrative user of the interface. A successful exploit allows an attacker to execute arbitrary script code in a victim's browser in the context of the affected interface in Aruba ClearPass Policy Manager version(s): ClearPass Policy Manager 6.10.x: 6.10.7 and below and ClearPass Policy Manager 6.9.x:  6.9.12 and below.
+
+",CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:L/A:N,nvd@nist.gov,"[""https://www.arubanetworks.com/assets/alert/ARUBA-PSA-2022-020.txt""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-43533,[],[],needs_review,Chua danh gia,,,,draft-v0.1," A vulnerability in the ClearPass OnGuard macOS agent could allow malicious users on a macOS instance to elevate their user privileges. A successful exploit could allow these users to execute arbitrary code with root level privileges on the macOS instance in Aruba ClearPass Policy Manager version(s): ClearPass Policy Manager 6.10.x: 6.10.7 and below and ClearPass Policy Manager 6.9.x:  6.9.12 and below.
+
+",CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H,nvd@nist.gov,"[""https://www.arubanetworks.com/assets/alert/ARUBA-PSA-2022-020.txt""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-43535,[],[],needs_review,Chua danh gia,,,,draft-v0.1,"A vulnerability in the ClearPass OnGuard Windows agent could allow malicious users on a Windows instance to elevate their user privileges. A successful exploit could allow these users to execute arbitrary code with NT AUTHORITY\SYSTEM level privileges on the Windows instance in Aruba ClearPass Policy Manager version(s): ClearPass Policy Manager 6.10.x: 6.10.7 and below and ClearPass Policy Manager 6.9.x:  6.9.12 and below.
+
+",CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H,nvd@nist.gov,"[""https://www.arubanetworks.com/assets/alert/ARUBA-PSA-2022-020.txt""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-43538,[],[],needs_review,Chua danh gia,,,,draft-v0.1,"Vulnerabilities in the ClearPass Policy Manager web-based management interface allow remote authenticated users to run arbitrary commands on the underlying host. Successful exploits could allow an attacker to execute arbitrary commands as root on the underlying operating system leading to complete system compromise in Aruba ClearPass Policy Manager version(s): ClearPass Policy Manager 6.10.x: 6.10.7 and below and ClearPass Policy Manager 6.9.x:  6.9.12 and below.
+
+",CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H,nvd@nist.gov,"[""https://www.arubanetworks.com/assets/alert/ARUBA-PSA-2022-020.txt""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-4372,[],[],needs_review,Chua danh gia,,,,draft-v0.1,"The Web Invoice WordPress plugin through 2.1.3 does not properly sanitize and escape a parameter before using it in a SQL statement, leading to a SQL Injection exploitable by high privilege users such as admin by default. However, depending on the plugin configuration, other users, such as subscriber could exploit this as well",CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H,nvd@nist.gov,"[""https://bulletin.iese.de/post/web-invoice_2-1-3_2"", ""https://wpscan.com/vulnerability/218f8015-e14b-46a8-889d-08b2b822f8ae""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-44423,[],[],needs_review,Chua danh gia,,,,draft-v0.1,"In music service, there is a missing permission check. This could lead to local denial of service in contacts service with no additional execution privileges needed.",CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H,nvd@nist.gov,"[""https://www.unisoc.com/en_us/secy/announcementDetail/1610118225591336001""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-44439,[],[],needs_review,Chua danh gia,,,,draft-v0.1,"In messaging service, there is a missing permission check. This could lead to local denial of service in contacts service with no additional execution privileges needed.",CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H,nvd@nist.gov,"[""https://www.unisoc.com/en_us/secy/announcementDetail/1610118225591336001""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-46177,[],[],needs_review,Chua danh gia,,,,draft-v0.1,"Discourse is an option source discussion platform. Prior to version 2.8.14 on the `stable` branch and version 3.0.0.beta16 on the `beta` and `tests-passed` branches, when a user requests for a password reset link email, then changes their primary email, the old reset email is still valid. When the old reset email is used to reset the password, the Discourse account's primary email would be re-linked to the old email. If the old email address is compromised or has transferred ownership, this leads to an account takeover. This is however mitigated by the SiteSetting `email_token_valid_hours` which is currently 48 hours. Users should upgrade to versions 2.8.14 or 3.0.0.beta15 to receive a patch. As a workaround, lower `email_token_valid_hours ` as needed.",CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N,nvd@nist.gov,"[""https://github.com/discourse/discourse/commit/4bf306f0e3bf54a9ef9c5886bf1cfb85c20da570"", ""https://github.com/discourse/discourse/commit/83944213b2b2454af80d0407f60d67641b1f0b38"", ""https://github.com/discourse/discourse/security/advisories/GHSA-5www-jxvf-vrc3""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-46489,[],[],needs_review,Chua danh gia,,,,draft-v0.1,GPAC version 2.1-DEV-rev505-gb9577e6ad-master was discovered to contain a memory leak via the gf_isom_box_parse_ex function at box_funcs.c.,CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H,nvd@nist.gov,"[""https://github.com/gpac/gpac/issues/2328""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2022-47976,[],[],needs_review,Chua danh gia,,,,draft-v0.1,The DMSDP module of the distributed hardware has a vulnerability that may cause imposter control connections.Successful exploitation of this vulnerability may disconnect normal service connections.,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H,nvd@nist.gov,"[""https://consumer.huawei.com/en/support/bulletin/2023/1/"", ""https://device.harmonyos.com/en/docs/security/update/security-bulletins-202301-0000001435541166""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2023-0111,[],[],needs_review,Chua danh gia,,,,draft-v0.1,Cross-site Scripting (XSS) - Stored in GitHub repository usememos/memos prior to 0.10.0.,CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N,nvd@nist.gov,"[""https://github.com/usememos/memos/commit/46c13a4b7f675b92d297df6dabb4441f13c7cd9c"", ""https://huntr.dev/bounties/70da256c-977a-487e-8a6a-9ae22caedbe3""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95
+CVE-2023-22626,[],[],needs_review,Chua danh gia,,,,draft-v0.1,"PgHero before 3.1.0 allows Information Disclosure via EXPLAIN because query results may be present in an error message. (Depending on database user privileges, this may only be information from the database, or may be information from file contents on the database server.)",CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N,nvd@nist.gov,"[""https://github.com/ankane/pghero/issues/439""]",pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95

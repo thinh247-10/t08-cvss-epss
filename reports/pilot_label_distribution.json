@@ -1,0 +1,101 @@
+{
+  "source_dataset_version": "pilot-v0.1-20260930T165232_235700Z",
+  "sample_dataset_version": "pilot-v0.1-20260930T165232_235700Z-handoff-5139baa04b95",
+  "source_summary": {
+    "downloaded_records": 543,
+    "status_counts": {
+      "Modified": 447,
+      "Rejected": 92,
+      "Analyzed": 4
+    },
+    "rejected_records": 92,
+    "unknown_status_records": 0,
+    "missing_description": 0,
+    "missing_parseable_base_cvss31": 92,
+    "non_rejected_description_and_vector_candidates": 451
+  },
+  "candidate_pool_size": 451,
+  "candidate_label_counts": {
+    "AV": {
+      "A": 6,
+      "L": 120,
+      "N": 324,
+      "P": 1
+    },
+    "AC": {
+      "H": 10,
+      "L": 441
+    },
+    "PR": {
+      "H": 67,
+      "L": 107,
+      "N": 277
+    },
+    "UI": {
+      "N": 303,
+      "R": 148
+    },
+    "S": {
+      "C": 91,
+      "U": 360
+    },
+    "C": {
+      "H": 269,
+      "L": 111,
+      "N": 71
+    },
+    "I": {
+      "H": 236,
+      "L": 94,
+      "N": 121
+    },
+    "A": {
+      "H": 283,
+      "L": 6,
+      "N": 162
+    }
+  },
+  "sample_candidate_size": 30,
+  "sample_candidate_label_counts": {
+    "AV": {
+      "A": 0,
+      "L": 9,
+      "N": 21,
+      "P": 0
+    },
+    "AC": {
+      "H": 1,
+      "L": 29
+    },
+    "PR": {
+      "H": 6,
+      "L": 8,
+      "N": 16
+    },
+    "UI": {
+      "N": 18,
+      "R": 12
+    },
+    "S": {
+      "C": 9,
+      "U": 21
+    },
+    "C": {
+      "H": 14,
+      "L": 8,
+      "N": 8
+    },
+    "I": {
+      "H": 13,
+      "L": 8,
+      "N": 9
+    },
+    "A": {
+      "H": 20,
+      "L": 0,
+      "N": 10
+    }
+  },
+  "sample_rejected_size": 5,
+  "limitations": "One-week NVD snapshot; no Web/mobile review, final split, or model evaluation."
+}

@@ -6,6 +6,9 @@
 
 **Quy định chung:** [Kế hoạch tổng thể](../05-ke-hoach-phan-cong.md) · [Data contract](../data_contract.md).
 
+**Bàn giao pilot NVD-only đang triển khai:** [File mẫu, cách đọc và việc N2/N3 làm ngay](../pilot-handoff.md).
+Mẫu này chưa ghép EPSS/KEV, chưa xác nhận scope và chưa khóa split.
+
 **Git:** [Quy trình branch/PR](../06-git-workflow.md). N1 dùng `feat/p1-data-pipeline` hoặc tiếp tục `feat/data-pipeline`; N2 `feat/p1-scope-assets`; N3 `test/p1-data-audit`.
 
 > Đây là hướng dẫn triển khai. Collector NVD/EPSS/KEV hiện có chủ yếu là TODO;
