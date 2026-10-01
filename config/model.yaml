@@ -2,21 +2,33 @@
 # The Phase 2 trainers must implement and validate this configuration.
 schema_version: "0.1"
 status: "phase0_design"
+# Keep this value aligned with project.seed in config/project.yaml.
 seed: 42
+
+parameter_selection:
+  # All declared model hyperparameters are proposals, not measured optima.
+  configured_values: "initial_design"
+  status: "not_run"
+  selection_split: "validation"
+  # Populate only after a documented validation experiment in Phase 2.
+  empirically_selected_parameters: null
 
 data:
   project_config: "config/project.yaml"
   sample: "data/sample/cves_sample.csv"
   # Description is the only feature; IDs/dates are metadata for tracking/split.
+  # Source CVSS vectors/scores/labels, EPSS and KEV must never be input features.
   input_column: "description"
   cvss_version: "3.1"
   target_metrics: ["AV", "AC", "PR", "UI", "S", "C", "I", "A"]
   # Use the shared provisional time split; do not duplicate its date bounds.
   split_source: "config/project.yaml"
+  split_key: "split"
   rejected_policy: "exclude_from_ml_keep_in_master"
+  missing_description_policy: "exclude_from_ml_keep_in_master"
   missing_label_policy: "exclude_from_ml_keep_in_master"
 
-# The order defines class IDs and must be saved with every model artifact.
+# List positions define zero-based class IDs; save this order with every artifact.
 label_order:
   AV: ["N", "A", "L", "P"]
   AC: ["L", "H"]
@@ -28,9 +40,12 @@ label_order:
   A: ["N", "L", "H"]
 
 dummy:
+  # Fit one DummyClassifier per target metric on train only.
   strategy: "most_frequent"
 
 baseline:
+  # Fit one shared TF-IDF vectorizer on train only, then eight independent
+  # classifiers, one per target metric; derive balanced weights from train.
   vectorizer: "tfidf"
   ngram_range: [1, 2]
   min_df: 2
@@ -41,7 +56,9 @@ baseline:
   single_class_fallback: "dummy"
 
 distilbert:
+  # Identifier for a future Phase 2 run; Phase 0 does not download weights.
   checkpoint: "distilbert/distilbert-base-uncased"
+  # One shared encoder; head sizes follow label_order: 4/2/3/2/2/3/3/3.
   architecture: "shared_encoder_eight_heads"
   lemmatize: false
   max_length: 256
