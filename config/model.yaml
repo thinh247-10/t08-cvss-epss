@@ -1,0 +1,67 @@
+# Phase 0 design; hyperparameters have not been selected by experiments.
+# The Phase 2 trainers must implement and validate this configuration.
+schema_version: "0.1"
+status: "phase0_design"
+seed: 42
+
+data:
+  project_config: "config/project.yaml"
+  sample: "data/sample/cves_sample.csv"
+  # Description is the only feature; IDs/dates are metadata for tracking/split.
+  input_column: "description"
+  cvss_version: "3.1"
+  target_metrics: ["AV", "AC", "PR", "UI", "S", "C", "I", "A"]
+  # Use the shared provisional time split; do not duplicate its date bounds.
+  split_source: "config/project.yaml"
+  rejected_policy: "exclude_from_ml_keep_in_master"
+  missing_label_policy: "exclude_from_ml_keep_in_master"
+
+# The order defines class IDs and must be saved with every model artifact.
+label_order:
+  AV: ["N", "A", "L", "P"]
+  AC: ["L", "H"]
+  PR: ["N", "L", "H"]
+  UI: ["N", "R"]
+  S: ["U", "C"]
+  C: ["N", "L", "H"]
+  I: ["N", "L", "H"]
+  A: ["N", "L", "H"]
+
+dummy:
+  strategy: "most_frequent"
+
+baseline:
+  vectorizer: "tfidf"
+  ngram_range: [1, 2]
+  min_df: 2
+  max_features: 50000
+  classifier: "logistic_regression"
+  class_weight: "balanced"
+  max_iter: 1000
+  single_class_fallback: "dummy"
+
+distilbert:
+  checkpoint: "distilbert/distilbert-base-uncased"
+  architecture: "shared_encoder_eight_heads"
+  lemmatize: false
+  max_length: 256
+  epochs_cap: 3
+  max_runs: 2
+  # N3 proposal only; N1/team approval is still pending under decision D05.
+  # The 6 hours cover all training runs in total, not 6 hours per run.
+  scope_decision: "timeboxed_extension"
+  training_time_budget_hours: 6
+
+evaluation:
+  per_metric: ["accuracy", "macro_f1", "per_class_f1", "support"]
+  vector: ["exact_vector_accuracy"]
+  score: ["mae", "rmse", "score_coverage", "invalid_prediction_count"]
+  macro_f1_labels: "all_declared_labels"
+  zero_division: 0
+  test_usage: "final_evaluation_only"
+
+artifacts:
+  baseline: "models/baseline.joblib"
+  distilbert_dir: "models/distilbert"
+  predictions: "data/processed/predictions.csv"
+  metrics: "reports/model_metrics.json"
