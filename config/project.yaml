@@ -19,7 +19,7 @@ cvss:
 # Chọn ngày thực tế khi bắt đầu thu thập.
 # Collector phải yêu cầu điền ngày, không tự đổi sang hôm nay.
 epss:
-  snapshot_date: null
+  snapshot_date: "2026-09-29"
 
 kev:
   save_raw_catalog: true
