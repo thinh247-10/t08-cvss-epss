@@ -14,6 +14,7 @@ import pandas as pd
 import yaml
 
 from src.collect.epss_client import validate_response
+from src.collect.collect_nvd import replay_pages
 from src.collect.kev_client import validate_catalog
 from src.collect.prepare_handoff import SAMPLE_COLUMNS, make_sample
 
@@ -176,10 +177,19 @@ def build(nvd_path, epss_path, kev_path, check_only=False):
         raise ValueError("EPSS duoc thu thap tu mot NVD snapshot khac")
     if str(config["epss"]["snapshot_date"]) != em["requested_date"] or km["epss_reference_date"] != em["requested_date"]:
         raise ValueError("Ngay EPSS trong config/metadata cac nguon khong khop")
-    nvd_raw = json.loads(checked_file(nm["raw_file"], nm["raw_sha256"]).read_bytes())
-    raw_ids = [item["cve"]["id"] for item in nvd_raw["vulnerabilities"]]
-    if (set(raw_ids) != set(nvd.cve_id) or len(raw_ids) != len(nvd)
-            or nvd_raw["totalResults"] != len(nvd) or nvd_raw["startIndex"] != 0):
+    if nm.get("raw_layout") == "paged-v1":
+        raw_records, progress = replay_pages(nm, root=ROOT)
+        if not all(p["complete"] for p in progress) or sum(p["total"] for p in progress) != nm["api_total_results"]:
+            raise ValueError("NVD chua du tat ca cua so/trang")
+        raw_ids = [cve["id"] for cve in raw_records]
+        total = nm["api_total_results"]
+    else:
+        nvd_raw = json.loads(checked_file(nm["raw_file"], nm["raw_sha256"]).read_bytes())
+        raw_ids = [item["cve"]["id"] for item in nvd_raw["vulnerabilities"]]
+        total = nvd_raw["totalResults"]
+        if nvd_raw["startIndex"] != 0:
+            raise ValueError("NVD pilot khong bat dau tu trang dau")
+    if set(raw_ids) != set(nvd.cve_id) or len(raw_ids) != len(nvd) or total != len(nvd):
         raise ValueError("Pilot NVD raw khong day du/khong khop bang")
     check_epss_raw(em, epss, set(nvd.cve_id))
     released = check_kev_raw(km, kev)
@@ -200,7 +210,7 @@ def build(nvd_path, epss_path, kev_path, check_only=False):
         "schema_stage": "Joined pilot; scope and split pending; not dataset v1",
         "built_at": now.isoformat(), "config_sha256": digest(config_path),
         "sources": {"nvd": ns, "epss": es, "kev": ks},
-        "nvd_published_params": nm["params"], "epss_date": em["requested_date"],
+        "nvd_published_params": nm.get("params", nm.get("plan")), "epss_date": em["requested_date"],
         "kev_catalog_version": km["catalog_version"], "kev_date_released": km["catalog_date_released"],
         "kev_retrieved_at": km["retrieved_at"],
         "kev_release_date_minus_epss_days": (released.date() - epss_day).days,
@@ -208,7 +218,7 @@ def build(nvd_path, epss_path, kev_path, check_only=False):
         "scope_reviewed": False, "training_ready": False, "ranking_ready": False,
         "cvss_scores_recalculated": False, "statistics": stats,
         "limitations": [
-            "Only the first NVD pilot window, not the full configured collection interval.",
+            "Only the explicitly selected NVD source interval; this is a technical pilot, not an approved final cohort.",
             "All CVEs retained, including Rejected; research cohorts must exclude Rejected.",
             "All scope decisions are pending; in_scope=false means not admitted yet, not reviewed out of scope.",
             "No train/validation/test split has been assigned; class audit is pending.",

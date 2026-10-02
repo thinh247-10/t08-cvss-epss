@@ -1,6 +1,7 @@
 """Trich du lieu NVD tu file JSON da tai.
 
-Buoc hien tai: doc offline, chua thu thap hang loat.
+File nay la parser offline. Thu thap nhieu trang/checkpoint nam trong
+src.collect.collect_nvd; lenh doc JSON don le ben duoi van duoc giu nguyen.
 """
 
 import json

@@ -17,6 +17,13 @@ Mẫu này chưa ghép EPSS/KEV, chưa xác nhận scope và chưa khóa split.
 > `build_dataset.py --pilot` đã chạy và xuất bảng ghép; Parquet/CSV và checksum đã được kiểm tra.
 > Thu thập NVD toàn khoảng, scope, audit/split và khóa dataset v1 vẫn chưa hoàn tất.
 
+**Cập nhật kiểm tra 03/10/2026:** `collect_nvd.py` đã tải thật tháng 01/2023:
+2.565 CVE qua 6 trang, 228 Rejected/thiếu vector, 2.337 ứng viên mô tả + vector.
+Raw, bảng, giá trị parser và checkpoint hoàn tất đã được đối chiếu. Output:
+`data/processed/nvd_20261002T170958_423579Z/metadata.json`.
+Tiếp theo mở rộng sang 2023–2024 theo config; chưa đánh dấu lượt toàn khoảng đã chạy.
+[Hướng dẫn Người 1 — NVD nhiều trang](../phase-1-nguoi-1-nvd-phan-trang.md).
+
 ### Tiến độ pilot và hướng dẫn đang dùng
 
 | Phần | Trạng thái đã xác minh | Hướng dẫn thao tác |
@@ -59,10 +66,13 @@ Các giờ trên gồm review và trao đổi. Không chờ N1 tải xong toàn 
 
 ## 3. N1: viết collector và ghép dữ liệu
 
-### 3.1. `src/collect/nvd_collector.py` — đã có parser; collector đầy đủ còn phải triển khai
+### 3.1. `src/collect/nvd_collector.py` và `collect_nvd.py` — parser và điều phối tải
 
 Hiện tại `collect_pilot.py` tải một trang trong cửa sổ bảy ngày đầu; `nvd_collector.py`
-trích xuất và chọn vector. Danh sách bên dưới là yêu cầu cho collector đầy đủ, chưa phải trạng thái của pilot.
+trích xuất và chọn vector. `collect_nvd.py` bổ sung phân trang, cửa sổ ngày, retry,
+cache/checkpoint và output `paged-v1`; tải thật nhiều trang tháng 01/2023 đã được
+xác nhận. `build_dataset.py` đọc được cả hai kiểu raw. Danh sách bên dưới
+là yêu cầu đích; không đồng nghĩa toàn khoảng 2023–2024 đã được tải hoặc nghiệm thu.
 
 **Chức năng:** lấy các bản ghi CVE trong khoảng công bố, lưu nguồn gốc và xuất dữ liệu trung gian.
 

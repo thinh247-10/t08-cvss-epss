@@ -170,6 +170,25 @@ class BuildChecks(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.run_build()
 
+    def test_builder_accepts_verified_paged_nvd_manifest(self):
+        window = {"pubStartDate": "2023-01-01T00:00:00.000", "pubEndDate": "2023-01-03T23:59:59.999"}
+        nvd, _, _ = tables()
+        entries = []
+        for offset, subset in ((0, nvd.iloc[:2]), (2, nvd.iloc[2:])):
+            name = f"nvd-page-{offset}.json"
+            self.write_json(name, {"startIndex": offset, "totalResults": 3, "resultsPerPage": len(subset),
+                                  "vulnerabilities": [{"cve": {"id": row.cve_id, "published": row.published.isoformat()}} for row in subset.itertuples()]})
+            entries.append({"file": name, "sha256": builder.digest(self.root / name), "window_index": 0,
+                            "params": {**window, "startIndex": offset, "resultsPerPage": 2},
+                            "records": len(subset), "total_results": 3})
+        self.nm.update(raw_layout="paged-v1", plan={"page_size": 2, "windows": [window]}, raw_pages=entries, api_total_results=3)
+        del self.nm["raw_file"]
+        del self.nm["raw_sha256"]
+        self.write_json("nvd-meta.json", self.nm)
+        self.em["input_metadata_sha256"] = builder.digest(self.root / "nvd-meta.json")
+        self.write_json("epss-meta.json", self.em)
+        self.assertEqual(self.run_build()["statistics"]["total_records"], 3)
+
 
 if __name__ == "__main__":
     unittest.main()
