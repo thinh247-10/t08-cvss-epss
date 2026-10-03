@@ -1,0 +1,111 @@
+inventory_version: "draft-v0.1"
+scenario_type: "hypothetical"
+organization: "Dich vu thuong mai dien tu gia dinh"
+
+assets:
+  - asset_id: "WEB-01"
+    name: "Website ban hang"
+    function: "Hien thi san pham va tiep nhan don hang"
+    domain: "web"
+    product: null
+    version: null
+    exposure: "internet"
+    data_type:
+      - "thong tin san pham"
+      - "du lieu dat hang"
+    CR: "M"
+    IR: "H"
+    AR: "H"
+    rationale: "Tinh dung dan cua don hang va tinh san sang cua website quan trong doi voi dich vu."
+    assumptions:
+      - "Kien truc gia dinh, chua kiem thu tren he thong that."
+      - "Product va version se duoc chon sau khi doi chieu advisory."
+
+  - asset_id: "API-01"
+    name: "API dang nhap va tai khoan"
+    function: "Xac thuc nguoi dung va quan ly tai khoan"
+    domain: "web"
+    product: null
+    version: null
+    exposure: "internet"
+    data_type:
+      - "thong tin tai khoan"
+      - "token phien dang nhap"
+    CR: "H"
+    IR: "H"
+    AR: "H"
+    rationale: "API xu ly du lieu tai khoan va xac thuc, nen tinh bi mat va toan ven deu quan trong."
+    assumptions:
+      - "API duoc website va mobile client su dung."
+      - "Chua gan CVE cu the trong Phase 0."
+
+  - asset_id: "API-02"
+    name: "Backend don hang va thanh toan"
+    function: "Xu ly don hang va luong thanh toan"
+    domain: "web"
+    product: null
+    version: null
+    exposure: "internal"
+    data_type:
+      - "don hang"
+      - "du lieu thanh toan"
+    CR: "H"
+    IR: "H"
+    AR: "H"
+    rationale: "Sai lech du lieu don hang hoac thanh toan co the anh huong truc tiep toi nghiep vu."
+    assumptions:
+      - "Backend nam sau lop API cong khai."
+      - "Exposure internal khong tu dong lam thay doi MAV."
+
+  - asset_id: "ADMIN-01"
+    name: "Trang quan tri noi bo"
+    function: "Quan ly san pham, don hang va tai khoan"
+    domain: "web"
+    product: null
+    version: null
+    exposure: "internal"
+    data_type:
+      - "du lieu quan tri"
+      - "thong tin khach hang"
+    CR: "H"
+    IR: "H"
+    AR: "M"
+    rationale: "Tai khoan quan tri co quyen cao, nen tinh bi mat va toan ven quan trong."
+    assumptions:
+      - "Chi danh cho nhan vien noi bo."
+      - "Chua co bang chung de thay doi Modified Base Metrics."
+
+  - asset_id: "MOB-01"
+    name: "Ung dung Android"
+    function: "Ung dung mua hang tren Android"
+    domain: "mobile"
+    product: null
+    version: null
+    exposure: "client"
+    data_type:
+      - "thong tin tai khoan"
+      - "du lieu dat hang"
+    CR: "H"
+    IR: "H"
+    AR: "M"
+    rationale: "Ung dung xu ly thong tin tai khoan va tuong tac truc tiep voi API."
+    assumptions:
+      - "Se chon SDK/framework cu the sau khi co advisory phu hop."
+      - "Backend phuc vu mobile khong du de gan CVE la mobile-client."
+
+  - asset_id: "MOB-02"
+    name: "Ung dung iOS"
+    function: "Ung dung mua hang tren iOS"
+    domain: "mobile"
+    product: null
+    version: null
+    exposure: "client"
+    data_type:
+      - "thong tin tai khoan"
+      - "du lieu dat hang"
+    CR: "H"
+    IR: "H"
+    AR: "M"
+    rationale: "Ung dung xu ly du lieu nguoi dung va phu thuoc SDK/framework phia client."
+    assumptions:
+      - "Chi giu tai san nay neu tim duoc CVE phu hop va co bang chung."
