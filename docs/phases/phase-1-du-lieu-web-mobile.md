@@ -15,23 +15,34 @@ Mẫu này chưa ghép EPSS/KEV, chưa xác nhận scope và chưa khóa split.
 > Đây là kế hoạch và tiêu chí đích; không phải mọi chức năng bên dưới đã hoàn thành.
 > Cập nhật 01/10/2026: parser và NVD pilot đã có; EPSS/KEV đã tải thật thành công;
 > `build_dataset.py --pilot` đã chạy và xuất bảng ghép; Parquet/CSV và checksum đã được kiểm tra.
-> Thu thập NVD toàn khoảng, scope, audit/split và khóa dataset v1 vẫn chưa hoàn tất.
+> Cập nhật 03/10/2026: NVD toàn khoảng 2023–2024 đã tải và kiểm tra; enrichment
+> EPSS cho tập lớn, scope, audit/split và khóa dataset v1 vẫn chưa hoàn tất ở mốc đó.
+> Cập nhật 05/10/2026: EPSS toàn khoảng và ghép ba nguồn đã hoàn tất kiểm tra kỹ thuật;
+> scope, audit/split, scorer và khóa dataset v1 vẫn chưa hoàn tất.
 
 **Cập nhật kiểm tra 03/10/2026:** `collect_nvd.py` đã tải thật tháng 01/2023:
 2.565 CVE qua 6 trang, 228 Rejected/thiếu vector, 2.337 ứng viên mô tả + vector.
 Raw, bảng, giá trị parser và checkpoint hoàn tất đã được đối chiếu. Output:
 `data/processed/nvd_20261002T170958_423579Z/metadata.json`.
-Tiếp theo mở rộng sang 2023–2024 theo config; chưa đánh dấu lượt toàn khoảng đã chạy.
+**Lượt toàn khoảng 2023–2024 đã xác minh:** 71.653 CVE duy nhất, 82 trang, 24 cửa sổ;
+2.884 Rejected; 3.741 thiếu vector (gồm 857 không Rejected); không thiếu mô tả.
+67.912 ứng viên có mô tả/vector vẫn chưa được chốt scope hoặc split.
+Metadata: `data/processed/nvd_20261002T173033_137668Z/metadata.json`.
+Đã đối chiếu checksum 82 trang, offset, tập ID, giá trị parser, bảng và checkpoint.
+EPSS cho 71.653 ID đã kiểm tra ngày 05/10/2026: 717 batch, 68.769 có điểm,
+2.884 thiếu, cùng ngày 29/09/2026. Bảng ghép toàn khoảng đã tạo tại
+`data/processed/joined_pilot_20261005T164912_356960Z/`: 325 CVE thuộc KEV,
+67.912 ứng viên mô tả/nhãn/EPSS trước scope. Chưa gán split hoặc xác nhận Web/mobile.
 [Hướng dẫn Người 1 — NVD nhiều trang](../phase-1-nguoi-1-nvd-phan-trang.md).
 
 ### Tiến độ pilot và hướng dẫn đang dùng
 
 | Phần | Trạng thái đã xác minh | Hướng dẫn thao tác |
 |---|---|---|
-| NVD | 543 CVE trong cửa sổ 01–07/01/2023; 451 ứng viên có mô tả/vector, 92 Rejected | [Gói bàn giao NVD](../pilot-handoff.md) |
-| EPSS | Snapshot 29/09/2026: 451 có điểm, 92 thiếu; bảng giữ đủ 543 ID | [Người 1 — EPSS](../phase-1-nguoi-1-epss.md) |
+| NVD | Pilot cũ 543 CVE; lượt 2023–2024 mới đã tải 71.653 CVE, chưa thay thế mẫu bàn giao | [Gói bàn giao NVD](../pilot-handoff.md), [NVD nhiều trang](../phase-1-nguoi-1-nvd-phan-trang.md) |
+| EPSS | Toàn khoảng: 68.769 có điểm, 2.884 thiếu; giữ đủ 71.653 ID, cùng ngày 29/09/2026 | [Người 1 — EPSS](../phase-1-nguoi-1-epss.md) |
 | KEV | Catalog 2026.09.30: 1.730 CVE; đã kiểm tra count/ID/checksum | [Người 1 — KEV](../phase-1-nguoi-1-kev.md) |
-| Ghép pilot | Đã lưu `joined_pilot_20261001T114053_995549Z`: 543 dòng; 2 ID thuộc KEV; đã kiểm tra Parquet/CSV/checksum; scope/split còn pending | [Người 1 — Ghép pilot và giới hạn chờ nhóm](../phase-1-nguoi-1-ghep-pilot.md) |
+| Ghép ba nguồn | Bản cũ 543 dòng được giữ; bản toàn khoảng `joined_pilot_20261005T164912_356960Z` có 71.653 dòng, 325 thuộc KEV; đã kiểm tra raw/Parquet/CSV/checksum; scope/split còn pending | [Người 1 — Ghép pilot/toàn khoảng và giới hạn chờ nhóm](../phase-1-nguoi-1-ghep-pilot.md) |
 
 Pilot lưu output theo thư mục từng lần chạy để không ghi đè snapshot/gói bàn giao.
 Các đường dẫn cố định bên dưới là đích của pipeline đầy đủ; dùng metadata để tìm
@@ -71,8 +82,9 @@ Các giờ trên gồm review và trao đổi. Không chờ N1 tải xong toàn 
 Hiện tại `collect_pilot.py` tải một trang trong cửa sổ bảy ngày đầu; `nvd_collector.py`
 trích xuất và chọn vector. `collect_nvd.py` bổ sung phân trang, cửa sổ ngày, retry,
 cache/checkpoint và output `paged-v1`; tải thật nhiều trang tháng 01/2023 đã được
-xác nhận. `build_dataset.py` đọc được cả hai kiểu raw. Danh sách bên dưới
-là yêu cầu đích; không đồng nghĩa toàn khoảng 2023–2024 đã được tải hoặc nghiệm thu.
+xác nhận; lượt toàn khoảng 2023–2024 cũng đã kiểm tra như số liệu ở đầu tài liệu.
+`build_dataset.py` đọc được cả hai kiểu raw. Danh sách bên dưới là yêu cầu đích;
+thu thập đủ NVD không đồng nghĩa dataset v1 đã được nghiệm thu.
 
 **Chức năng:** lấy các bản ghi CVE trong khoảng công bố, lưu nguồn gốc và xuất dữ liệu trung gian.
 

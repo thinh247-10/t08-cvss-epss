@@ -134,3 +134,76 @@ Chưa tự động mở rộng phạm vi nghiên cứu hoặc khẳng định đ
 Không cần review độc lập cho từng commit theo lựa chọn của N1. Tuy nhiên, các đầu vào
 chuyên môn chưa có vẫn là việc chưa hoàn thành; không thay bằng xác nhận giả.
 Khi đến một bước phụ thuộc các đầu vào trên, dừng bước đó và chuyển sang việc độc lập còn lại.
+
+## 8. Ghép toàn khoảng 2023–2024 — đã kiểm tra 05/10/2026
+
+Lượt này dùng NVD toàn khoảng và EPSS tương ứng; không dùng bảng EPSS 543 ID cũ.
+Giữ catalog KEV đã tải để tái lập so sánh với ngày EPSS 29/09/2026, không tự lấy catalog
+mới nhất. Ngày phát hành KEV lệch +1 ngày, ngày tải lệch +2 ngày UTC so với EPSS;
+đây là so sánh các snapshot có độ lệch đã công bố, không phải đánh giá dự báo lịch sử.
+
+### 8.1. Kết quả thực tế
+
+| Chỉ tiêu | Số lượng |
+|---|---:|
+| Tổng CVE / ID duy nhất | 71.653 / 71.653 |
+| Rejected | 2.884 |
+| Có EPSS / thiếu EPSS | 68.769 / 2.884 |
+| Thuộc KEV / không có trong catalog | 325 / 71.328 |
+| KEV chưa xác định | 0 |
+| Không Rejected, có mô tả và đủ nhãn CVSS 3.1 | 67.912 |
+| Ứng viên trên đồng thời có EPSS | 67.912 |
+| Chờ xác định scope | 71.653 |
+| Đã xác nhận scope / đã gán split | 0 / 0 |
+
+Không gọi 67.912 ứng viên là tập train hoặc tập Web/mobile. `confirmed_in_scope=0`
+nghĩa là chưa áp dụng annotation, không phải đã kết luận tất cả ngoài phạm vi.
+`is_kev=false` chỉ có nghĩa vắng trong catalog đã kiểm tra, không có nghĩa chưa từng khai thác.
+
+Output đã tạo tại `data/processed/joined_pilot_20261005T164912_356960Z/`:
+
+- `cves.parquet`: bảng ghép để chương trình đọc.
+- `cves.csv`: bản CSV, đọc đúng dtype theo contract.
+- `metadata.json`: nguồn, checksum, version, ngày và giới hạn.
+- `data_quality.md`: thống kê của lượt ghép.
+
+Đã đối chiếu raw NVD qua 82 trang/24 cửa sổ, raw EPSS qua 717 batch và raw KEV;
+kiểm tra provenance, tập ID, ngày EPSS, điểm EPSS và membership KEV.
+Sau khi xuất, checksum cả ba artifact bảng/CSV/báo cáo khớp metadata;
+CSV và Parquet đọc lại khớp mọi cột (so số thực có dung sai).
+Chưa tính lại Base Score bằng scorer; chưa xác nhận scope hoặc khóa split.
+
+### 8.2. Lệnh tái lập
+
+Không cần chạy lại vì output trên đã có. Khi cần tái kiểm tra, dùng:
+
+```powershell
+Set-Location "C:\Users\LOQ\Desktop\t08-cvss-epss\t08-cvss-epss"
+$nvdMeta = "data/processed/nvd_20261002T173033_137668Z/metadata.json"
+$epssMeta = "data/raw/epss/2026-09-29_20261002T173934_585836Z/metadata.json"
+$kevMeta = "data/raw/kev/catalog_20261001T112934_916972Z/metadata.json"
+.\.venv\Scripts\python.exe -m src.collect.build_dataset --pilot --nvd-metadata $nvdMeta --epss-metadata $epssMeta --kev-metadata $kevMeta --check-only
+```
+
+Bỏ `--check-only` để xuất một lượt mới có run ID riêng. Cờ `--pilot` vẫn bắt buộc:
+nó thể hiện giai đoạn chưa nghiệm thu scope/split, không giới hạn bảng còn 543 dòng.
+Đọc lại raw toàn khoảng có thể mất vài phút. Không gọi API và không ghi đè mẫu bàn giao cũ.
+
+### 8.3. Lưu công việc Người 1 và bước kế tiếp
+
+Phần resume EPSS cùng tài liệu còn chưa commit tại lúc kiểm tra. Stage riêng:
+
+```powershell
+git add src/collect/epss_client.py tests/test_epss_client.py docs/phase-1-nguoi-1-epss.md docs/phase-1-nguoi-1-nvd-phan-trang.md docs/phase-1-nguoi-1-ghep-pilot.md docs/phases/phase-1-du-lieu-web-mobile.md
+git diff --cached --stat
+git commit -m "feat(data): resume EPSS and document full snapshot join"
+git push origin develop
+```
+
+Danh sách stage của bước này gồm 6 file; không thêm raw/Parquet, `.env`, `.venv` hoặc `a`.
+Commit tài liệu không đưa dataset lớn lên GitHub: N2/N3 cần gói dữ liệu kèm metadata và
+checksum nếu muốn audit toàn khoảng; mẫu cũ 35 dòng vẫn giữ nguyên.
+
+Tiếp theo N1 chuẩn bị bàn giao bảng ghép có version và triển khai đọc annotation theo
+`docs/scope.md`. N2 tiếp tục phân loại mẫu, N3 audit nhãn/lớp/trùng/split.
+Không tự gán toàn bộ CVE là Web/mobile hoặc khóa dataset v1 khi còn thiếu các kết quả đó.

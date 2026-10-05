@@ -89,7 +89,7 @@ class CollectionChecks(unittest.TestCase):
         table = self.root / "nvd.parquet"
         pd.DataFrame({"cve_id": [CVE, "CVE-2023-1001"]}).to_parquet(table, index=False)
         self.source = {"table_file": "nvd.parquet", "table_sha256": epss.digest(table),
-                       "downloaded_records": 2, "dataset_version": "test-nvd"}
+                       "downloaded_records": 2, "dataset_version": "test-nvd", "complete_for_requested_window": True}
         (self.root / "metadata.json").write_text(json.dumps(self.source), encoding="utf-8")
 
     def remove_test_directory(self):
@@ -136,6 +136,85 @@ class CollectionChecks(unittest.TestCase):
             with self.assertRaises(ValueError):
                 epss.collect("metadata.json")
             request.assert_not_called()
+
+    def test_resume_skips_successful_batches_and_complete_run_uses_no_network(self):
+        ids = [f"CVE-2023-{i}" for i in range(1000, 1101)]
+        table = self.root / "nvd.parquet"
+        pd.DataFrame({"cve_id": ids}).to_parquet(table, index=False)
+        self.source.update(table_sha256=epss.digest(table), downloaded_records=len(ids))
+        (self.root / "metadata.json").write_text(json.dumps(self.source), encoding="utf-8")
+        with self.assertRaises(requests.Timeout):
+            self.run_collect([json.dumps(payload([epss.PROBE_CVE])).encode(),
+                              json.dumps(payload(ids[:100])).encode(), requests.Timeout()])
+        path = next((self.root / "data/raw/epss").glob("*/metadata.json"))
+        before = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(len(before["raw_responses"]), 2)
+        raw_files_before = {entry["file"]: (self.root / entry["file"]).read_bytes() for entry in before["raw_responses"]}
+        with patch.object(epss, "ROOT", self.root), patch.object(epss.time, "sleep"), redirect_stdout(io.StringIO()):
+            with patch.object(epss, "request_bytes", return_value=json.dumps(payload(ids[100:])).encode()) as request:
+                result = epss.collect(resume=path.relative_to(self.root).as_posix())
+                request.assert_called_once()
+                self.assertEqual(request.call_args.args[0]["cve"], ids[-1])
+            self.assertEqual(result["status"], "complete")
+            self.assertEqual(result["available_records"], 101)
+            self.assertEqual(len(result["raw_responses"]), 3)
+            for name, raw in raw_files_before.items():
+                self.assertEqual((self.root / name).read_bytes(), raw)
+            with patch.object(epss, "request_bytes") as request:
+                again = epss.collect(resume=path.relative_to(self.root).as_posix())
+                request.assert_not_called()
+                self.assertEqual(again["table_sha256"], result["table_sha256"])
+
+    def test_modified_cache_stops_resume_before_network(self):
+        with self.assertRaises(requests.Timeout):
+            self.run_collect([json.dumps(payload([epss.PROBE_CVE])).encode(), requests.Timeout()])
+        path = next((self.root / "data/raw/epss").glob("*/metadata.json"))
+        before = json.loads(path.read_text(encoding="utf-8"))
+        (self.root / before["raw_responses"][0]["file"]).write_bytes(b"modified")
+        with patch.object(epss, "ROOT", self.root), patch.object(epss, "request_bytes") as request, redirect_stdout(io.StringIO()):
+            with self.assertRaises(ValueError):
+                epss.collect(resume=path.relative_to(self.root).as_posix())
+            request.assert_not_called()
+
+    def test_changed_snapshot_date_rejects_resume(self):
+        with self.assertRaises(requests.Timeout):
+            self.run_collect([requests.Timeout()])
+        path = next((self.root / "data/raw/epss").glob("*/metadata.json"))
+        (self.root / "config/project.yaml").write_text('epss:\n  snapshot_date: "2024-01-16"\n', encoding="utf-8")
+        with patch.object(epss, "ROOT", self.root), patch.object(epss, "request_bytes") as request:
+            with self.assertRaises(ValueError):
+                epss.collect(resume=path.relative_to(self.root).as_posix())
+            request.assert_not_called()
+
+    def test_invalid_response_is_retained_but_not_checkpointed_and_can_retry(self):
+        with self.assertRaises(ValueError):
+            self.run_collect([json.dumps(payload([epss.PROBE_CVE])).encode(), b"not JSON"])
+        path = next((self.root / "data/raw/epss").glob("*/metadata.json"))
+        before = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(len(before["raw_responses"]), 1)
+        invalid = next(path.parent.glob("batch_*.json"))
+        self.assertEqual(invalid.read_bytes(), b"not JSON")
+        with patch.object(epss, "ROOT", self.root), patch.object(epss.time, "sleep"), redirect_stdout(io.StringIO()), \
+                patch.object(epss, "request_bytes", return_value=json.dumps(payload([CVE])).encode()):
+            result = epss.collect(resume=path.relative_to(self.root).as_posix())
+        self.assertEqual(result["status"], "complete")
+        self.assertEqual(invalid.read_bytes(), b"not JSON")
+
+    def test_interrupt_preserves_cache_and_releases_lock(self):
+        with self.assertRaises(KeyboardInterrupt):
+            self.run_collect([json.dumps(payload([epss.PROBE_CVE])).encode(), KeyboardInterrupt()])
+        path = next((self.root / "data/raw/epss").glob("*/metadata.json"))
+        saved = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(saved["status"], "interrupted")
+        self.assertEqual(len(saved["raw_responses"]), 1)
+        self.assertFalse((path.parent / "run.lock").exists())
+
+    def test_incomplete_nvd_source_cannot_start_collection(self):
+        self.source["complete_for_requested_window"] = False
+        (self.root / "metadata.json").write_text(json.dumps(self.source), encoding="utf-8")
+        with self.assertRaises(ValueError):
+            self.run_collect([])
+        self.assertFalse((self.root / "data").exists())
 
 
 if __name__ == "__main__":

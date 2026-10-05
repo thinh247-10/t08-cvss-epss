@@ -4,6 +4,11 @@ Bước này thực hiện độc lập với việc N2 phân loại Web/mobile 
 Đầu vào là pilot NVD đã tải: 543 CVE, gồm cả 92 Rejected. Chưa dùng tập này để train
 hoặc công bố kết quả xếp hạng. Có thể tiếp tục trên `develop` theo cách làm đã chọn.
 
+**Tiến độ 03/10/2026:** pilot 543 CVE đã chạy xong. NVD toàn khoảng 2023–2024
+đã có 71.653 CVE; chuyển đến **mục 9** để lấy EPSS cho tập mới và dùng resume.
+Các mục 2–6 bên dưới giữ lại quy trình pilot ban đầu để tra cứu, không yêu cầu đổi
+ngày snapshot đã chốt hoặc chạy lại pilot 543 CVE.
+
 ## 1. File được sử dụng
 
 | File | Chức năng |
@@ -78,8 +83,8 @@ Mỗi lần chạy tạo thư mục mới, không ghi đè gói bàn giao cho N2
 
 | File trong thư mục output | Ý nghĩa |
 |---|---|
-| `probe.json` | Phản hồi kiểm tra ngày của CVE tham chiếu |
-| `batch_001.json`, ... | Phản hồi gốc từng lô |
+| `probe*.json` | Phản hồi kiểm tra ngày của CVE tham chiếu |
+| `batch_001*.json`, ... | Phản hồi gốc từng lô; run mới thêm timestamp để tránh ghi đè |
 | `epss.parquet` | Một dòng cho mỗi CVE đầu vào, gồm điểm hoặc giá trị thiếu |
 | `metadata.json` | Ngày yêu cầu/trả về, thời điểm tải từng lô, tham số, checksum, số dòng, trạng thái |
 
@@ -127,3 +132,78 @@ hoàn tất chỉ vì thu thập EPSS chạy được.
 
 - [FIRST EPSS API: CVE, ngày và giới hạn truy vấn](https://api.first.org/epss/)
 - [FIRST API: phân trang, rate limit và phiên bản API](https://api.first.org/)
+
+## 9. Lấy EPSS cho toàn bộ 71653 CVE và resume
+
+NVD nguồn mới đã được kiểm tra đủ 71.653 ID duy nhất:
+`data/processed/nvd_20261002T173033_137668Z/metadata.json`.
+Giữ nguyên `epss.snapshot_date: "2026-09-29"` trong config cho lần so sánh này.
+Không dùng bảng EPSS 543 CVE cũ để ghép vào NVD mới, không tự đổi sang ngày hiện tại.
+
+Chạy:
+
+```powershell
+.\.venv\Scripts\python.exe -m src.collect.epss_client --nvd-metadata data/processed/nvd_20261002T173033_137668Z/metadata.json
+```
+
+Script sẽ in sớm:
+
+```text
+Metadata/checkpoint EPSS: data/raw/epss/<ngày>_<run_id>/metadata.json
+Ngay EPSS: 2026-09-29; tong CVE: 71653; so lo: 717
+Cache hop le: 0/717 lo
+Lo 1/717: da kiem tra 100 CVE (API)
+```
+
+Giữ lại đường dẫn metadata/checkpoint. Lượt này có 717 lô và thêm một truy vấn
+tham chiếu, nên có thể mất hàng chục phút tùy mạng/API. Chỉ chạy một tiến trình
+cho cùng run và giữ máy hoạt động. Có thể Ctrl+C để dừng rồi resume sau.
+
+Khi bị gián đoạn, dùng đúng đường dẫn metadata **của EPSS**, không phải NVD:
+
+```powershell
+# Thay bằng đường dẫn thật đã in ở đầu lượt EPSS.
+$epssResume = "data/raw/epss/<ngày>_<run_id>/metadata.json"
+.\.venv\Scripts\python.exe -m src.collect.epss_client --resume $epssResume
+```
+
+Resume kiểm tra input NVD, ngày snapshot, checksum, tham số và nội dung các lô
+đã lưu rồi tải phần còn lại. Không sửa input/config ngày giữa chừng. Không dùng
+lệnh khởi tạo run mới nếu mục đích là tiếp tục cùng lượt tải.
+
+Các run tạo bởi collector mới có `collector_version: 2`. Không áp dụng resume
+cho metadata pilot cũ chưa có trường này. Pilot cũ vẫn dùng được để đọc/ghép.
+Nếu run đã complete, resume kiểm tra cache/bảng rồi trả lại kết quả, không tải lại.
+
+Raw lỗi vẫn được giữ để tra cứu nhưng không được tính là lô hoàn thành. Chỉ các
+lô đã kiểm tra hợp lệ được checkpoint; ghi metadata qua file tạm rồi thay thế.
+`run.lock` chống ghi đồng thời. Nếu máy tắt đột ngột còn khóa, kiểm tra tiến trình
+cũ trước khi xử lý; không xóa khóa khi collector vẫn chạy.
+
+Kết quả cuối phải có `Tong CVE: 71653` và `Co EPSS + Thieu EPSS = 71653`.
+Không đoán số thiếu bằng số Rejected hoặc số thiếu CVSS. Gửi thống kê và metadata
+để kiểm tra trước bước ghép. Đây vẫn là dữ liệu chưa chốt scope/split.
+
+Sau khi chạy thành công, lưu phần sửa code/tài liệu:
+
+```powershell
+git add src/collect/epss_client.py tests/test_epss_client.py docs/phase-1-nguoi-1-epss.md docs/phase-1-nguoi-1-nvd-phan-trang.md docs/phases/phase-1-du-lieu-web-mobile.md
+git diff --cached --stat
+git commit -m "feat(data): resume EPSS batches for the full NVD collection"
+git push origin develop
+```
+
+Không stage dữ liệu raw, `.env`, `.venv` hoặc file `a`.
+
+## 10. Kết quả toàn khoảng đã xác minh ngày 05/10/2026
+
+- Manifest: `data/raw/epss/2026-09-29_20261002T173934_585836Z/metadata.json`.
+- `status=complete`; đủ 717 batch cho 71.653 ID của NVD đã chọn.
+- Có EPSS: 68.769; thiếu EPSS: 2.884; ngày điểm trả về duy nhất: 29/09/2026.
+- Trong snapshot này, 2.884 dòng thiếu EPSS đều là Rejected, đã đối chiếu theo ID.
+  Đây là kết quả kiểm tra của lượt này, không phải quy tắc để suy ra missing ở lượt khác.
+- Builder đã đối chiếu checksum/raw, tham số ngày, tập ID và điểm trong Parquet.
+- 24 bài kiểm tra `tests.test_epss_client` và `tests.test_build_dataset` đạt.
+
+Không cần resume hay tải lại lượt đã hoàn thành. Đã ghép offline với NVD toàn khoảng
+và KEV đã lưu; xem [bước ghép toàn khoảng](phase-1-nguoi-1-ghep-pilot.md#8-ghép-toàn-khoảng-20232024--đã-kiểm-tra-05102026).

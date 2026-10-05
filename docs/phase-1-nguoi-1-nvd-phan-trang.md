@@ -10,6 +10,14 @@ giá trị trích xuất từ raw và checkpoint hoàn tất khớp nhau.
 Metadata: `data/processed/nvd_20261002T170958_423579Z/metadata.json`.
 Đây vẫn là NVD-only, chưa phải cohort Web/mobile hay tập train đã được chốt.
 
+**Lượt toàn khoảng 2023–2024 cũng đã xác minh ngày 03/10/2026:** 71.653 ID duy nhất,
+82 trang, 24 cửa sổ; 2.884 Rejected, 3.741 thiếu vector và 67.912 ứng viên có mô tả/vector.
+Không có dòng thiếu mô tả. Trong số thiếu vector có 857 CVE không Rejected
+(429 Analyzed, 415 Deferred, 13 Modified), nên không đồng nhất missing với Rejected.
+Metadata: `data/processed/nvd_20261002T173033_137668Z/metadata.json`.
+Raw, offset, count, giá trị parser và checkpoint đã được đối chiếu.
+Tiếp theo dùng [hướng dẫn EPSS, mục 9](phase-1-nguoi-1-epss.md#9-lấy-epss-cho-toàn-bộ-71653-cve-và-resume).
+
 ## 1. Các file và chức năng
 
 | File | Chức năng |
