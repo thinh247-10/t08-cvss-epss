@@ -1,7 +1,12 @@
-inventory_version: "draft-v0.1"
+inventory_version: "draft-v0.2"
 scenario_type: "hypothetical"
 organization: "Dich vu thuong mai dien tu gia dinh"
 
+# exposure: internet/internal/isolated describe deployment exposure.
+# client identifies an app on an end-user device; it has no exposure_priority
+# in the initial queue policy. Do not map client to internet or to zero.
+# An affected client pair remains review_required until its attack path and
+# an explicitly versioned client policy have been assessed (data_contract.md §9).
 assets:
   - asset_id: "WEB-01"
     name: "Website ban hang"
@@ -92,6 +97,7 @@ assets:
     assumptions:
       - "Se chon SDK/framework cu the sau khi co advisory phu hop."
       - "Backend phuc vu mobile khong du de gan CVE la mobile-client."
+      - "Exposure client chua xac dinh duong tan cong; cap affected can review_required truoc khi xep hang tu dong."
 
   - asset_id: "MOB-02"
     name: "Ung dung iOS"
@@ -109,3 +115,4 @@ assets:
     rationale: "Ung dung xu ly du lieu nguoi dung va phu thuoc SDK/framework phia client."
     assumptions:
       - "Chi giu tai san nay neu tim duoc CVE phu hop va co bang chung."
+      - "Exposure client chua xac dinh duong tan cong; cap affected can review_required truoc khi xep hang tu dong."

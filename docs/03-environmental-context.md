@@ -48,10 +48,21 @@ Không được suy diễn tự động từ một nhãn kiến trúc như "inte
 
 **Nguyên tắc:** nếu chưa đủ bằng chứng để thay đổi Modified Metric thì giữ giá trị
 `Not Defined (X)` và mô tả control đó như một phần của context, không tự sửa vector.
-**Lưu ý phương pháp luận:** việc điều chỉnh MAV/MAC/MPR phải dựa trên biện pháp
-kiểm soát **đã triển khai và kiểm chứng được**, không phải giả định. Nếu không,
-đây trở thành cách hợp lý hoá việc trì hoãn vá — một anti-pattern cần nêu rõ trong
-phần bàn luận.
+**Phân biệt đánh giá thực tế và mô phỏng của đồ án:**
+
+- Với hệ thống thật, điều chỉnh Modified Metrics dựa trên điều kiện triển khai và
+  kiểm soát đã được xác minh; không trình bày một biện pháp dự kiến như đã có hiệu lực.
+- Với tổ chức giả định của đồ án, được phân tích một kịch bản có điều kiện: ghi rõ
+  giả định triển khai, nguồn mô tả điều kiện khai thác và lý do chọn từng metric theo
+  đặc tả. Lưu lý do trong `modification_reason`, gắn `context_version` và ghi kết quả
+  là mô phỏng, chưa kiểm chứng trên hệ thống thật. Giả định không thay thế bằng chứng
+  về sản phẩm/phiên bản bị ảnh hưởng khi ánh xạ CVE với tài sản.
+- Nếu điều kiện còn mơ hồ hoặc không giải thích được vì sao metric thay đổi, giữ
+  Modified Metric ở `X`. Giá trị này kế thừa Base metric tương ứng, không phải giảm
+  tác động về 0. Chỉ có nhãn WAF/internal/backup vẫn chưa đủ căn cứ để sửa vector.
+
+Đối chiếu [FIRST CVSS v3.1, mục 4.2](https://www.first.org/cvss/v3.1/specification-document#4-2-Modified-Base-Metrics).
+Điểm mô phỏng thấp hơn không tự chứng minh control có hiệu quả hoặc cho phép trì hoãn vá.
 
 ## 3. Tổ chức giả định
 

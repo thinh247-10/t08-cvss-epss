@@ -171,7 +171,29 @@ Trường tối thiểu: `cve_id, asset_id, applicability, is_kev, epss, environ
 
 Luồng: kiểm tra applicability → đưa affected vào đánh giá → dùng KEV, exposure, Environmental, EPSS để sắp ưu tiên → giải thích và chọn hành động. Unaffected lưu lý do ngoài hàng đợi vá; needs_review giữ trong danh sách cần xác minh. Không mất dấu CVE KEV khi thiếu thông tin.
 
-Chính sách minh họa ban đầu cho những cặp **đủ dữ liệu**: is_kev giảm, exposure_priority giảm (Internet=2, internal=1, isolated=0), Environmental giảm, EPSS giảm, cve_id tăng, asset_id tăng. Đây là thứ tự cấu hình để phân tích, không phải kết luận exposure luôn quan trọng hơn tác động. N2 kiểm tra sensitivity với thứ tự khác trước khi đưa ra khuyến nghị.
+Quy ước `exposure` trong inventory và hàng đợi:
+
+| Giá trị | Ý nghĩa | `exposure_priority` của policy ban đầu |
+|---|---|---|
+| `internet` | Thành phần được triển khai cho phép truy cập từ Internet | 2 |
+| `internal` | Thành phần chỉ cho phép truy cập từ mạng nội bộ theo giả định triển khai | 1 |
+| `isolated` | Thành phần nằm trong vùng cách ly theo giả định đã ghi | 0 |
+| `client` | Ứng dụng chạy trên thiết bị người dùng; chưa xác định đường tấn công chỉ từ vai trò này | Chưa định nghĩa, không gán số |
+
+`client` là giá trị hợp lệ để mô tả inventory, nhưng không đồng nghĩa với một dịch vụ
+public-facing hoặc một tài sản an toàn hơn. Với cặp CVE–tài sản `affected` có exposure
+`client`, policy ban đầu đặt `queue_status=review_required`, `priority_rank=null` và ghi
+`priority_reason` là chưa có quy tắc exposure cho client. Vẫn giữ cặp trong đầu ra và
+ưu tiên xác minh khi có KEV; không bỏ mẫu hoặc tự gán exposure_priority=0.
+N2 phải xem đường tấn công cụ thể (ví dụ nội dung từ xa, deep link, tệp hoặc truy cập
+thiết bị), rồi đề xuất policy có version riêng trước khi xếp hạng tự động cho client.
+Không tự đổi `client` thành `internet` chỉ vì ứng dụng có kết nối mạng.
+Giá trị exposure thiếu hoặc chưa được policy hỗ trợ cũng đưa vào review.
+Applicability vẫn được xét trước: `unaffected` nằm ngoài hàng đợi vá và `needs_review`
+cần xác minh, không bị quy tắc exposure ghi đè. Các ca mobile vẫn có thể được phân tích
+scope, applicability và Environmental khi đủ căn cứ trong lúc chờ policy xếp hạng.
+
+Chính sách minh họa ban đầu cho những cặp **đủ dữ liệu và có exposure đã được policy hỗ trợ**: is_kev giảm, exposure_priority giảm (`internet`=2, `internal`=1, `isolated`=0), Environmental giảm, EPSS giảm, cve_id tăng, asset_id tăng. Đây là thứ tự cấu hình để phân tích, không phải kết luận exposure luôn quan trọng hơn tác động. N2 kiểm tra sensitivity với thứ tự khác trước khi đưa ra khuyến nghị.
 
 Thiếu applicability/exposure/score/EPSS → queue_status=review_required và ưu tiên xác minh nếu có KEV; không gán số 0 rồi âm thầm đẩy cuối. Nếu tính tiếp một nhánh thiếu dữ liệu, phải đặt tên policy riêng và trình bày giả định.
 
@@ -212,4 +234,3 @@ SLA/hành động trong playbook là đề xuất cho tổ chức giả định,
 - [ ] Tệp lớn không cần commit nhưng có cách chuyển đúng phiên bản/checksum để chấm lại.
 
 Nguồn đặc tả để tra khi triển khai: [NVD CVE API](https://nvd.nist.gov/developers/vulnerabilities), [FIRST CVSS v3.1](https://www.first.org/cvss/v3.1/specification-document), [FIRST EPSS API](https://api.first.org/epss/), [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog).
-

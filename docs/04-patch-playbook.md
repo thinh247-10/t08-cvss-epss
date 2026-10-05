@@ -55,6 +55,11 @@ can neu nguoi phu trach, ngoai le va cach xu ly khi chua co ban va.
 - **Khong co ban va:** chuyen sang bien phap giam thieu (virtual patching qua WAF,
   cach ly mang, tat tinh nang). Ghi nhan lai ro ro chap nhan.
 - **Ban va gay gian doan:** can cua so bao tri; trong thoi gian cho, ap dung giam thieu.
+- **Mobile/client:** `exposure=client` chua co muc uu tien so trong policy ban dau.
+  Sau khi xac dinh cap CVE-tai san la affected, giu `queue_status=review_required`,
+  `priority_rank=null`, ghi ly do va uu tien xac minh neu co KEV. Khong tu doi client
+  thanh internet hoac gan 0. N2 xem duong tan cong va de xuat policy rieng theo
+  [data contract, muc 9](data_contract.md#9-hàng-đợi-theo-bối-cảnh--dataprocessedpriority_queuecsv).
 - **CVE thieu diem CVSS:** xac dinh bang viec kiem tra co metric/vector CVSS v3.1
   hop le hay khong, khong chi dua vao ten `vulnStatus` nhu `Not Scheduled`. Co the
   dung mo hinh RQ1 de uoc luong tam thoi, nhung phai danh dau `predicted`, luu
