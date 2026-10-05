@@ -1,0 +1,54 @@
+{
+  "handoff_version": "p1-joined-20261005T164912_356960Z",
+  "dataset_version": "pilot-v0.1-nvd-20261002T171532_735222Z-joined-20261005T164912_356960Z",
+  "archive_name": "t08-p1-joined-20261005T164912_356960Z.zip",
+  "archive_sha256": "46c9b87228b42af7fd8da3d96c93da1fce522eea92cd40c10768756a67f0bf26",
+  "archive_bytes": 19868418,
+  "extract_to": "data/processed",
+  "entries": [
+    {
+      "path": "joined_pilot_20261005T164912_356960Z/cves.parquet",
+      "sha256": "5adda10bf13407c582e3e33b716e55378757cea549a7fadaa85067dcc59ffc01",
+      "bytes": 12839358
+    },
+    {
+      "path": "joined_pilot_20261005T164912_356960Z/cves.csv",
+      "sha256": "5b69b6b2447a8b1ace12ca615ec75cab2f2995a124672440f233424f598be3ca",
+      "bytes": 54548474
+    },
+    {
+      "path": "joined_pilot_20261005T164912_356960Z/metadata.json",
+      "sha256": "23856ea5eaf71336a134083f59e00b4fbc4c77b350811251aa9e8a3272cbf1b6",
+      "bytes": 6768
+    },
+    {
+      "path": "joined_pilot_20261005T164912_356960Z/data_quality.md",
+      "sha256": "859356f3b484b85e2bf42b4eccb4241009550d1d31c1fe7db106f293361b6996",
+      "bytes": 1211
+    }
+  ],
+  "statistics": {
+    "total_records": 71653,
+    "unique_cve_count": 71653,
+    "rejected_records": 2884,
+    "available_epss": 68769,
+    "missing_epss": 2884,
+    "in_kev": 325,
+    "not_in_kev": 71328,
+    "unknown_kev": 0,
+    "description_and_label_candidates_before_scope": 67912,
+    "candidates_with_epss_before_scope": 67912,
+    "scope_needs_review": 71653,
+    "confirmed_in_scope": 0,
+    "assigned_split": 0
+  },
+  "scope_reviewed": false,
+  "training_ready": false,
+  "ranking_ready": false,
+  "limitations": [
+    "Package includes joined tables and their metadata/report only; raw NVD/EPSS/KEV snapshots are not included.",
+    "Source paths in metadata refer to the N1 workspace; request exact snapshots for full pipeline replay.",
+    "All scope and split values are pending; do not train or publish ranking results from this handoff.",
+    "EPSS date is 2026-09-29; KEV release is 2026-09-30 and retrieval is 2026-10-01 UTC."
+  ]
+}
