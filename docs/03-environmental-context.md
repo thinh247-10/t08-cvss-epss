@@ -135,3 +135,37 @@ sau khi xét thêm bối cảnh tài sản?**
   nghiệp vụ, không phải quyết định kỹ thuật thuần tuý.
 - CVSS Environmental vẫn không tính đến khả năng bị khai thác — đó là lý do vẫn
   cần EPSS và KEV song song.
+
+## 7. Ứng viên case study Phase 1 — chờ phân tích
+
+Các case dưới đây được chọn có chủ đích để thử nhiều vai trò sản phẩm và điều kiện
+applicability. Danh sách này **chưa phải kết luận về ưu tiên vá**. Cả năm CVE đều có
+trong master 71.653 dòng của gói
+`pilot-v0.1-nvd-20261002T171532_735222Z-joined-20261005T164912_356960Z`, nhưng master
+hiện vẫn chờ áp dụng scope; vì vậy chưa được gọi là cohort ranking chính thức.
+
+| CVE | Sản phẩm / vai trò | Advisory | Lý do chọn, chưa kết luận ưu tiên |
+|---|---|---|---|
+| CVE-2022-43538 | Aruba ClearPass Policy Manager — giao diện quản trị Web | [ARUBA-PSA-2022-020](https://www.arubanetworks.com/assets/alert/ARUBA-PSA-2022-020.txt) | Minh họa lỗi thực thi lệnh trong giao diện quản trị Web và yêu cầu kiểm tra phiên bản triển khai. |
+| CVE-2022-46177 | Discourse — nền tảng thảo luận Web | [GitHub Security Advisory](https://github.com/discourse/discourse/security/advisories/GHSA-5www-jxvf-vrc3) | Minh họa đường tấn công liên quan vòng đời email đặt lại mật khẩu và takeover tài khoản. |
+| CVE-2023-22626 | PgHero — dashboard Web cho PostgreSQL | [Issue dự án PgHero](https://github.com/ankane/pghero/issues/439) | Minh họa tác động bí mật dữ liệu của một dashboard vận hành nội bộ. |
+| CVE-2023-30470 | Hermes — JavaScript engine dùng trong React Native | [Meta advisory](https://www.facebook.com/security/advisories/cve-2023-30470) | Case mobile framework có điều kiện rõ: chỉ xét affected khi runtime thực thi JavaScript không tin cậy; advisory nói phần lớn ứng dụng React Native không bị ảnh hưởng. |
+| CVE-2023-41387 | `flutter_downloader` — Flutter plugin trên iOS | [Changelog dự án](https://pub.dev/packages/flutter_downloader/changelog) | Case mobile client/plugin trực tiếp, có dải phiên bản đến 1.11.1 và bản sửa 1.11.2 để thử applicability theo phiên bản. |
+
+Tiêu chí chọn case study khác với tiêu chí tạo cohort định lượng. Việc chọn các case
+này không dựa vào EPSS cao hoặc trạng thái KEV, và không làm thay đổi scope của toàn
+bộ dataset. Nếu một case sau này không đạt điều kiện cohort thì phải trình bày riêng
+như ví dụ context bổ sung, không gộp vào top-K hoặc metric của cohort.
+
+## 8. Applicability mẫu và tài sản giả định
+
+Inventory vẫn là kịch bản thương mại điện tử giả định. Product/version được điền cho
+năm tài sản chỉ để kiểm thử giao tiếp dữ liệu với advisory; không khẳng định đây là
+hệ thống đã triển khai hoặc đã được kiểm thử. `API-02` tiếp tục để product/version
+`null` vì chưa có căn cứ phù hợp; chưa biết không đồng nghĩa `unaffected`.
+
+Năm cặp có bằng chứng phiên bản được lưu tại
+`data/processed/cve_asset_mapping.csv`. Hai cặp mobile dùng `exposure=client`; dù
+`applicability=affected`, policy hàng đợi ban đầu vẫn phải đặt chúng ở
+`review_required` cho tới khi có quy tắc exposure client được version hóa. Mapping
+không tự sửa Modified Metrics và không tự suy ra Environmental Score.
