@@ -7,8 +7,9 @@
 
 ## 1. Kết quả cần có khi kết thúc ngày 13
 
-Cập nhật 2026-10-11: bắt đầu bằng [hướng dẫn N2](../phase-2-nguoi-2.md) và
-[hướng dẫn N3](../phase-2-nguoi-3.md). Hai hướng dẫn này cập nhật các đường dẫn,
+Cập nhật 2026-10-11: bắt đầu bằng [hướng dẫn N1](../phase-2-nguoi-1.md),
+[hướng dẫn N2](../phase-2-nguoi-2.md) và [hướng dẫn N3](../phase-2-nguoi-3.md).
+Các hướng dẫn này cập nhật các đường dẫn,
 trạng thái triển khai và phân công bên dưới theo gói v1 thực tế; ưu tiên dùng chúng
 khi kế hoạch dự kiến cũ ghi khác.
 
