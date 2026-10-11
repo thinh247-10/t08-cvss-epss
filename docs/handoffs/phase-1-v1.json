@@ -1,0 +1,64 @@
+{
+  "dataset_version": "t08-v1.0-20261010",
+  "archive": "data\\processed\\phase1_v1_20261010.zip",
+  "archive_sha256": "215644e804c78db8a20bbff23528ebc752597ee0daa63888c075d7b6b9832ebe",
+  "archive_bytes": 38599819,
+  "files": {
+    "annotation_transfer.csv": {
+      "sha256": "c2db72168e73b3048b35293d5a991ce0d7221b6622b1283a089f3f90e9901fc2",
+      "bytes": 7966
+    },
+    "assets.yaml": {
+      "sha256": "471a2558bda683067064270964cbabce9b728cc304210271230f4de42c4d253d",
+      "bytes": 3957
+    },
+    "cve_asset_mapping.csv": {
+      "sha256": "55056d3a74bf1222f832d98caef651af2ecacd19f5194c74c6ad62a69a6b4afb",
+      "bytes": 2100
+    },
+    "cves.parquet": {
+      "sha256": "484a1c216ff3c484d31e3b02ad6823a7f141cb3109b5008ff46c8eca6d81a0c2",
+      "bytes": 22386994
+    },
+    "label_support.csv": {
+      "sha256": "34151b36570835309ba460f9cc16b62dc1e56deeb57d1b5a383fc3d0e667dae2",
+      "bytes": 4291
+    },
+    "metadata.json": {
+      "sha256": "12a55107832103e4e20ddb8b8fc7cf100337cd8b51fc67855f7db28458838560",
+      "bytes": 7227
+    },
+    "ml_cohort.parquet": {
+      "sha256": "eaa7f845596cc8b1a0ac802a792f2b495006cec87acc7cab28434fcb8905fdb6",
+      "bytes": 21858636
+    },
+    "ml_decisions.csv": {
+      "sha256": "f629205fa94f8c7a742ae72952cd27906ce57cf47892388594a8ba0ed490d78b",
+      "bytes": 16990911
+    },
+    "near_duplicate_edges.csv": {
+      "sha256": "f1424ed6fa66f4ab7259ada6258c9cf82b6da0d5056d53a22ad5c0244abc2fd2",
+      "bytes": 3347
+    },
+    "phase1.yaml": {
+      "sha256": "b611d1601cb4b23e562164d5832d2af760bf7560465c7d4ca16f75e0225ee5fc",
+      "bytes": 3290
+    },
+    "product_overlap.csv": {
+      "sha256": "16cde45fec8df94cd406dce24de00d8288fb4019d4d2aab2d0e95cf0b172de03",
+      "bytes": 307647
+    },
+    "ranking_cohort.parquet": {
+      "sha256": "07bdaba5b21e2f21161b1339704e68924d8f4bfa34118b8eb02ec8b51affdfff",
+      "bytes": 171785
+    },
+    "scope.yaml": {
+      "sha256": "3078ddf1c8f8c6f68e332186f0243673e0575f2c1221a0d00b8d20058f6d9f34",
+      "bytes": 3057
+    },
+    "source_manifests.json": {
+      "sha256": "74405c060534e31179b1d2007f8c9976141c9cf79653bc64b9ffe15ca842bd15",
+      "bytes": 1440411
+    }
+  }
+}

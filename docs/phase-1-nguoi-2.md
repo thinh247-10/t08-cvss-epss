@@ -1,5 +1,9 @@
 # Phase 1 — Người 2: scope, tài sản và bằng chứng
 
+> Cập nhật 2026-10-10: phần kỹ thuật đã tích hợp và kiểm tra. Nhận dataset v1 theo
+> [biên bản bàn giao](phase-1-completion.md), xem 5 annotation override và mapping mới.
+> Các bước pilot bên dưới giữ để truy nguyên công việc ban đầu.
+
 Đọc [hướng dẫn nhận gói](phase-1-ban-giao.md) và làm bước 2–4 trước.
 Kế hoạch gốc: [Phase 1, mục 4](phases/phase-1-du-lieu-web-mobile.md).
 Đây là phần tiếp theo của Phase 0, không yêu cầu viết lại scope/inventory từ đầu.

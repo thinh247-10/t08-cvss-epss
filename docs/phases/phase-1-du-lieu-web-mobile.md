@@ -1,5 +1,9 @@
 # Phase 1 — Xây dataset có căn cứ cho Web và ứng dụng di động
 
+> **Bản hiện hành: `t08-v1.0-20261010` đã đạt gate kỹ thuật.** Xem
+> [nghiệm thu và bàn giao](../phase-1-completion.md). Các ghi chú pilot/chờ scope
+> bên dưới là lịch sử triển khai; cấu hình release cuối là `config/phase1.yaml`.
+
 **Thời gian:** ngày 3–7. **Ngân sách:** khoảng 12 giờ/người, ưu tiên dữ liệu dùng được trước.
 
 **Trước:** [Phase 0](phase-0-pham-vi-va-thiet-ke.md) · **Sau:** [Phase 2 — NLP](phase-2-mo-hinh-nlp.md).
@@ -325,14 +329,17 @@ master, cohort Web/mobile, cohort ranking và cohort ML có mẫu số khác nha
 
 ## 8. Gate cuối ngày 7 và phương án khi thiếu dữ liệu
 
-- [ ] N2 và N3 đọc được artifact v1 trên máy riêng mà không đổi tên cột.
-- [ ] Master không trùng CVE ID; không mất dòng chỉ vì thiếu nhãn hoặc ngoài phạm vi.
-- [ ] Nguồn CVSS, snapshot EPSS và metadata KEV truy được về raw.
-- [ ] Missing EPSS phân biệt với 0; non-KEV phân biệt với lỗi tải catalog.
-- [ ] Scope có evidence, có review cả mẫu nhận/loại, có thống kê riêng Web/mobile.
-- [ ] Số CVE ranking được báo rõ; nhóm đã quyết định cách xử lý nếu không đủ mục tiêu top-50.
-- [ ] Split và chính sách mô tả trùng đã khóa trước training/test; lớp hiếm được liệt kê.
-- [ ] Dataset version, config và checksum giúp nhận biết ba người đang dùng cùng dữ liệu.
+Cập nhật 2026-10-10: gate kỹ thuật v1 đã chạy; [biên bản và hướng dẫn nhận gói](../phase-1-completion.md).
+Các báo cáo pilot trước đó giữ làm lịch sử, không còn là nguồn cấu hình cuối.
+
+- [ ] N2 và N3 đọc được artifact v1 mới trên máy riêng — còn bước gửi ZIP/xác nhận; verifier đã đạt trên bản giải nén độc lập tại N1.
+- [x] Master không trùng CVE ID; không mất dòng chỉ vì thiếu nhãn hoặc ngoài phạm vi.
+- [x] Nguồn CVSS, snapshot EPSS và metadata KEV truy được về raw.
+- [x] Missing EPSS phân biệt với 0; non-KEV phân biệt với lỗi tải catalog.
+- [x] Scope có evidence, có review mẫu nhận/loại, thống kê Web/mobile; giới hạn cohort được công bố.
+- [x] 396 CVE ranking, đủ so top-50; chỉ 3 KEV nên cần báo mẫu số/giới hạn.
+- [x] Split/chính sách duplicate khóa tại v1; lớp hiếm/vắng và hạn chế near/product overlap đã ghi.
+- [x] Dataset version, config và checksum giúp nhận biết ba người đang dùng cùng dữ liệu.
 
 Nếu cohort ranking chưa đủ hơn 100 dòng, mở rộng khoảng năm hoặc nhóm sản phẩm **trong phạm vi**,
 ghi quyết định rồi thu thập lại; ưu tiên việc này hơn trang trí demo. Chỉ mở rộng theo tiêu chí đã

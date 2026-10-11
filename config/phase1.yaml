@@ -1,0 +1,58 @@
+dataset_version: "t08-v1.0-20261010"
+schema_version: "0.2"
+scope_policy: "config/scope.yaml"
+inventory: "config/assets.yaml"
+annotations: "data/annotations/scope_review.csv"
+joined_table: "data/processed/joined_pilot_20261005T164912_356960Z/cves.parquet"
+joined_metadata: "data/processed/joined_pilot_20261005T164912_356960Z/metadata.json"
+handoff_manifest: "docs/handoffs/phase-1-joined-20261005.json"
+source_project_config: "config/project.yaml"
+output: "data/processed/phase1_v1_20261010"
+split:
+  status: locked
+  strategy: published_time
+  train: {start: "2023-01-01", end_exclusive: "2024-01-01"}
+  validation: {start: "2024-01-01", end_exclusive: "2024-07-01"}
+  test: {start: "2024-07-01", end_exclusive: "2025-01-01"}
+ml:
+  domain: "all_eligible_with_separate_web_mobile_evaluation"
+  rationale: "Bounded scope cohort is small; preserve 8-metric class coverage using all eligible CVEs. Report scoped validation/test separately; no claim of unseen-product generalization."
+  duplicate_policy: "exact-near-earliest-v1"
+  near_jaccard: 0.95
+  near_max_bucket: 200
+  product_overlap_policy: "allowed_for_temporal_known_product_evaluation_report_overlap"
+ranking:
+  top_k: 50
+  minimum_cohort: 101
+  scope: "bounded CPE product policy plus snapshot-compatible manual annotations"
+case_mappings:
+  - cve_id: CVE-2018-25067
+    asset_id: WEB-01
+    applicability: affected
+    affected_version_evidence: "JoomGallery <=3.3.3; project fix 3.3.4"
+    evidence_url: "https://github.com/JoomGallery/JoomGallery/releases/tag/v3.3.4"
+    mapping_reason: "Hypothetical JoomGallery 3.3.3 matches affected range in raw CVE and project release."
+  - cve_id: CVE-2022-46177
+    asset_id: API-01
+    applicability: affected
+    affected_version_evidence: "stable <=2.8.13; stable fix 2.8.14. Advisory beta patch prose differs from version table; use stable branch here."
+    evidence_url: "https://github.com/discourse/discourse/security/advisories/GHSA-5www-jxvf-vrc3"
+    mapping_reason: "Hypothetical stable 2.8.13 is in explicit affected range."
+  - cve_id: CVE-2023-22626
+    asset_id: ADMIN-01
+    applicability: affected
+    affected_version_evidence: "Official issue #439: 0.1.1-3.0.1, fixed 3.1.0"
+    evidence_url: "https://github.com/ankane/pghero/issues/439"
+    mapping_reason: "Hypothetical version corrected to 3.0.1; assumed database user permissions determine accessible data."
+  - cve_id: CVE-2023-30470
+    asset_id: MOB-01
+    applicability: affected
+    affected_version_evidence: "Hermes before da8990f737ebb9d9810633502f65ed462b819c09; only when executing untrusted JavaScript with optimization"
+    evidence_url: "https://github.com/facebook/hermes/commit/da8990f737ebb9d9810633502f65ed462b819c09"
+    mapping_reason: "Conditional hypothetical app executes untrusted JS with optimization; most React Native apps are not affected. Not verified on a real app."
+  - cve_id: CVE-2023-41387
+    asset_id: MOB-02
+    applicability: affected
+    affected_version_evidence: "flutter_downloader iOS through 1.11.1; 1.11.2 iOS security update"
+    evidence_url: "https://pub.dev/packages/flutter_downloader/changelog"
+    mapping_reason: "Hypothetical iOS app embeds 1.11.1 and accepts attacker-controlled download input. Local path additionally needs file-sharing properties."

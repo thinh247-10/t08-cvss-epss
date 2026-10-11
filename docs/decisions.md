@@ -76,7 +76,57 @@ Chỉ chuyển sang “Đã thống nhất” sau khi thành viên liên quan re
 - Người review: Người 2 và Người 3.
 - Trạng thái: Chờ review.
 
+## D07 — Chính sách mô tả trùng cho cohort ML (2026-10-08)
+
+- N1 yêu cầu tích hợp/sửa phần N3; code và thiết kế gốc từ `8b4b282` và `1182468`.
+- Chính sách `exact-earliest-period-v1`: chuẩn hóa NFKC, gộp whitespace, strip,
+  casefold; giữ mọi mẫu thuộc giai đoạn thời gian đầu tiên của mỗi mô tả.
+  Loại bản trùng ở giai đoạn sau khỏi cohort ML dự kiến, không dời ngày/split.
+- Không dùng target, EPSS/KEV hoặc kết quả model để chọn mẫu giữ; không sửa nhãn.
+- Không xóa master hay cohort ranking. Trùng trong cùng giai đoạn vẫn được giữ.
+- Đã triển khai preview offline và chạy thật: 67.912 -> 67.280 ứng viên;
+  loại 632, còn 0 nhóm exact-description xuyên các split dự kiến.
+- Trạng thái: đã triển khai/kiểm tra preview; **chưa khóa dataset/split cuối**.
+  Phải tính lại trên cohort sau scope và kiểm scorer; ghi version/checksum mới.
+- Gần trùng/product group chưa kiểm đầy đủ. Cần rà raw/CPE và ghi giới hạn còn lại
+  trước khi train; không diễn giải 0 exact-duplicate thành không còn mọi leakage.
+- Chi tiết: [bàn giao sau audit](phase-1-nguoi-3-sau-audit.md).
+
 ## Các thông tin cần bổ sung
+
+### Cập nhật nghiệm thu kỹ thuật ngày 2026-10-10 — D08
+
+Theo yêu cầu N1 hoàn thiện Phase 1 của cả nhóm, tích hợp code N2 `1a03bf8`,
+N3 `8b4b282`, thiết kế N3 `1182468` và các bản sửa trên working tree.
+Không yêu cầu review độc lập; không ghi thay chữ xác nhận đã tải gói mới của N2/N3.
+
+- D03 chốt mốc thời gian như ban đầu, danh sách ID và split khóa tại `config/phase1.yaml`
+  và artifact `t08-v1.0-20261010`. `config/project.yaml` giữ snapshot cũ để kiểm hash.
+- D04 chốt EPSS 2026-09-29, công bố lệch ngày KEV phát hành/tải; chỉ phân tích snapshot.
+- D07 được thay bằng `exact-near-earliest-v1`; 670 dòng loại khỏi ML, không loại khỏi
+  master/ranking. MinHash/Jaccard có giới hạn recall; bucket lớn bị bỏ qua có thống kê.
+- Cohort scope giới hạn theo 14 rule sản phẩm CPE + annotation tương thích snapshot:
+  396 CVE (388 Web, 8 mobile), không tuyên bố bao phủ mọi CVE Web/mobile.
+- ML dùng miền rộng 67.242 CVE để có đủ lớp. Báo riêng Web/mobile trên 219/69/108
+  train/validation/test; giữ support 0 và hạn chế coverage mobile, không đổi mẫu số.
+- Cho phép chia sẻ sản phẩm giữa split trong giao thức temporal hiện tại; không
+  tuyên bố khả năng tổng quát hóa sang sản phẩm chưa gặp. Lưu 5.944 nhóm giao nhau.
+- Tài sản là giả định; tái dựng mapping có version/evidence riêng vì file N2 gửi
+  ngoài Git chưa có tại N1. PgHero dùng 3.0.1 khớp issue chính thức, không suy 3.0.4.
+- Scorer Base đã kiểm toàn bộ 67.912 vector hợp lệ, không sai lệch với điểm nguồn.
+  Scorer Environmental/hàng đợi và thí nghiệm model còn thuộc phase tiếp theo.
+- Trạng thái: hoàn thành gate kỹ thuật v1; còn commit/push, gửi ZIP và nhận kết quả
+  verifier trên máy hai bạn. Xem [biên bản bàn giao](phase-1-completion.md).
+
+### Bổ sung D08 — nhận mapping N2 ngày 2026-10-11
+
+Đã nhận file N2 gửi riêng sau khi build v1; đủ 5 cặp và đúng version gói cũ.
+Giữ nguyên byte làm nguồn, ghi checksum thực nhận vì không khớp hash trong báo cáo cũ.
+Không thay mapping v1 đã hiệu chỉnh hoặc build lại release. Chi tiết tại
+[biên nhận mapping](../reports/n2_mapping_receipt.md). Ghi chú chưa nhận ở trên
+chỉ phản ánh thời điểm quyết định ban đầu.
+
+### Thông tin nhóm
 
 - Ngày nộp chính thức:
 - Tên thành viên Người 1:

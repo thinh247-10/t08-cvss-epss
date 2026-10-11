@@ -1,0 +1,25 @@
+policy_version: "web-mobile-cpe-v1"
+reviewed_at: "2026-10-10"
+default_status: "needs_review"
+annotation_overrides:
+  CVE-2022-3863: {status: excluded, reason: "Desktop browser history issue; no affected Web application/server or mobile app path established in this cohort policy."}
+  CVE-2022-39104: {status: needs_review, reason: "Android OS Contacts service: app/client linkage not established by supplied bulletin; do not equate OS with mobile app."}
+  CVE-2022-44423: {status: needs_review, reason: "Android OS service: app/client linkage not established; description also names different services."}
+  CVE-2022-44439: {status: needs_review, reason: "Android OS service: app/client linkage not established; description also names different services."}
+  CVE-2022-47976: {status: needs_review, reason: "Distributed hardware OS module; direct application/SDK role not evidenced."}
+description: "Bounded product cohort, not all Web/mobile vulnerabilities. Match vulnerable application CPE plus official product role. Never use score/EPSS/KEV."
+products:
+  - {vendor: wordpress, product: wordpress, domain: web, evidence: "https://wordpress.org/about/", role: "Web CMS core"}
+  - {vendor: drupal, product: drupal, domain: web, evidence: "https://www.drupal.org/about", role: "Web CMS core"}
+  - {vendor: joomla, product: 'joomla!', domain: web, evidence: "https://www.joomla.org/about-joomla.html", role: "Web CMS core"}
+  - {vendor: djangoproject, product: django, domain: web, evidence: "https://www.djangoproject.com/", role: "Web framework"}
+  - {vendor: apache, product: tomcat, domain: web, evidence: "https://tomcat.apache.org/", role: "Servlet Web application server"}
+  - {vendor: apache, product: http_server, domain: web, evidence: "https://httpd.apache.org/", role: "HTTP server"}
+  - {vendor: vmware, product: spring_framework, domain: web, evidence: "https://spring.io/projects/spring-framework/", role: "Application framework with Web support"}
+  - {vendor: laravel, product: framework, domain: web, evidence: "https://laravel.com/", role: "Web application framework"}
+  - {vendor: rubyonrails, product: rails, domain: web, evidence: "https://rubyonrails.org/", role: "Web application framework"}
+  - {vendor: discourse, product: discourse, domain: web, evidence: "https://www.discourse.org/", role: "Web discussion application"}
+  - {vendor: moodle, product: moodle, domain: web, evidence: "https://moodle.org/", role: "Web learning platform"}
+  - {vendor: nextcloud, product: nextcloud_server, domain: web, evidence: "https://nextcloud.com/files/", role: "Web file sharing server; not desktop client"}
+  - {vendor: facebook, product: hermes, domain: mobile, evidence: "https://reactnative.dev/docs/hermes", role: "JavaScript engine used by React Native; applicability remains conditional"}
+  - {vendor: patreon, product: flutter_downloader, domain: mobile, evidence: "https://pub.dev/packages/flutter_downloader", role: "Flutter Android/iOS downloader plugin"}

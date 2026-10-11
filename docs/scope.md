@@ -2,6 +2,14 @@
 
 ## 1. Mục tiêu
 
+Cập nhật Phase 1 v1 ngày 2026-10-10: [config/scope.yaml](../config/scope.yaml) là
+policy thực thi `web-mobile-cpe-v1`, tạo cohort sản phẩm có giới hạn. Các nguyên tắc
+bên dưới mô tả phạm vi môn học rộng hơn danh sách này. CVE không khớp danh sách vẫn
+để `needs_review`, không tự kết luận ngoài scope. Xem [nghiệm thu](phase-1-completion.md).
+Chrome desktop không tự được nhận như Web-app; thành phần Android/EMUI nói chung
+cần bằng chứng liên hệ app/SDK trực tiếp. Điều kiện applicability của Hermes/mobile
+phải được xét riêng, không suy chỉ từ nhãn scope.
+
 Đồ án tập trung vào các CVE có liên quan đến nền tảng Web và ứng dụng di động.
 
 Mục tiêu của việc xác định phạm vi là tạo một cohort nhất quán để so sánh thứ tự ưu tiên theo CVSS, EPSS và KEV, đồng thời hỗ trợ phân tích bối cảnh tài sản.

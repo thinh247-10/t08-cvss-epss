@@ -5,7 +5,8 @@
 Kế hoạch nhóm: [Lộ trình 30 ngày, 6 phase và phân công chi tiết cho 3 người](docs/05-ke-hoach-phan-cong.md).
 
 > Bắt đầu từ [Phase 0 — Phạm vi Web/mobile và thiết kế](docs/phases/phase-0-pham-vi-va-thiet-ke.md).
-> Các module nghiệp vụ hiện chủ yếu là TODO; lệnh chạy bên dưới cần được hoàn thiện/đối chiếu theo kế hoạch trước khi sử dụng. Schema bàn giao: [data contract](docs/data_contract.md).
+> Phase 1 đã có bản dữ liệu `t08-v1.0-20261010`: xem [nghiệm thu và bàn giao](docs/phase-1-completion.md).
+> Collector, scope, CVSS Base và audit/split đã chạy; trainer, ranking/Environmental và demo vẫn thuộc các phase tiếp theo. Schema bàn giao: [data contract](docs/data_contract.md).
 
 Quy trình làm nhóm: [chia branch, commit, push và Pull Request](docs/06-git-workflow.md).
 

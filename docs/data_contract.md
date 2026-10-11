@@ -1,10 +1,27 @@
 # Data contract — Giao diện bàn giao T08
 
-> **Thiết kế v0.1 để triển khai, chưa phải schema của một dataset đã tạo.**
+> **Dataset v1 đã tạo ngày 2026-10-10, schema artifact 0.2.** Xem [bàn giao](phase-1-completion.md).
 > Chủ trì: Người 1. N2 review scope/thời gian/nguồn; N3 review nhãn/split.
 > Áp dụng cùng [kế hoạch 30 ngày](05-ke-hoach-phan-cong.md). Ngày 2 chốt; ngày 7 khóa v1 sau pilot.
 
 ## 1. Quy tắc chung
+
+### Bản áp dụng cho artifact v1
+
+Đường dẫn chính: `data/processed/phase1_v1_20261010/`; manifest độc lập:
+`docs/handoffs/phase-1-v1.json`. `config/phase1.yaml` khóa split/phạm vi/version.
+`config/project.yaml` giữ nguyên bản thu thập cũ để truy nguyên checksum.
+
+Các tên cột v0.1 vẫn giữ; bổ sung `source_dataset_version`, `product_groups`,
+`reference_urls`, `scope_policy_version`, `duplicate_component`, `ml_exclusion_reason`.
+Arrow lưu domain/evidence/products/references thành `list[string]`, ngày EPSS/KEV là
+`date32`, nhãn tám metric là categorical; timestamp UTC. Không ép null EPSS thành 0.
+`split` chỉ được gán cho cohort ML cuối; CVE không được chọn vào ML vẫn ở master.
+Master 71.653; ranking 396; ML 67.242. Cohort ranking không bị lọc duplicate của ML.
+`ml_decisions.csv` lưu mọi ứng viên ML và lý do giữ/loại; bản cuối dùng `ml_selected`,
+không dùng cột `keep_in_preview` từ lần chạy cũ.
+Các đường dẫn/giao diện dự kiến ở phần sau là thiết kế chung; với v1 ưu tiên manifest
+và các file trong gói, không tự tìm bảng pilot mới nhất.
 
 - Mọi đường dẫn tương đối tính từ thư mục gốc repo; UTF-8, timestamp UTC dạng ISO 8601, ngày dạng `YYYY-MM-DD`.
 - `cve_id` viết hoa theo định danh nguồn. Không giới hạn phần số CVE ở đúng 4 chữ số.

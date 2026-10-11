@@ -1,5 +1,8 @@
 # Phase 1 — Người 3: audit dữ liệu NLP và đề xuất split
 
+> Cập nhật 2026-10-10: phần kỹ thuật đã tích hợp và kiểm tra. Nhận dataset v1 theo
+> [biên bản bàn giao](phase-1-completion.md); các bước pilot bên dưới là lịch sử triển khai.
+
 Đọc [hướng dẫn nhận gói](phase-1-ban-giao.md), làm bước 2–4 trước.
 Kế hoạch gốc: [Phase 1, mục 5](phases/phase-1-du-lieu-web-mobile.md).
 Mục tiêu là tìm vấn đề dữ liệu trước train, chưa công bố chất lượng mô hình.
@@ -31,7 +34,8 @@ kết quả đọc thật và các lỗi cụ thể. Không trộn các số nà
 **File báo cáo:** `reports/full_ml_audit.md`; bảng thống kê nhỏ có thể lưu
 `reports/full_ml_label_counts.csv`. Không commit bản sao 71.653 mô tả vào reports.
 
-Các file trên là phần N3 cần triển khai, chưa có sẵn vì hướng dẫn liệt kê.
+Các file trên đã được N3 triển khai tại commit `8b4b282` và tích hợp cùng bản sửa
+ngày 2026-10-08. Xem [việc cần làm sau audit](phase-1-nguoi-3-sau-audit.md).
 Script chỉ đọc dữ liệu, không sửa Parquet, config/project.yaml hoặc gán split chính thức.
 
 Các kiểm tra bắt buộc:
@@ -107,9 +111,9 @@ N1 tổng hợp phát hiện từ báo cáo riêng này vào báo cáo chung.
 
 Checklist trước nghiệm thu Phase 1 của N3:
 
-- [ ] Đọc được mẫu cũ và gói lớn, phân biệt hai dataset_version.
-- [ ] Báo cáo có thống kê thực và test cho bộ kiểm đầu vào.
-- [ ] Lớp hiếm, missing, nhãn không khớp và duplicate được báo/giải thích.
-- [ ] Đề xuất split rõ, những phần scope/gần trùng/nhóm sản phẩm chưa đủ bằng chứng được ghi lại.
+- [x] Đọc được mẫu cũ và gói lớn, phân biệt hai dataset_version.
+- [x] Báo cáo có thống kê thực và test cho bộ kiểm đầu vào.
+- [x] Lớp hiếm, missing, nhãn không khớp và duplicate được báo/giải thích.
+- [x] Đề xuất split rõ, những phần scope/gần trùng/nhóm sản phẩm chưa đủ bằng chứng được ghi lại.
 - [ ] N1 nhận góp ý để sửa/build lại; N3 kiểm lại bản đó trước khi xác nhận split cuối cùng.
-- [ ] Chưa coi audit dữ liệu là kết quả train hoặc bằng chứng DistilBERT tốt hơn baseline.
+- [x] Chưa coi audit dữ liệu là kết quả train hoặc bằng chứng DistilBERT tốt hơn baseline.
