@@ -7,6 +7,18 @@
 
 ## 1. Kết quả cần có khi kết thúc ngày 13
 
+Cập nhật 2026-10-11: bắt đầu bằng [hướng dẫn N2](../phase-2-nguoi-2.md) và
+[hướng dẫn N3](../phase-2-nguoi-3.md). Hai hướng dẫn này cập nhật các đường dẫn,
+trạng thái triển khai và phân công bên dưới theo gói v1 thực tế; ưu tiên dùng chúng
+khi kế hoạch dự kiến cũ ghi khác.
+
+- Gói `t08-v1.0-20261010` đã khóa cohort/split. N1 đã hoàn thành kiểm dữ liệu,
+  duplicate, EDA và đóng gói; không cần thực hiện lại P2-N1-1/2/3/5.
+- N1 tiếp tục gửi ZIP, hỗ trợ môi trường, kiểm artifact và tái chạy baseline khi N3 giao.
+- N2 đã có scorer Base và inventory; bước đầu kiểm chứng/bổ sung test, không viết lại.
+- N3 bắt đầu Dummy và TF-IDF sau khi chạy verifier gói thành công; mô hình chưa train.
+- Ngày/giờ bên dưới là ngân sách kế hoạch, không phải tiến độ đã thực hiện.
+
 Trả lời RQ1: từ **mô tả tiếng Anh của CVE**, mô hình dự đoán được tám thành phần CVSS v3.1 tới mức nào, sai ở đâu và các sai số đó ảnh hưởng đến diễn giải bảo mật ra sao?
 Mô hình cung cấp ước lượng severity để hỗ trợ chuyên viên; không trực tiếp dự đoán xác suất khai thác hay quyết định vá.
 Phần so sánh CVSS–EPSS ở Phase 3 vẫn lấy **CVSS quan sát từ nguồn dữ liệu** làm thí nghiệm chính.
@@ -28,11 +40,11 @@ Không được viết trước kết luận “AI dự đoán tốt”, “Dist
 
 | Đầu vào | Người bàn giao | Cần kiểm tra trước khi chạy |
 |---|---|---|
-| `data/processed/cves.parquet` | Người 1 | CVE duy nhất; mô tả; ngày publish; nguồn/vector CVSS; cờ scope; nhãn tám metric |
-| `data/metadata.json` | Người 1 | Phiên bản/hash dữ liệu; ngày thu thập; snapshot T; số lượng missing và nguồn CVSS |
-| `config/project.yaml` | Người 1 | Phạm vi Web/mobile; chính sách chọn nguồn; mốc thời gian dự kiến |
+| `data/processed/phase1_v1_20261010/ml_cohort.parquet` | Người 1 | 67.242 CVE; dùng split 28.815/19.606/18.821 đã gán |
+| `data/processed/phase1_v1_20261010/metadata.json` | Người 1 | Version/hash, nguồn và giới hạn; kiểm bằng `src.collect.verify_phase1` |
+| `config/phase1.yaml`, `config/model.yaml` | Người 1 / Người 3 | Split v1 đã khóa; cấu hình model là thiết kế chưa train |
 | Bộ nhãn cố định và schema prediction | Người 3 | Cả nhóm đọc [data contract](../data_contract.md), không tự đổi tên cột |
-| Hàm Base Score v3.1 | Người 2, cuối ngày 8 | Có đối chiếu với công cụ/đặc tả FIRST, chưa cần xong Environmental |
+| `src.environmental.cvss_base.calculate_base_score` | Đã tích hợp Phase 1 | N2 kiểm chứng; N3 dùng ngay, không đợi Environmental |
 
 Nếu dữ liệu đầy đủ còn chờ tải, dùng sample thật của Phase 1 để thử đọc/fit/export.
 Chỉ thử đường chạy với sample; kết quả nghiên cứu phải dùng snapshot đã chốt.
@@ -60,7 +72,7 @@ Không xóa các từ như “remote”, “authenticated”, “user interactio
 
 ### 3.2. Chia tập và chống rò rỉ
 
-Mặc định dự kiến, sau khi kiểm tra dữ liệu ở Phase 1:
+Đã khóa trong v1 sau khi kiểm tra Phase 1:
 
 | Tập | `published` | Mục đích |
 |---|---|---|
@@ -145,7 +157,10 @@ Phần đọc lỗi do Người 2 cùng làm; Người 3 không phải tự vi�
 ## 5. Vibe code file nào, file đó làm gì?
 
 Các interface dưới đây là **đề xuất cần triển khai**, không phải API hiện đang chạy.
-Hiện `baseline.py`, `distilbert_multihead.py`, `cvss_environmental.py`, `asset_inventory.py` mới có docstring/TODO.
+Trainer baseline/DistilBERT và Environmental còn cần triển khai. Inventory và
+scorer `cvss_base.py` đã chạy; `baseline.py` có validator input. Trong bảng thiết kế
+ban đầu dưới đây, thay đường dẫn scorer Base bằng `cvss_base.py`, cấu hình split
+bằng `config/phase1.yaml`, dataset model bằng `ml_cohort.parquet` của gói v1.
 
 | File | Trạng thái / chủ sở hữu | Input → output / trách nhiệm |
 |---|---|---|
@@ -184,11 +199,11 @@ Chưa thêm DistilBERT, app, tải dữ liệu hoặc lựa chọn cấu hình d
 Trả lệnh chạy dự kiến và một kiểm tra save/load có kết quả dự đoán giống nhau.
 ```
 
-**P2-B — Người 2, scorer dùng chung:**
+**P2-B — Người 2, kiểm chứng scorer đã có:**
 
 ```text
-Triển khai parse_vector và base_score cho CVSS:3.1 trong
-src/environmental/cvss_environmental.py theo FIRST v3.1, không trộn v3.0/v4.0.
+Kiểm chứng calculate_base_score trong src/environmental/cvss_base.py
+và parse_base_vector hiện có theo FIRST v3.1, không tạo scorer thứ hai.
 Báo lỗi metric thiếu, trùng hoặc giá trị lạ; có xử lý Scope và PR đúng nhánh.
 Roundup tuân đặc tả, không thay bằng round() thông thường.
 Thêm tests/test_cvss.py bằng vector có expected score đối chiếu độc lập.
@@ -256,7 +271,8 @@ python -m src.model.distilbert_multihead --config config/model.yaml
 
 ## 9. Gate kết thúc, tình huống trễ và phần bàn giao
 
-- [ ] Không giao CVE/duplicate giữa train, validation và test; TF-IDF không fit trên test.
+- [ ] Không giao CVE/exact duplicate/nhóm near-duplicate đã phát hiện giữa các split;
+  ghi giới hạn recall MinHash, không tuyên bố phát hiện hết; TF-IDF không fit trên test.
 - [ ] Có dummy và TF-IDF; tám metric đều xuất hiện trong báo cáo cùng support.
 - [ ] Vector dự đoán hợp lệ hoặc lỗi được đếm/ghi rõ; `predicted_base_score` dùng scorer đã kiểm tra.
 - [ ] Scorer có ca Scope changed/unchanged, tác động bằng 0, PR khác nhau, Roundup và vector invalid.
