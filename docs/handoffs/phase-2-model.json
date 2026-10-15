@@ -1,0 +1,247 @@
+{
+  "status": "final_evaluated",
+  "dataset_version": "t08-v1.0-20261010",
+  "model_versions": {
+    "dummy": "tfidf-v1-candidate-1-dummy",
+    "tfidf": "tfidf-v1-candidate-1"
+  },
+  "lock": {
+    "schema_version": "1.0",
+    "locked_at": "2026-10-15T11:55:44.019078+00:00",
+    "artifact": "models\\baseline.joblib",
+    "artifact_sha256": "9b55da5616f725ed400824564400059b1b9fb07cee8db6ff13da7adefb087299",
+    "config_sha256": "ed3a9eaf11aab1b0b05c933339b91cca3d1b1a0c3ab0096c270a063f5f12638e",
+    "dataset_sha256": "eaa7f845596cc8b1a0ac802a792f2b495006cec87acc7cab28434fcb8905fdb6",
+    "dataset_version": "t08-v1.0-20261010",
+    "model_versions": {
+      "dummy": "tfidf-v1-candidate-1-dummy",
+      "tfidf": "tfidf-v1-candidate-1"
+    },
+    "chosen_candidate": 1,
+    "test_status": "complete",
+    "test_started_at": "2026-10-15T11:56:34.310242+00:00",
+    "test_completed_at": "2026-10-15T11:57:06.052430+00:00"
+  },
+  "files": {
+    "models\\baseline.joblib": {
+      "bytes": 7474244,
+      "sha256": "9b55da5616f725ed400824564400059b1b9fb07cee8db6ff13da7adefb087299"
+    },
+    "requirements-model.txt": {
+      "bytes": 324,
+      "sha256": "5b15065d96dbce624ec050740e760de662b0ddd75b401ccda1ca54ef9e7126bc"
+    },
+    "reports\\model_selection.json": {
+      "bytes": 67387,
+      "sha256": "eb3853258c5384580e7a87d27e6751f9adedb23438dc57188ecbfb2f5530970e"
+    },
+    "reports\\validation_errors_n2.csv": {
+      "bytes": 6474,
+      "sha256": "fe7e466ec7375f5b09f53b9f4164645fab172c030f583c6db152cf50dea3c599"
+    },
+    "data\\processed\\predictions.csv": {
+      "bytes": 11360206,
+      "sha256": "f10314353060b8b8eefeebb87cac19ed973d173d2a41aff99d28e5ab77733130"
+    },
+    "reports\\model_metrics.json": {
+      "bytes": 120963,
+      "sha256": "f35e3fd16a9341847f362fd1ab576c257f8976e8864356487ce9e0c1230eb54d"
+    }
+  },
+  "library_versions": {
+    "python": "3.13.16",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "PyYAML": "6.0.3",
+    "pyarrow": "25.0.1"
+  },
+  "reproduction_smoke": {
+    "usage": "demo_validation_reproduction",
+    "cases": [
+      {
+        "cve_id": "CVE-2010-10011",
+        "split": "validation",
+        "description": "A vulnerability, which was classified as problematic, was found in Acritum Femitter Server 1.04. Affected is an unknown function. The manipulation leads to path traversal. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. VDB-250446 is the identifier assigned to this vulnerability.",
+        "expected": {
+          "dummy": {
+            "pred_AV": "N",
+            "pred_AC": "L",
+            "pred_PR": "N",
+            "pred_UI": "N",
+            "pred_S": "U",
+            "pred_C": "H",
+            "pred_I": "H",
+            "pred_A": "H",
+            "predicted_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "predicted_base_score": 9.8,
+            "vector_valid": true,
+            "prediction_error": ""
+          },
+          "tfidf": {
+            "pred_AV": "N",
+            "pred_AC": "L",
+            "pred_PR": "L",
+            "pred_UI": "N",
+            "pred_S": "U",
+            "pred_C": "H",
+            "pred_I": "N",
+            "pred_A": "N",
+            "predicted_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "predicted_base_score": 6.5,
+            "vector_valid": true,
+            "prediction_error": ""
+          }
+        }
+      },
+      {
+        "cve_id": "CVE-2011-10005",
+        "split": "validation",
+        "description": "A vulnerability, which was classified as critical, was found in EasyFTP 1.7.0.2. Affected is an unknown function of the component MKD Command Handler. The manipulation leads to buffer overflow. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. The identifier of this vulnerability is VDB-250716.",
+        "expected": {
+          "dummy": {
+            "pred_AV": "N",
+            "pred_AC": "L",
+            "pred_PR": "N",
+            "pred_UI": "N",
+            "pred_S": "U",
+            "pred_C": "H",
+            "pred_I": "H",
+            "pred_A": "H",
+            "predicted_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "predicted_base_score": 9.8,
+            "vector_valid": true,
+            "prediction_error": ""
+          },
+          "tfidf": {
+            "pred_AV": "N",
+            "pred_AC": "L",
+            "pred_PR": "L",
+            "pred_UI": "N",
+            "pred_S": "U",
+            "pred_C": "H",
+            "pred_I": "H",
+            "pred_A": "H",
+            "predicted_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "predicted_base_score": 8.8,
+            "vector_valid": true,
+            "prediction_error": ""
+          }
+        }
+      },
+      {
+        "cve_id": "CVE-2011-10006",
+        "split": "validation",
+        "description": "A vulnerability was found in GamerZ WP-PostRatings up to 1.64. It has been classified as problematic. This affects an unknown part of the file wp-postratings.php. The manipulation leads to cross site scripting. It is possible to initiate the attack remotely. Upgrading to version 1.65 is able to address this issue. The identifier of the patch is 6182a5682b12369ced0becd3b505439ce2eb8132. It is recommended to upgrade the affected component. The identifier VDB-259629 was assigned to this vulnerability.",
+        "expected": {
+          "dummy": {
+            "pred_AV": "N",
+            "pred_AC": "L",
+            "pred_PR": "N",
+            "pred_UI": "N",
+            "pred_S": "U",
+            "pred_C": "H",
+            "pred_I": "H",
+            "pred_A": "H",
+            "predicted_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "predicted_base_score": 9.8,
+            "vector_valid": true,
+            "prediction_error": ""
+          },
+          "tfidf": {
+            "pred_AV": "N",
+            "pred_AC": "L",
+            "pred_PR": "N",
+            "pred_UI": "R",
+            "pred_S": "C",
+            "pred_C": "L",
+            "pred_I": "L",
+            "pred_A": "N",
+            "predicted_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "predicted_base_score": 6.1,
+            "vector_valid": true,
+            "prediction_error": ""
+          }
+        }
+      },
+      {
+        "cve_id": "CVE-2012-6664",
+        "split": "validation",
+        "description": "Multiple directory traversal vulnerabilities in the TFTP Server in Distinct Intranet Servers 3.10 and earlier allow remote attackers to read or write arbitrary files via a .. (dot dot) in the (1) get or (2) put commands.",
+        "expected": {
+          "dummy": {
+            "pred_AV": "N",
+            "pred_AC": "L",
+            "pred_PR": "N",
+            "pred_UI": "N",
+            "pred_S": "U",
+            "pred_C": "H",
+            "pred_I": "H",
+            "pred_A": "H",
+            "predicted_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "predicted_base_score": 9.8,
+            "vector_valid": true,
+            "prediction_error": ""
+          },
+          "tfidf": {
+            "pred_AV": "N",
+            "pred_AC": "L",
+            "pred_PR": "N",
+            "pred_UI": "N",
+            "pred_S": "U",
+            "pred_C": "H",
+            "pred_I": "N",
+            "pred_A": "N",
+            "predicted_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "predicted_base_score": 7.5,
+            "vector_valid": true,
+            "prediction_error": ""
+          }
+        }
+      },
+      {
+        "cve_id": "CVE-2014-125110",
+        "split": "validation",
+        "description": "A vulnerability has been found in wp-file-upload Plugin up to 2.4.3 on WordPress and classified as problematic. Affected by this vulnerability is the function wfu_ajax_action_callback of the file lib/wfu_ajaxactions.php. The manipulation leads to cross site scripting. The attack can be launched remotely. Upgrading to version 2.4.4 is able to address this issue. The identifier of the patch is c846327df030a0a97da036a2f07c769ab9284ddb. It is recommended to upgrade the affected component. The identifier VDB-258781 was assigned to this vulnerability.",
+        "expected": {
+          "dummy": {
+            "pred_AV": "N",
+            "pred_AC": "L",
+            "pred_PR": "N",
+            "pred_UI": "N",
+            "pred_S": "U",
+            "pred_C": "H",
+            "pred_I": "H",
+            "pred_A": "H",
+            "predicted_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "predicted_base_score": 9.8,
+            "vector_valid": true,
+            "prediction_error": ""
+          },
+          "tfidf": {
+            "pred_AV": "N",
+            "pred_AC": "L",
+            "pred_PR": "N",
+            "pred_UI": "R",
+            "pred_S": "C",
+            "pred_C": "L",
+            "pred_I": "L",
+            "pred_A": "N",
+            "predicted_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "predicted_base_score": 6.1,
+            "vector_valid": true,
+            "prediction_error": ""
+          }
+        }
+      }
+    ]
+  },
+  "n2_validation_review": "pending_independent_review",
+  "n1_second_machine_reproduction": "not_run",
+  "distilbert": {
+    "status": "not_run",
+    "reason": "D05 and backend/time budget not confirmed"
+  }
+}

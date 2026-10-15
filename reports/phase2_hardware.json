@@ -1,0 +1,74 @@
+{
+  "checked_on": "2026-10-15",
+  "timezone": "Asia/Saigon",
+  "probe_method": "Read-only Win32 CIM queries and importlib.metadata/find_spec in the existing project virtual environment; no package installation or model download",
+  "operating_system": {
+    "name": "Microsoft Windows 11 Home Single Language",
+    "version": "10.0.26200",
+    "architecture": "64-bit"
+  },
+  "cpu": {
+    "name": "AMD Ryzen 7 7730U with Radeon Graphics",
+    "physical_cores": 8,
+    "logical_processors": 16
+  },
+  "memory": {
+    "total_physical_bytes": 16539377664,
+    "total_physical_gib_rounded": 15.4,
+    "available_memory_bytes": null
+  },
+  "gpu": {
+    "name": "AMD Radeon (TM) Graphics",
+    "driver_version": "31.0.21925.1001",
+    "win32_reported_adapter_ram_bytes": 536870912,
+    "usable_training_vram_bytes": null,
+    "note": "The Win32 AdapterRAM field is a driver-reported value. It does not establish usable training memory or an operational PyTorch acceleration backend."
+  },
+  "python": {
+    "version": "3.13.16",
+    "implementation": "CPython",
+    "architecture": "64-bit AMD64",
+    "interpreter_relative_to_repository": ".venv/Scripts/python.exe"
+  },
+  "packages_at_probe": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "pyarrow": "25.0.1",
+    "PyYAML": "6.0.3",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0",
+    "torch": null,
+    "transformers": null,
+    "matplotlib": null,
+    "seaborn": null,
+    "jupyter": null,
+    "nbformat": null
+  },
+  "distilbert": {
+    "status": "not_run",
+    "decision_gate": "D05",
+    "gate_status": "pending",
+    "phase1_v1_release_verified": true,
+    "baseline_and_shared_evaluation_ready": true,
+    "torch_module_found": false,
+    "transformers_module_found": false,
+    "acceleration_backend_verified": false,
+    "training_device": null,
+    "machine_time_available_hours": null,
+    "estimated_training_hours": null,
+    "estimate_note": "No timed training smoke run was authorized or performed; no defensible machine-specific training estimate is available.",
+    "proposed_limits": {
+      "technical_work_hours": 4,
+      "total_training_hours": 6,
+      "max_runs_including_smoke": 2,
+      "max_epochs_per_run": 3
+    },
+    "pending_conditions": [
+      "N1 must record the D05 scope, training device and available machine budget.",
+      "After the gate decision, verify the chosen backend and estimate runtime from a bounded smoke run."
+    ],
+    "downloaded_checkpoint": false,
+    "installed_torch_or_transformers": false,
+    "training_runs": 0
+  }
+}

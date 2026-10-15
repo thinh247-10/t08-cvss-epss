@@ -1,0 +1,2016 @@
+{
+  "status": "locked",
+  "rule": {
+    "primary": "mean of eight validation macro-F1 values over all declared labels",
+    "tie_tolerance": 1e-06,
+    "tie_break": "shorter training_seconds, then declared candidate order",
+    "candidates": [
+      {
+        "C": 1.0
+      },
+      {
+        "C": 0.5
+      }
+    ],
+    "test_access": "only after artifact and configuration have been locked"
+  },
+  "chosen_candidate": 1,
+  "candidates": [
+    {
+      "candidate": 1,
+      "overrides": {
+        "C": 1.0
+      },
+      "validation_mean_macro_f1": 0.7504305488266946,
+      "training_seconds": 19.807126300001983,
+      "validation": {
+        "schema_version": "1.0",
+        "dataset_version": "t08-v1.0-20261010",
+        "model_version": "tfidf-v1-candidate-1",
+        "label_order": {
+          "AV": [
+            "N",
+            "A",
+            "L",
+            "P"
+          ],
+          "AC": [
+            "L",
+            "H"
+          ],
+          "PR": [
+            "N",
+            "L",
+            "H"
+          ],
+          "UI": [
+            "N",
+            "R"
+          ],
+          "S": [
+            "U",
+            "C"
+          ],
+          "C": [
+            "N",
+            "L",
+            "H"
+          ],
+          "I": [
+            "N",
+            "L",
+            "H"
+          ],
+          "A": [
+            "N",
+            "L",
+            "H"
+          ]
+        },
+        "split_version": "locked_dataset_split",
+        "scopes": {
+          "all_ml": {
+            "validation": {
+              "sample_count": 19606,
+              "valid_target_count": 19606,
+              "invalid_target_count": 0,
+              "invalid_targets": [],
+              "invalid_prediction_count": 0,
+              "invalid_predictions": [],
+              "per_metric": {
+                "AV": {
+                  "sample_count": 19606,
+                  "accuracy": 0.8900846679587882,
+                  "macro_f1": 0.7039578176945263,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.9203552499641885,
+                      "recall": 0.9389842893679211,
+                      "f1": 0.9295764459073318,
+                      "support": 13685
+                    },
+                    "A": {
+                      "precision": 0.6365159128978225,
+                      "recall": 0.547550432276657,
+                      "f1": 0.5886909372579395,
+                      "support": 694
+                    },
+                    "L": {
+                      "precision": 0.8511379946688538,
+                      "recall": 0.8145604395604396,
+                      "f1": 0.8324476085430663,
+                      "support": 5096
+                    },
+                    "P": {
+                      "precision": 0.4117647058823529,
+                      "recall": 0.5343511450381679,
+                      "f1": 0.46511627906976744,
+                      "support": 131
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "A",
+                    "L",
+                    "P"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      12850,
+                      141,
+                      662,
+                      32
+                    ],
+                    [
+                      267,
+                      380,
+                      40,
+                      7
+                    ],
+                    [
+                      811,
+                      73,
+                      4151,
+                      61
+                    ],
+                    [
+                      34,
+                      3,
+                      24,
+                      70
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "A": 0,
+                    "L": 0,
+                    "P": 0
+                  },
+                  "coverage": {
+                    "numerator": 19606,
+                    "denominator": 19606,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "AC": {
+                  "sample_count": 19606,
+                  "accuracy": 0.8956441905539121,
+                  "macro_f1": 0.6178560126084852,
+                  "per_class": {
+                    "L": {
+                      "precision": 0.9617283950617284,
+                      "recall": 0.9262782401902497,
+                      "f1": 0.9436705027256209,
+                      "support": 18502
+                    },
+                    "H": {
+                      "precision": 0.23628219484882418,
+                      "recall": 0.3822463768115942,
+                      "f1": 0.2920415224913495,
+                      "support": 1104
+                    }
+                  },
+                  "label_order": [
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      17138,
+                      1364
+                    ],
+                    [
+                      682,
+                      422
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 19606,
+                    "denominator": 19606,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "PR": {
+                  "sample_count": 19606,
+                  "accuracy": 0.7415077017239621,
+                  "macro_f1": 0.6728226841636925,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.7631301008161305,
+                      "recall": 0.8247379890007264,
+                      "f1": 0.7927388789148215,
+                      "support": 9637
+                    },
+                    "L": {
+                      "precision": 0.7626382306477093,
+                      "recall": 0.6913712853562478,
+                      "f1": 0.7252582159624414,
+                      "support": 8379
+                    },
+                    "H": {
+                      "precision": 0.49968652037617556,
+                      "recall": 0.5012578616352201,
+                      "f1": 0.5004709576138148,
+                      "support": 1590
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      7948,
+                      1381,
+                      308
+                    ],
+                    [
+                      2096,
+                      5793,
+                      490
+                    ],
+                    [
+                      371,
+                      422,
+                      797
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 19606,
+                    "denominator": 19606,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "UI": {
+                  "sample_count": 19606,
+                  "accuracy": 0.9317555850249923,
+                  "macro_f1": 0.9207369576889396,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.9471228615863142,
+                      "recall": 0.9534779691344218,
+                      "f1": 0.9502897904592065,
+                      "support": 13413
+                    },
+                    "R": {
+                      "precision": 0.8977552023594954,
+                      "recall": 0.8847085419021475,
+                      "f1": 0.8911841249186727,
+                      "support": 6193
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "R"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      12789,
+                      624
+                    ],
+                    [
+                      714,
+                      5479
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "R": 0
+                  },
+                  "coverage": {
+                    "numerator": 19606,
+                    "denominator": 19606,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "S": {
+                  "sample_count": 19606,
+                  "accuracy": 0.9404264000816077,
+                  "macro_f1": 0.9117362726166713,
+                  "per_class": {
+                    "U": {
+                      "precision": 0.9468030690537085,
+                      "recall": 0.9778129952456418,
+                      "f1": 0.9620582120582122,
+                      "support": 15144
+                    },
+                    "C": {
+                      "precision": 0.9152798789712556,
+                      "recall": 0.8135365307037203,
+                      "f1": 0.8614143331751306,
+                      "support": 4462
+                    }
+                  },
+                  "label_order": [
+                    "U",
+                    "C"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      14808,
+                      336
+                    ],
+                    [
+                      832,
+                      3630
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "U": 0,
+                    "C": 0
+                  },
+                  "coverage": {
+                    "numerator": 19606,
+                    "denominator": 19606,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "C": {
+                  "sample_count": 19606,
+                  "accuracy": 0.7919514434356829,
+                  "macro_f1": 0.7848408357248736,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.704336147352264,
+                      "recall": 0.753953583898131,
+                      "f1": 0.7283007638131138,
+                      "support": 4869
+                    },
+                    "L": {
+                      "precision": 0.8698467515648608,
+                      "recall": 0.7585168454733672,
+                      "f1": 0.8103760305650513,
+                      "support": 5313
+                    },
+                    "H": {
+                      "precision": 0.801762114537445,
+                      "recall": 0.8304329371816639,
+                      "f1": 0.8158457127964556,
+                      "support": 9424
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      3671,
+                      204,
+                      994
+                    ],
+                    [
+                      342,
+                      4030,
+                      941
+                    ],
+                    [
+                      1199,
+                      399,
+                      7826
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 19606,
+                    "denominator": 19606,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "I": {
+                  "sample_count": 19606,
+                  "accuracy": 0.8051616851984087,
+                  "macro_f1": 0.8062192753289356,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.756932868616457,
+                      "recall": 0.840201850294365,
+                      "f1": 0.7963966836734694,
+                      "support": 5945
+                    },
+                    "L": {
+                      "precision": 0.9088974031502767,
+                      "recall": 0.7462425725270885,
+                      "f1": 0.8195777351247601,
+                      "support": 5722
+                    },
+                    "H": {
+                      "precision": 0.7848116500180528,
+                      "recall": 0.8213880841415795,
+                      "f1": 0.8026834071885771,
+                      "support": 7939
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      4995,
+                      148,
+                      802
+                    ],
+                    [
+                      466,
+                      4270,
+                      986
+                    ],
+                    [
+                      1138,
+                      280,
+                      6521
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 19606,
+                    "denominator": 19606,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "A": {
+                  "sample_count": 19606,
+                  "accuracy": 0.7959808221972865,
+                  "macro_f1": 0.5852745347874322,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.7737159776790798,
+                      "recall": 0.8568545844368772,
+                      "f1": 0.8131657690005984,
+                      "support": 7929
+                    },
+                    "L": {
+                      "precision": 0.18775510204081633,
+                      "recall": 0.0610079575596817,
+                      "f1": 0.0920920920920921,
+                      "support": 1508
+                    },
+                    "H": {
+                      "precision": 0.8437348814707305,
+                      "recall": 0.8575081128921231,
+                      "f1": 0.850565743269606,
+                      "support": 10169
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      6794,
+                      112,
+                      1023
+                    ],
+                    [
+                      824,
+                      92,
+                      592
+                    ],
+                    [
+                      1163,
+                      286,
+                      8720
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 19606,
+                    "denominator": 19606,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                }
+              },
+              "mean_macro_f1": 0.7504305488266946,
+              "exact_vector_accuracy": 0.38370906865245336,
+              "exact_vector_correct_count": 7523,
+              "exact_vector_denominator": 19606,
+              "base_score_mae": 1.1188054677139652,
+              "base_score_rmse": 1.8373269095063636,
+              "score_coverage": {
+                "numerator": 19606,
+                "denominator": 19606,
+                "fraction": 1.0
+              }
+            },
+            "test": null
+          },
+          "in_scope": {
+            "validation": {
+              "sample_count": 69,
+              "valid_target_count": 69,
+              "invalid_target_count": 0,
+              "invalid_targets": [],
+              "invalid_prediction_count": 0,
+              "invalid_predictions": [],
+              "per_metric": {
+                "AV": {
+                  "sample_count": 69,
+                  "accuracy": 1.0,
+                  "macro_f1": 0.5,
+                  "per_class": {
+                    "N": {
+                      "precision": 1.0,
+                      "recall": 1.0,
+                      "f1": 1.0,
+                      "support": 68
+                    },
+                    "A": {
+                      "precision": 0.0,
+                      "recall": 0.0,
+                      "f1": 0.0,
+                      "support": 0
+                    },
+                    "L": {
+                      "precision": 1.0,
+                      "recall": 1.0,
+                      "f1": 1.0,
+                      "support": 1
+                    },
+                    "P": {
+                      "precision": 0.0,
+                      "recall": 0.0,
+                      "f1": 0.0,
+                      "support": 0
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "A",
+                    "L",
+                    "P"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      68,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      1,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "A": 0,
+                    "L": 0,
+                    "P": 0
+                  },
+                  "coverage": {
+                    "numerator": 69,
+                    "denominator": 69,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "AC": {
+                  "sample_count": 69,
+                  "accuracy": 0.9130434782608695,
+                  "macro_f1": 0.6019230769230769,
+                  "per_class": {
+                    "L": {
+                      "precision": 0.9841269841269841,
+                      "recall": 0.9253731343283582,
+                      "f1": 0.9538461538461538,
+                      "support": 67
+                    },
+                    "H": {
+                      "precision": 0.16666666666666666,
+                      "recall": 0.5,
+                      "f1": 0.25,
+                      "support": 2
+                    }
+                  },
+                  "label_order": [
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      62,
+                      5
+                    ],
+                    [
+                      1,
+                      1
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 69,
+                    "denominator": 69,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "PR": {
+                  "sample_count": 69,
+                  "accuracy": 0.6811594202898551,
+                  "macro_f1": 0.45326797385620915,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.868421052631579,
+                      "recall": 0.7021276595744681,
+                      "f1": 0.7764705882352942,
+                      "support": 47
+                    },
+                    "L": {
+                      "precision": 0.4666666666666667,
+                      "recall": 0.7777777777777778,
+                      "f1": 0.5833333333333334,
+                      "support": 18
+                    },
+                    "H": {
+                      "precision": 0.0,
+                      "recall": 0.0,
+                      "f1": 0.0,
+                      "support": 4
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      33,
+                      13,
+                      1
+                    ],
+                    [
+                      4,
+                      14,
+                      0
+                    ],
+                    [
+                      1,
+                      3,
+                      0
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 69,
+                    "denominator": 69,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "UI": {
+                  "sample_count": 69,
+                  "accuracy": 0.7971014492753623,
+                  "macro_f1": 0.7839892665474061,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.8,
+                      "recall": 0.8780487804878049,
+                      "f1": 0.8372093023255814,
+                      "support": 41
+                    },
+                    "R": {
+                      "precision": 0.7916666666666666,
+                      "recall": 0.6785714285714286,
+                      "f1": 0.7307692307692307,
+                      "support": 28
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "R"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      36,
+                      5
+                    ],
+                    [
+                      9,
+                      19
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "R": 0
+                  },
+                  "coverage": {
+                    "numerator": 69,
+                    "denominator": 69,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "S": {
+                  "sample_count": 69,
+                  "accuracy": 0.8405797101449275,
+                  "macro_f1": 0.7598861119898767,
+                  "per_class": {
+                    "U": {
+                      "precision": 0.9245283018867925,
+                      "recall": 0.875,
+                      "f1": 0.8990825688073395,
+                      "support": 56
+                    },
+                    "C": {
+                      "precision": 0.5625,
+                      "recall": 0.6923076923076923,
+                      "f1": 0.6206896551724138,
+                      "support": 13
+                    }
+                  },
+                  "label_order": [
+                    "U",
+                    "C"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      49,
+                      7
+                    ],
+                    [
+                      4,
+                      9
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "U": 0,
+                    "C": 0
+                  },
+                  "coverage": {
+                    "numerator": 69,
+                    "denominator": 69,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "C": {
+                  "sample_count": 69,
+                  "accuracy": 0.6521739130434783,
+                  "macro_f1": 0.6289798570500325,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.6428571428571429,
+                      "recall": 0.6923076923076923,
+                      "f1": 0.6666666666666666,
+                      "support": 26
+                    },
+                    "L": {
+                      "precision": 0.6666666666666666,
+                      "recall": 0.7407407407407407,
+                      "f1": 0.7017543859649122,
+                      "support": 27
+                    },
+                    "H": {
+                      "precision": 0.6363636363636364,
+                      "recall": 0.4375,
+                      "f1": 0.5185185185185185,
+                      "support": 16
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      18,
+                      7,
+                      1
+                    ],
+                    [
+                      4,
+                      20,
+                      3
+                    ],
+                    [
+                      6,
+                      3,
+                      7
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 69,
+                    "denominator": 69,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "I": {
+                  "sample_count": 69,
+                  "accuracy": 0.7101449275362319,
+                  "macro_f1": 0.6838095238095239,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.75,
+                      "recall": 0.8571428571428571,
+                      "f1": 0.7999999999999999,
+                      "support": 28
+                    },
+                    "L": {
+                      "precision": 0.7083333333333334,
+                      "recall": 0.6538461538461539,
+                      "f1": 0.68,
+                      "support": 26
+                    },
+                    "H": {
+                      "precision": 0.6153846153846154,
+                      "recall": 0.5333333333333333,
+                      "f1": 0.5714285714285715,
+                      "support": 15
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      24,
+                      4,
+                      0
+                    ],
+                    [
+                      4,
+                      17,
+                      5
+                    ],
+                    [
+                      4,
+                      3,
+                      8
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 69,
+                    "denominator": 69,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "A": {
+                  "sample_count": 69,
+                  "accuracy": 0.6521739130434783,
+                  "macro_f1": 0.5209523074548542,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.6730769230769231,
+                      "recall": 0.9722222222222222,
+                      "f1": 0.7954545454545455,
+                      "support": 36
+                    },
+                    "L": {
+                      "precision": 0.42857142857142855,
+                      "recall": 0.25,
+                      "f1": 0.3157894736842105,
+                      "support": 12
+                    },
+                    "H": {
+                      "precision": 0.7,
+                      "recall": 0.3333333333333333,
+                      "f1": 0.45161290322580644,
+                      "support": 21
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      35,
+                      0,
+                      1
+                    ],
+                    [
+                      7,
+                      3,
+                      2
+                    ],
+                    [
+                      10,
+                      4,
+                      7
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 69,
+                    "denominator": 69,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                }
+              },
+              "mean_macro_f1": 0.6166010147038724,
+              "exact_vector_accuracy": 0.2318840579710145,
+              "exact_vector_correct_count": 16,
+              "exact_vector_denominator": 69,
+              "base_score_mae": 1.6391304347826088,
+              "base_score_rmse": 2.474419855883073,
+              "score_coverage": {
+                "numerator": 69,
+                "denominator": 69,
+                "fraction": 1.0
+              }
+            },
+            "test": null
+          }
+        },
+        "metric_policy": {
+          "macro_f1": "all_declared_labels_zero_division_0",
+          "invalid_predictions": "retained_and_counted_once_per_row",
+          "invalid_targets": "reported_separately_and_excluded_from_metric_denominators",
+          "score_source": "src.environmental.cvss_base.calculate_base_score"
+        }
+      }
+    },
+    {
+      "candidate": 2,
+      "overrides": {
+        "C": 0.5
+      },
+      "validation_mean_macro_f1": 0.7449259908422061,
+      "training_seconds": 15.921589599998697,
+      "validation": {
+        "schema_version": "1.0",
+        "dataset_version": "t08-v1.0-20261010",
+        "model_version": "tfidf-v1-candidate-2",
+        "label_order": {
+          "AV": [
+            "N",
+            "A",
+            "L",
+            "P"
+          ],
+          "AC": [
+            "L",
+            "H"
+          ],
+          "PR": [
+            "N",
+            "L",
+            "H"
+          ],
+          "UI": [
+            "N",
+            "R"
+          ],
+          "S": [
+            "U",
+            "C"
+          ],
+          "C": [
+            "N",
+            "L",
+            "H"
+          ],
+          "I": [
+            "N",
+            "L",
+            "H"
+          ],
+          "A": [
+            "N",
+            "L",
+            "H"
+          ]
+        },
+        "split_version": "locked_dataset_split",
+        "scopes": {
+          "all_ml": {
+            "validation": {
+              "sample_count": 19606,
+              "valid_target_count": 19606,
+              "invalid_target_count": 0,
+              "invalid_targets": [],
+              "invalid_prediction_count": 0,
+              "invalid_predictions": [],
+              "per_metric": {
+                "AV": {
+                  "sample_count": 19606,
+                  "accuracy": 0.8803937570131593,
+                  "macro_f1": 0.6833709556523123,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.9176690916948786,
+                      "recall": 0.9309462915601023,
+                      "f1": 0.924260011607661,
+                      "support": 13685
+                    },
+                    "A": {
+                      "precision": 0.5661971830985916,
+                      "recall": 0.579250720461095,
+                      "f1": 0.5726495726495727,
+                      "support": 694
+                    },
+                    "L": {
+                      "precision": 0.8424557752341311,
+                      "recall": 0.7943485086342229,
+                      "f1": 0.8176951823048177,
+                      "support": 5096
+                    },
+                    "P": {
+                      "precision": 0.34134615384615385,
+                      "recall": 0.5419847328244275,
+                      "f1": 0.41887905604719766,
+                      "support": 131
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "A",
+                    "L",
+                    "P"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      12740,
+                      197,
+                      707,
+                      41
+                    ],
+                    [
+                      248,
+                      402,
+                      37,
+                      7
+                    ],
+                    [
+                      863,
+                      96,
+                      4048,
+                      89
+                    ],
+                    [
+                      32,
+                      15,
+                      13,
+                      71
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "A": 0,
+                    "L": 0,
+                    "P": 0
+                  },
+                  "coverage": {
+                    "numerator": 19606,
+                    "denominator": 19606,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "AC": {
+                  "sample_count": 19606,
+                  "accuracy": 0.8747322248291339,
+                  "macro_f1": 0.5994072679886112,
+                  "per_class": {
+                    "L": {
+                      "precision": 0.9622076276068672,
+                      "recall": 0.9027132201924116,
+                      "f1": 0.9315114333519241,
+                      "support": 18502
+                    },
+                    "H": {
+                      "precision": 0.199288256227758,
+                      "recall": 0.4057971014492754,
+                      "f1": 0.26730310262529833,
+                      "support": 1104
+                    }
+                  },
+                  "label_order": [
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      16702,
+                      1800
+                    ],
+                    [
+                      656,
+                      448
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 19606,
+                    "denominator": 19606,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "PR": {
+                  "sample_count": 19606,
+                  "accuracy": 0.7401815770682444,
+                  "macro_f1": 0.6726310882841727,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.7601031814273431,
+                      "recall": 0.8255681228598112,
+                      "f1": 0.7914842817349782,
+                      "support": 9637
+                    },
+                    "L": {
+                      "precision": 0.7665198237885462,
+                      "recall": 0.6852846401718582,
+                      "f1": 0.7236294896030245,
+                      "support": 8379
+                    },
+                    "H": {
+                      "precision": 0.49393203883495146,
+                      "recall": 0.5119496855345912,
+                      "f1": 0.5027794935145152,
+                      "support": 1590
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      7956,
+                      1357,
+                      324
+                    ],
+                    [
+                      2127,
+                      5742,
+                      510
+                    ],
+                    [
+                      384,
+                      392,
+                      814
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 19606,
+                    "denominator": 19606,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "UI": {
+                  "sample_count": 19606,
+                  "accuracy": 0.9306334795470774,
+                  "macro_f1": 0.9190955701206658,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.9432227697286166,
+                      "recall": 0.9561619324535898,
+                      "f1": 0.9496482784154016,
+                      "support": 13413
+                    },
+                    "R": {
+                      "precision": 0.9021467798302546,
+                      "recall": 0.8753431293395769,
+                      "f1": 0.8885428618259301,
+                      "support": 6193
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "R"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      12825,
+                      588
+                    ],
+                    [
+                      772,
+                      5421
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "R": 0
+                  },
+                  "coverage": {
+                    "numerator": 19606,
+                    "denominator": 19606,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "S": {
+                  "sample_count": 19606,
+                  "accuracy": 0.940528409670509,
+                  "macro_f1": 0.9114590943934541,
+                  "per_class": {
+                    "U": {
+                      "precision": 0.9452726809378186,
+                      "recall": 0.9797279450607501,
+                      "f1": 0.9621919584954605,
+                      "support": 15144
+                    },
+                    "C": {
+                      "precision": 0.9214833759590793,
+                      "recall": 0.8074854325414612,
+                      "f1": 0.8607262302914477,
+                      "support": 4462
+                    }
+                  },
+                  "label_order": [
+                    "U",
+                    "C"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      14837,
+                      307
+                    ],
+                    [
+                      859,
+                      3603
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "U": 0,
+                    "C": 0
+                  },
+                  "coverage": {
+                    "numerator": 19606,
+                    "denominator": 19606,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "C": {
+                  "sample_count": 19606,
+                  "accuracy": 0.788942160563093,
+                  "macro_f1": 0.7818549890297716,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.6867403314917127,
+                      "recall": 0.7658656808379544,
+                      "f1": 0.724147975531605,
+                      "support": 4869
+                    },
+                    "L": {
+                      "precision": 0.8725361366622865,
+                      "recall": 0.7498588368153586,
+                      "f1": 0.8065593683571212,
+                      "support": 5313
+                    },
+                    "H": {
+                      "precision": 0.8069719042663892,
+                      "recall": 0.8228989813242784,
+                      "f1": 0.8148576232005884,
+                      "support": 9424
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      3729,
+                      205,
+                      935
+                    ],
+                    [
+                      409,
+                      3984,
+                      920
+                    ],
+                    [
+                      1292,
+                      377,
+                      7755
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 19606,
+                    "denominator": 19606,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "I": {
+                  "sample_count": 19606,
+                  "accuracy": 0.8032745078037336,
+                  "macro_f1": 0.8043887836110692,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.7467494089834515,
+                      "recall": 0.8501261564339782,
+                      "f1": 0.7950916384802958,
+                      "support": 5945
+                    },
+                    "L": {
+                      "precision": 0.9055201698513801,
+                      "recall": 0.7453687521845509,
+                      "f1": 0.8176763803680983,
+                      "support": 5722
+                    },
+                    "H": {
+                      "precision": 0.7910925196850394,
+                      "recall": 0.8099256833354327,
+                      "f1": 0.8003983319848137,
+                      "support": 7939
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      5054,
+                      152,
+                      739
+                    ],
+                    [
+                      498,
+                      4265,
+                      959
+                    ],
+                    [
+                      1216,
+                      293,
+                      6430
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 19606,
+                    "denominator": 19606,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "A": {
+                  "sample_count": 19606,
+                  "accuracy": 0.7921554626134857,
+                  "macro_f1": 0.5872001776575924,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.7768878718535469,
+                      "recall": 0.8563501072014126,
+                      "f1": 0.8146859439678444,
+                      "support": 7929
+                    },
+                    "L": {
+                      "precision": 0.15517241379310345,
+                      "recall": 0.07161803713527852,
+                      "f1": 0.09800362976406536,
+                      "support": 1508
+                    },
+                    "H": {
+                      "precision": 0.8488692232055064,
+                      "recall": 0.84895269938047,
+                      "f1": 0.8489109592408673,
+                      "support": 10169
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      6790,
+                      169,
+                      970
+                    ],
+                    [
+                      833,
+                      108,
+                      567
+                    ],
+                    [
+                      1117,
+                      419,
+                      8633
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 19606,
+                    "denominator": 19606,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                }
+              },
+              "mean_macro_f1": 0.7449259908422061,
+              "exact_vector_accuracy": 0.36983576456186884,
+              "exact_vector_correct_count": 7251,
+              "exact_vector_denominator": 19606,
+              "base_score_mae": 1.1491431194532284,
+              "base_score_rmse": 1.876251800840467,
+              "score_coverage": {
+                "numerator": 19606,
+                "denominator": 19606,
+                "fraction": 1.0
+              }
+            },
+            "test": null
+          },
+          "in_scope": {
+            "validation": {
+              "sample_count": 69,
+              "valid_target_count": 69,
+              "invalid_target_count": 0,
+              "invalid_targets": [],
+              "invalid_prediction_count": 0,
+              "invalid_predictions": [],
+              "per_metric": {
+                "AV": {
+                  "sample_count": 69,
+                  "accuracy": 1.0,
+                  "macro_f1": 0.5,
+                  "per_class": {
+                    "N": {
+                      "precision": 1.0,
+                      "recall": 1.0,
+                      "f1": 1.0,
+                      "support": 68
+                    },
+                    "A": {
+                      "precision": 0.0,
+                      "recall": 0.0,
+                      "f1": 0.0,
+                      "support": 0
+                    },
+                    "L": {
+                      "precision": 1.0,
+                      "recall": 1.0,
+                      "f1": 1.0,
+                      "support": 1
+                    },
+                    "P": {
+                      "precision": 0.0,
+                      "recall": 0.0,
+                      "f1": 0.0,
+                      "support": 0
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "A",
+                    "L",
+                    "P"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      68,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      1,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "A": 0,
+                    "L": 0,
+                    "P": 0
+                  },
+                  "coverage": {
+                    "numerator": 69,
+                    "denominator": 69,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "AC": {
+                  "sample_count": 69,
+                  "accuracy": 0.8985507246376812,
+                  "macro_f1": 0.5839793281653747,
+                  "per_class": {
+                    "L": {
+                      "precision": 0.9838709677419355,
+                      "recall": 0.9104477611940298,
+                      "f1": 0.9457364341085271,
+                      "support": 67
+                    },
+                    "H": {
+                      "precision": 0.14285714285714285,
+                      "recall": 0.5,
+                      "f1": 0.22222222222222224,
+                      "support": 2
+                    }
+                  },
+                  "label_order": [
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      61,
+                      6
+                    ],
+                    [
+                      1,
+                      1
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 69,
+                    "denominator": 69,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "PR": {
+                  "sample_count": 69,
+                  "accuracy": 0.7246376811594203,
+                  "macro_f1": 0.4840837869041728,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.8974358974358975,
+                      "recall": 0.7446808510638298,
+                      "f1": 0.813953488372093,
+                      "support": 47
+                    },
+                    "L": {
+                      "precision": 0.5172413793103449,
+                      "recall": 0.8333333333333334,
+                      "f1": 0.6382978723404256,
+                      "support": 18
+                    },
+                    "H": {
+                      "precision": 0.0,
+                      "recall": 0.0,
+                      "f1": 0.0,
+                      "support": 4
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      35,
+                      11,
+                      1
+                    ],
+                    [
+                      3,
+                      15,
+                      0
+                    ],
+                    [
+                      1,
+                      3,
+                      0
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 69,
+                    "denominator": 69,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "UI": {
+                  "sample_count": 69,
+                  "accuracy": 0.782608695652174,
+                  "macro_f1": 0.7626691125888558,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.7708333333333334,
+                      "recall": 0.9024390243902439,
+                      "f1": 0.8314606741573034,
+                      "support": 41
+                    },
+                    "R": {
+                      "precision": 0.8095238095238095,
+                      "recall": 0.6071428571428571,
+                      "f1": 0.6938775510204083,
+                      "support": 28
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "R"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      37,
+                      4
+                    ],
+                    [
+                      11,
+                      17
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "R": 0
+                  },
+                  "coverage": {
+                    "numerator": 69,
+                    "denominator": 69,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "S": {
+                  "sample_count": 69,
+                  "accuracy": 0.8405797101449275,
+                  "macro_f1": 0.7598861119898767,
+                  "per_class": {
+                    "U": {
+                      "precision": 0.9245283018867925,
+                      "recall": 0.875,
+                      "f1": 0.8990825688073395,
+                      "support": 56
+                    },
+                    "C": {
+                      "precision": 0.5625,
+                      "recall": 0.6923076923076923,
+                      "f1": 0.6206896551724138,
+                      "support": 13
+                    }
+                  },
+                  "label_order": [
+                    "U",
+                    "C"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      49,
+                      7
+                    ],
+                    [
+                      4,
+                      9
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "U": 0,
+                    "C": 0
+                  },
+                  "coverage": {
+                    "numerator": 69,
+                    "denominator": 69,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "C": {
+                  "sample_count": 69,
+                  "accuracy": 0.5652173913043478,
+                  "macro_f1": 0.5427689594356261,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.5666666666666667,
+                      "recall": 0.6538461538461539,
+                      "f1": 0.6071428571428571,
+                      "support": 26
+                    },
+                    "L": {
+                      "precision": 0.5925925925925926,
+                      "recall": 0.5925925925925926,
+                      "f1": 0.5925925925925926,
+                      "support": 27
+                    },
+                    "H": {
+                      "precision": 0.5,
+                      "recall": 0.375,
+                      "f1": 0.42857142857142855,
+                      "support": 16
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      17,
+                      8,
+                      1
+                    ],
+                    [
+                      6,
+                      16,
+                      5
+                    ],
+                    [
+                      7,
+                      3,
+                      6
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 69,
+                    "denominator": 69,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "I": {
+                  "sample_count": 69,
+                  "accuracy": 0.7101449275362319,
+                  "macro_f1": 0.6864926128314107,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.7272727272727273,
+                      "recall": 0.8571428571428571,
+                      "f1": 0.7868852459016394,
+                      "support": 28
+                    },
+                    "L": {
+                      "precision": 0.7083333333333334,
+                      "recall": 0.6538461538461539,
+                      "f1": 0.68,
+                      "support": 26
+                    },
+                    "H": {
+                      "precision": 0.6666666666666666,
+                      "recall": 0.5333333333333333,
+                      "f1": 0.5925925925925926,
+                      "support": 15
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      24,
+                      4,
+                      0
+                    ],
+                    [
+                      5,
+                      17,
+                      4
+                    ],
+                    [
+                      4,
+                      3,
+                      8
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 69,
+                    "denominator": 69,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                },
+                "A": {
+                  "sample_count": 69,
+                  "accuracy": 0.6231884057971014,
+                  "macro_f1": 0.5106513008555963,
+                  "per_class": {
+                    "N": {
+                      "precision": 0.6808510638297872,
+                      "recall": 0.8888888888888888,
+                      "f1": 0.7710843373493975,
+                      "support": 36
+                    },
+                    "L": {
+                      "precision": 0.2727272727272727,
+                      "recall": 0.25,
+                      "f1": 0.2608695652173913,
+                      "support": 12
+                    },
+                    "H": {
+                      "precision": 0.7272727272727273,
+                      "recall": 0.38095238095238093,
+                      "f1": 0.5,
+                      "support": 21
+                    }
+                  },
+                  "label_order": [
+                    "N",
+                    "L",
+                    "H"
+                  ],
+                  "confusion_matrix": [
+                    [
+                      32,
+                      3,
+                      1
+                    ],
+                    [
+                      7,
+                      3,
+                      2
+                    ],
+                    [
+                      8,
+                      5,
+                      8
+                    ]
+                  ],
+                  "confusion_matrix_orientation": "rows=true, columns=predicted",
+                  "invalid_predictions_by_true_label": {
+                    "N": 0,
+                    "L": 0,
+                    "H": 0
+                  },
+                  "coverage": {
+                    "numerator": 69,
+                    "denominator": 69,
+                    "fraction": 1.0
+                  },
+                  "status": "complete"
+                }
+              },
+              "mean_macro_f1": 0.6038164015963642,
+              "exact_vector_accuracy": 0.21739130434782608,
+              "exact_vector_correct_count": 15,
+              "exact_vector_denominator": 69,
+              "base_score_mae": 1.5623188405797106,
+              "base_score_rmse": 2.5201219202160883,
+              "score_coverage": {
+                "numerator": 69,
+                "denominator": 69,
+                "fraction": 1.0
+              }
+            },
+            "test": null
+          }
+        },
+        "metric_policy": {
+          "macro_f1": "all_declared_labels_zero_division_0",
+          "invalid_predictions": "retained_and_counted_once_per_row",
+          "invalid_targets": "reported_separately_and_excluded_from_metric_denominators",
+          "score_source": "src.environmental.cvss_base.calculate_base_score"
+        }
+      }
+    }
+  ]
+}
