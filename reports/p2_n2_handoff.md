@@ -28,8 +28,9 @@ nhóm. Chưa có bằng chứng N1 đã nhận; không đánh dấu thay ngườ
 
 ## Tích hợp còn lại
 
-- PR #6 hiện chọn nhầm base `main`; cần đổi sang `develop` trong phần Edit của PR.
-  Connector cập nhật PR trả 403. Chưa merge PR.
+- PR #6 đã đổi base từ `main` sang `develop` ngày 2026-10-15;
+  đã kiểm tra GitHub: open, không phải draft, mergeable, 8 file thay đổi.
+  N1 kiểm tích hợp và merge khi sẵn sàng; N2 không tự merge thay N1.
 - N1 tiếp nhận ranking và bảo trì module ranking ở Phase 3.
 - N3 lấy `reports/p2_validation_security_review.md` để tổng hợp model card.
 - Xác nhận tiếp nhận của N1/N3, reproduction model trên máy khác và quyết định

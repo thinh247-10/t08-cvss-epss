@@ -78,4 +78,5 @@ sai khác; chưa kiểm chứng lại advisory riêng từng CVE hoặc attribut
 - [x] Nhận artifact lỗi validation đã push từ N3.
 - [x] Kiểm dataset/model version, split, nhãn nguồn, vector và score.
 - [x] Review 13 lỗi khác nhau và nêu coverage/giới hạn.
-- [ ] Đưa báo cáo N2 lên PR và bàn giao để N3 tổng hợp model card.
+- [x] Báo cáo N2 đã có trên PR #6, base `develop`, để N3 tổng hợp model card.
+- [ ] N3 xác nhận tiếp nhận/tổng hợp; chưa có bằng chứng xác nhận.
