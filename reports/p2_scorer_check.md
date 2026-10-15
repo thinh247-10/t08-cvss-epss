@@ -94,7 +94,8 @@ Scorer không suy ra khả năng khai thác hoặc ưu tiên vá.
 - [x] Bước C: khung năm case từ mapping v1 trong `docs/analysis-results.md`.
 - [x] Đọc 13 lỗi validation từ commit N3 `a5c0c16` ngày 2026-10-15; xem `reports/p2_validation_security_review.md`.
 - [x] Commit/push phần kỹ thuật Phase 2: `8c07f6a` trên `feat/p2-cvss-scorer`.
-- [ ] Tạo PR base `develop`, compare `feat/p2-cvss-scorer` (chưa tạo; integration trả 403).
+- [x] Người dùng đã tạo PR #6: https://github.com/thinh247-10/t08-cvss-epss/pull/6.
+- [ ] Sửa base PR #6 từ `main` sang `develop`; kiểm ngày 2026-10-15 thấy base `main`, connector chỉnh sửa trả 403.
 - [ ] Gửi riêng `data/processed/rankings.csv` cùng checksum/version cho N1.
 - [ ] N1/N3 tiếp nhận báo cáo review để tích hợp; chưa có xác nhận tiếp nhận.
 
