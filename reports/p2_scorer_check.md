@@ -93,7 +93,10 @@ Scorer không suy ra khả năng khai thác hoặc ưu tiên vá.
 - [x] Bước B: ranking sơ bộ và test; xem `reports/p2_ranking_smoke.md`.
 - [x] Bước C: khung năm case từ mapping v1 trong `docs/analysis-results.md`.
 - [x] Đọc 13 lỗi validation từ commit N3 `a5c0c16` ngày 2026-10-15; xem `reports/p2_validation_security_review.md`.
-- [ ] Commit/push/PR và bàn giao artifact Phase 2.
+- [x] Commit/push phần kỹ thuật Phase 2: `8c07f6a` trên `feat/p2-cvss-scorer`.
+- [ ] Tạo PR base `develop`, compare `feat/p2-cvss-scorer` (chưa tạo; integration trả 403).
+- [ ] Gửi riêng `data/processed/rankings.csv` cùng checksum/version cho N1.
+- [ ] N1/N3 tiếp nhận báo cáo review để tích hợp; chưa có xác nhận tiếp nhận.
 
 Environmental và policy ưu tiên thuộc Phase 3. Kết quả kiểm chứng này không thay
 thế việc xác minh nhãn nguồn hay chứng minh hiệu quả mô hình NLP.
