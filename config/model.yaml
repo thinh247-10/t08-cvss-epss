@@ -1,17 +1,22 @@
-# Phase 0 design; hyperparameters have not been selected by experiments.
-# The Phase 2 trainers must implement and validate this configuration.
+# Phase 2 experiment declaration. Selection results live in reports/model_selection.json.
+# Keep this file fixed between validation selection and final test evaluation.
 schema_version: "0.1"
-status: "phase1_data_ready_models_not_trained"
+status: "phase2_experiment_declared"
 # Keep this value aligned with project.seed in config/project.yaml.
 seed: 42
 
 parameter_selection:
   # All declared model hyperparameters are proposals, not measured optima.
-  configured_values: "initial_design"
-  status: "not_run"
+  configured_values: "predeclared_candidates"
+  status: "see_reports_model_selection"
   selection_split: "validation"
   # Populate only after a documented validation experiment in Phase 2.
   empirically_selected_parameters: null
+  candidates: [{C: 1.0}, {C: 0.5}]
+  criterion: "mean_eight_validation_macro_f1_all_declared_labels"
+  tie_tolerance: 0.000001
+  tie_break: "shorter_training_seconds_then_candidate_order"
+  results: "reports/model_selection.json"
 
 data:
   project_config: "config/phase1.yaml"
@@ -64,8 +69,10 @@ baseline:
   max_features: 50000
   classifier: "logistic_regression"
   class_weight: "balanced"
+  C: 1.0
   max_iter: 1000
   single_class_fallback: "dummy"
+  preprocessing: "mask_explicit_cvss_v1"
 
 distilbert:
   # Identifier for a future Phase 2 run; Phase 0 does not download weights.
@@ -80,6 +87,9 @@ distilbert:
   # The 6 hours cover all training runs in total, not 6 hours per run.
   scope_decision: "timeboxed_extension"
   training_time_budget_hours: 6
+  execution_status: "not_run"
+  gate_status: "D05_pending_backend_and_time_budget_unconfirmed"
+  hardware_evidence: "reports/phase2_hardware.json"
 
 evaluation:
   per_metric: ["accuracy", "macro_f1", "per_class_f1", "support"]

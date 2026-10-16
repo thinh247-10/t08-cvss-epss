@@ -1,0 +1,10 @@
+# Baseline dependencies verified on Python 3.13.16, Windows AMD64.
+# Install alongside requirements-data.txt; no Torch/Transformers are needed.
+# Versions reflect the environment used for Phase 2 unit and smoke checks.
+scikit-learn==1.9.1
+joblib==1.6.0
+numpy==2.5.3
+scipy==1.18.1
+pandas==3.0.6
+PyYAML==6.0.3
+pyarrow==25.0.1

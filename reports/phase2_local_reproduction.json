@@ -1,0 +1,38 @@
+{
+  "result": "PHASE2 HANDOFF VERIFIED",
+  "verification_scope": "local_offline_reproduction",
+  "dataset_version": "t08-v1.0-20261010",
+  "model_versions": {
+    "dummy": "tfidf-v1-candidate-1-dummy",
+    "tfidf": "tfidf-v1-candidate-1"
+  },
+  "artifact_sha256": "9b55da5616f725ed400824564400059b1b9fb07cee8db6ff13da7adefb087299",
+  "files_verified": 6,
+  "library_versions": {
+    "python": "3.13.16",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "PyYAML": "6.0.3",
+    "pyarrow": "25.0.1"
+  },
+  "runtime_library_versions": {
+    "python": "3.13.16",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "PyYAML": "6.0.3",
+    "pyarrow": "25.0.1"
+  },
+  "runtime_versions_match": true,
+  "reproduction_smoke": {
+    "cases_verified": 5,
+    "model_predictions_verified": 10,
+    "prediction_usage": "demo",
+    "all_predictions_match": true
+  }
+}
