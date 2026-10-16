@@ -1,0 +1,11 @@
+{
+  "archive": "C:\\Users\\LOQ\\Desktop\\t08-cvss-epss\\t08-cvss-epss\\data\\processed\\p2_n1_reproduction_20261017.zip",
+  "bytes": 7863175,
+  "sha256": "ce2d97a5a631818e06acba839bf5d7e63df15518b19ca816b3a49b85765a7e19",
+  "model_version": "tfidf-v1-n1-reproduction-20261017",
+  "dataset_version": "t08-v1.0-20261010",
+  "original_N3_artifact_received": false,
+  "zip_roundtrip_verified": true,
+  "files_verified": 40,
+  "metrics_match_original_N3_report": true
+}

@@ -1,0 +1,43 @@
+{
+  "received_on": "2026-10-17",
+  "dataset_version": "t08-v1.0-20261010",
+  "source": "User-provided Downloads files",
+  "n2_commit": "add095a32fda43ba0a02c768936439e12e224367",
+  "files": {
+    "p2_n2_handoff.md": {
+      "path": "data/raw/handoffs/n2_phase2_received_20261017/p2_n2_handoff.md",
+      "bytes": 2341,
+      "sha256": "66f245969d07835eaa54168fee9b6be32a6417b52cb18ca9264cbb6bd17676d4"
+    },
+    "rankings.csv": {
+      "path": "data/raw/handoffs/n2_phase2_received_20261017/rankings.csv",
+      "bytes": 48438,
+      "sha256": "4615bd970c5ef589bb7c04e81ecc48217388a79d60ad8b3d5565a3f93f822b67"
+    }
+  },
+  "ranking_checks": {
+    "rows": 396,
+    "kev_count": 3,
+    "unique_ids": 396,
+    "all_ids_match_v1": true,
+    "source_values_match": true,
+    "all_three_policies_match_independent_sort": true,
+    "cli_reproduction_sha256": "4615bd970c5ef589bb7c04e81ecc48217388a79d60ad8b3d5565a3f93f822b67",
+    "byte_identical_to_received": true
+  },
+  "validation_review_checks": {
+    "unique_validation_cves": 13,
+    "scoped_web_cves": 2,
+    "error_metrics_covered": [
+      "AV",
+      "AC",
+      "PR",
+      "UI",
+      "S",
+      "C",
+      "I",
+      "A"
+    ]
+  },
+  "case_table_rows_verified": 5
+}

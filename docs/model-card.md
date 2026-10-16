@@ -206,3 +206,20 @@ và mô tả/expected prediction của 5 mẫu validation để N1 đối chiế
 Lệnh select/final dùng cho checkout chưa có artifact/lock. Với bản hiện tại đã
 khóa, CLI từ chối train ghi đè hoặc chạy test lại; không xóa lock để né kiểm tra.
 Commit/push/PR và việc chuyển artifact cho N1/N2 chưa được thực hiện trong phiên này.
+## Cập nhật tích hợp N1 — 17/10/2026
+
+N1 đã train lại cấu hình cố định C=1.0, lưu artifact phiên bản riêng và đối chiếu
+toàn bộ metric với báo cáo N3: khớp. Gói ZIP mới đã được giải nén, xác minh
+checksum và inference. Đây là lần retraining, chưa xác minh joblib gốc của N3.
+Xem [báo cáo N1](../reports/p2_reproduction_n1.md) và
+[hướng dẫn nhận gói](phase-2-n1-chay-thay-n3.md).
+
+N2 đã review 13 CVE validation, phủ lỗi cả tám metric; hai CVE thuộc scope Web.
+Bảng lỗi của model mới khớp bảng gốc nên phân tích này vẫn áp dụng. Điểm cần
+chú ý: “remote” không xác định PR; tên XSS không tự quyết định Scope; tác động
+đọc và ghi dữ liệu cần phân biệt. Đây là mẫu có chủ đích, không đại diện tỷ lệ
+lỗi toàn tập và không phải attribution đã kiểm chứng. Xem
+[review bảo mật N2](../reports/p2_validation_security_review.md).
+
+Phần trên giữ báo cáo lần chạy gốc N3; các tên model/hash và ghi chú chưa nhận
+artifact trên máy thứ hai thuộc lần chạy đó. DistilBERT vẫn chưa chạy.
