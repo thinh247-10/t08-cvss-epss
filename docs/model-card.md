@@ -145,7 +145,7 @@ Chưa xác minh bài dùng riêng v3.1, cách tạo split, seed, validation riê
 cách average F1. Không gọi F1 của bài là macro-F1, không so điểm trực tiếp khi
 dataset/giao thức khác nhau. Đây không phải tái lập DeepCVA commit-level.
 
-## DistilBERT và các xác nhận bên ngoài
+## DistilBERT và các xác nhận bên ngoài — lịch sử trước khi N1 chạy
 
 DistilBERT: **`not_run`**, D05 **`pending`**. Torch/Transformers chưa cài;
 backend tăng tốc và thời gian máy chưa xác nhận. Không suy ra GPU dùng được từ
@@ -222,4 +222,20 @@ lỗi toàn tập và không phải attribution đã kiểm chứng. Xem
 [review bảo mật N2](../reports/p2_validation_security_review.md).
 
 Phần trên giữ báo cáo lần chạy gốc N3; các tên model/hash và ghi chú chưa nhận
-artifact trên máy thứ hai thuộc lần chạy đó. DistilBERT vẫn chưa chạy.
+artifact trên máy thứ hai thuộc lần chạy đó. Tại thời điểm cập nhật baseline này, DistilBERT chưa chạy.
+
+## Kết quả DistilBERT cuối ngày 17/10/2026
+
+N1 đã chạy thay N3 một encoder chung và tám đầu phân loại, một epoch cố định trên
+28.815 mẫu train. Version `distilbert-v1-n1-20261017`, cùng split đóng băng, không dùng
+EPSS/KEV làm input. Mô hình đã lưu và nạp lại từ gói giải nén bằng CPU.
+
+Test toàn ML: mean macro-F1 **0,7317**, exact vector **33,05%**, Base MAE **1,1339**;
+TF-IDF tương ứng **0,7521 / 38,65% / 1,0780**. Trên 108 mẫu Web test,
+DistilBERT có MAE **1,5093** so với TF-IDF **1,7509**, nhưng macro-F1 và exact vector
+thấp hơn. Không có mẫu mobile validation/test; không suy rộng kết quả sang mobile.
+
+Đây là một epoch/một seed và được thực hiện sau khi đã biết kết quả baseline;
+không phải so sánh mù hoặc tái lập nguyên vẹn bài Costa. Không điều chỉnh cấu hình theo test.
+Giới hạn truncation 256 token và dữ liệu/nhãn vẫn áp dụng. Xem [protocol và số đo](../reports/p2_distilbert_run.md),
+[bảng so sánh](../reports/p2_model_comparison.csv), [bàn giao cuối](phase-2-completion.md).

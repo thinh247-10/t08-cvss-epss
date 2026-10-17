@@ -64,6 +64,21 @@ Chỉ chuyển sang “Đã thống nhất” sau khi thành viên liên quan re
 - Người review: Người 3; cả nhóm chốt phạm vi sau khi kiểm tra tài nguyên.
 - Trạng thái: Chờ review.
 
+### Cập nhật D05 ngày 17/10/2026 — N1 yêu cầu hoàn tất Phase 2
+
+- Baseline bắt buộc đã chạy và tái lập: Dummy + TF-IDF; metric N1 khớp N3.
+- Theo yêu cầu tiếp tục của N1, thử phần mở rộng DistilBERT trên RTX 3050 6 GB.
+  Không ghi thay xác nhận review của các thành viên khác.
+- Gate: cài backend CUDA, một smoke run 20 batch train, kiểm save/load và đo
+  thời gian; chỉ full run nếu ước tính dưới 6 giờ máy gồm dự phòng.
+- Cấu hình cố định trước train tại `config/distilbert.yaml`: một epoch,
+  max_length 256, batch 8, accumulation 4, seed 42; không grid search.
+- Quyết định một epoch dựa vào phạm vi thử nghiệm và tài nguyên, không dựa vào
+  điểm test. Việc mở test của baseline trước đó phải được công khai; nhánh mới
+  không chọn cấu hình hoặc checkpoint dựa trên test.
+- Kết quả cuối ngày 17/10/2026: đã hoàn tất DistilBERT một epoch trên RTX 3050 6 GB; train 410,49 giây, toàn quy trình 2103,31 giây. Không tuning lại sau test. Log, cấu hình khóa và giới hạn: [báo cáo](../reports/p2_distilbert_run.md).
+  Kết quả và quyết định cuối sẽ ghi tại `reports/p2_distilbert_run.md`.
+
 ## D06 — Xử lý dữ liệu thiếu và bàn giao
 
 - Master có một dòng cho mỗi CVE ID.

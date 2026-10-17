@@ -1,0 +1,14 @@
+{
+  "archive": "data/processed/phase2_handoff_20261017.zip",
+  "bytes": 253203876,
+  "sha256": "902f97cc84727a98cd36b9f3c17797927979e85f87466972d3f4ab5add1171ce",
+  "dataset_version": "t08-v1.0-20261010",
+  "baseline_model_versions": {
+    "dummy": "tfidf-v1-n1-reproduction-20261017-dummy",
+    "tfidf": "tfidf-v1-n1-reproduction-20261017"
+  },
+  "distilbert_model_version": "distilbert-v1-n1-20261017",
+  "baseline_prediction_rows": 76854,
+  "distilbert_prediction_rows": 38427,
+  "ranking_rows": 396
+}

@@ -1,4 +1,8 @@
-> Cập nhật 17/10/2026: N1 đã chạy lại cấu hình baseline N3 cố định C=1.0.
+> **Cập nhật cuối 17/10/2026:** Phase 2 đã hoàn tất cả DistilBERT. 178/178 test đạt;
+> gói cuối qua kiểm 61 file và nạp lại CPU trên 5 mẫu validation. Xem
+> [nghiệm thu cuối](../docs/phase-2-completion.md). Các trạng thái chờ bên dưới là lịch sử.
+
+> Cập nhật baseline trước đó 17/10/2026: N1 đã chạy lại cấu hình baseline N3 cố định C=1.0.
 > Metric Dummy/TF-IDF khớp báo cáo N3; gói ZIP mới đã qua kiểm hash và inference
 > sau giải nén. Đây là retraining riêng, chưa xác minh artifact gốc N3.
 > Xem [kết quả chạy thật](p2_reproduction_n1.md). Code N2/N3 đã merge vào develop

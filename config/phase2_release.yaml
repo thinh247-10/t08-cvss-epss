@@ -1,0 +1,28 @@
+# Current baseline release; optional DistilBERT is tracked separately.
+dataset_version: t08-v1.0-20261010
+phase1_release: data/processed/phase1_v1_20261010
+phase1_manifest: docs/handoffs/phase-1-v1.json
+baseline:
+  model_version: tfidf-v1-n1-reproduction-20261017
+  bundle: data/processed/p2_n1_reproduction_20261017
+  archive: data/processed/p2_n1_reproduction_20261017.zip
+  receipt: docs/handoffs/p2-n1-reproduction-20261017.json
+  notebook: notebooks/02_model_eval_n1.ipynb
+  report: reports/p2_reproduction_n1.md
+ranking:
+  input: data/processed/phase1_v1_20261010/ranking_cohort.parquet
+  received_output: data/raw/handoffs/n2_phase2_received_20261017/rankings.csv
+  receipt: docs/handoffs/n2-phase2-receipt-20261017.json
+  severity_source: observed_cvss31_not_model_predictions
+  policies: [cvss_rank, epss_rank, kev_first_rank]
+security_review: reports/p2_validation_security_review.md
+optional_distilbert:
+  status: complete
+  config: config/distilbert.yaml
+  smoke: data/processed/p2_distilbert_smoke_20261017
+  run: data/processed/p2_distilbert_20261017
+  report: reports/p2_distilbert_run.md
+handoff:
+  receipt: docs/handoffs/phase-2-complete-20261017.json
+  completion: docs/phase-2-completion.md
+  verification: reports/p2_final_handoff_verification.json

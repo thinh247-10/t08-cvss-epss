@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "archive_sha256": "902f97cc84727a98cd36b9f3c17797927979e85f87466972d3f4ab5add1171ce",
+  "verified_files": 61,
+  "executed_notebook_cells": 13,
+  "validation_ids": [
+    "CVE-2010-10011",
+    "CVE-2011-10005",
+    "CVE-2011-10006",
+    "CVE-2012-6664",
+    "CVE-2014-125110"
+  ],
+  "reloaded_device": "cpu",
+  "matched_prediction_columns": [
+    "pred_AV",
+    "pred_AC",
+    "pred_PR",
+    "pred_UI",
+    "pred_S",
+    "pred_C",
+    "pred_I",
+    "pred_A",
+    "predicted_base_score"
+  ],
+  "validation_predictions_match": true,
+  "final_test_reevaluated": false,
+  "limitation": "Fresh extraction and new process on N1 machine; not an independent second-machine receipt."
+}

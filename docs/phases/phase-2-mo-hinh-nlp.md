@@ -1,7 +1,7 @@
 # Phase 2 — Mô hình NLP có kiểm chứng, không để AI lấn át bài toán bảo mật
 
 > **Ngày 8–13 / 30 ngày. Ngân sách: khoảng 14 giờ/người.**
-> Đây là kế hoạch triển khai, chưa phải chức năng đã có hoặc kết quả đã chạy.
+> Cập nhật 17/10/2026: thí nghiệm đã hoàn tất, xem [biên bản và gói bàn giao](../phase-2-completion.md). Nội dung bên dưới giữ kế hoạch gốc; xác nhận nhận gói/chạy trên máy đồng đội vẫn do người nhận thực hiện.
 > [Kế hoạch tổng](../05-ke-hoach-phan-cong.md) · [Phase trước](phase-1-du-lieu-web-mobile.md) · [Phase sau](phase-3-xep-hang-va-boi-canh.md) · [Hợp đồng dữ liệu](../data_contract.md).
 > Git: [quy trình branch/PR](../06-git-workflow.md). N1 `fix/p2-dataset-split`; N2 `feat/p2-cvss-scorer`; N3 `feat/p2-nlp-baseline`, rồi `feat/p2-distilbert` nếu đạt gate.
 

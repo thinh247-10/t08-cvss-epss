@@ -1,0 +1,10 @@
+{
+  "locked_at": "2026-10-17T06:31:54.882520+00:00",
+  "test_status": "complete",
+  "model_sha256": "2c1cf7b36c2f28127a767fd797221ec85864f1ac79174fe79afb412faff22507",
+  "config_sha256": "ebd6963ca743070cd3f2f5139f1b4e50b1225d0a05fa72f11dc964b16d402535",
+  "dataset_sha256": "eaa7f845596cc8b1a0ac802a792f2b495006cec87acc7cab28434fcb8905fdb6",
+  "validation_mean_macro_f1": 0.7341376327398565,
+  "test_started_at": "2026-10-17T06:31:55.424625+00:00",
+  "test_completed_at": "2026-10-17T06:55:17.437469+00:00"
+}

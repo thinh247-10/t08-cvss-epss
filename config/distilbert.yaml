@@ -1,0 +1,22 @@
+# Declared before training: one smoke + one full run, no hyperparameter search.
+dataset_version: t08-v1.0-20261010
+checkpoint: distilbert/distilbert-base-uncased
+seed: 42
+max_length: 256
+batch_size: 8
+eval_batch_size: 16
+gradient_accumulation: 4
+epochs: 1
+learning_rate: 0.00002
+weight_decay: 0.01
+warmup_fraction: 0.1
+dropout: 0.2
+loss: mean_of_eight_train_balanced_cross_entropies
+preprocessing: mask_explicit_cvss_v1
+lemmatize: false
+mixed_precision: float16
+smoke_steps: 20
+machine_budget_seconds: 21600
+selection: single_predeclared_epoch_no_search
+test_access: only_after_artifact_and_validation_are_locked
+model_version: distilbert-v1-n1-20261017

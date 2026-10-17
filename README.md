@@ -8,7 +8,7 @@ Kế hoạch nhóm: [Lộ trình 30 ngày, 6 phase và phân công chi tiết ch
 > Phase 1 đã có bản dữ liệu `t08-v1.0-20261010`: xem [nghiệm thu và bàn giao](docs/phase-1-completion.md).
 > Bắt đầu Phase 2: [hướng dẫn Người 1](docs/phase-2-nguoi-1.md) · [hướng dẫn Người 2](docs/phase-2-nguoi-2.md) · [hướng dẫn Người 3](docs/phase-2-nguoi-3.md).
 > Phase 2: code baseline/evaluation của N3 và ranking của N2 đã tích hợp. N1 đã chạy lại baseline, đối chiếu metric và kiểm gói model: [kết quả](reports/p2_reproduction_n1.md) · [nhận và chạy gói model](docs/phase-2-n1-chay-thay-n3.md).
-> DistilBERT chưa chạy; phân tích Environmental và demo tiếp tục theo kế hoạch. Schema bàn giao: [data contract](docs/data_contract.md).
+> Phase 2 đã hoàn tất thí nghiệm Dummy, TF-IDF và DistilBERT: [nghiệm thu và bàn giao](docs/phase-2-completion.md). Phân tích Environmental và demo tiếp tục ở các phase sau. Schema bàn giao: [data contract](docs/data_contract.md).
 
 Quy trình làm nhóm: [chia branch, commit, push và Pull Request](docs/06-git-workflow.md).
 

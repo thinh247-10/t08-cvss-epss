@@ -1,0 +1,39 @@
+{
+  "checkpoint": "distilbert/distilbert-base-uncased",
+  "revision": "12040accade4e8a0f71eabdb258fecc2e7e948be",
+  "folder": "C:\\Users\\LOQ\\Desktop\\t08-cvss-epss\\t08-cvss-epss\\models\\hf_cache\\models--distilbert--distilbert-base-uncased\\snapshots\\12040accade4e8a0f71eabdb258fecc2e7e948be",
+  "hardware": {
+    "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "torch": "2.13.0+cu130",
+    "cuda_runtime": "13.0",
+    "total_vram": 6441926656
+  },
+  "prepared_at": "2026-10-17T06:17:46.664573+00:00",
+  "files": {
+    "config.json": "69c94b0222d5d1f4b0ad027ca7416cdafb98378cbbb8305d0bf47c9365c60c83",
+    "model.safetensors": "5e3f1108e3cb34ee048634875d8482665b65ac713291a7e32396fb18f6ff0063",
+    "tokenizer.json": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+    "tokenizer_config.json": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10",
+    "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+  },
+  "python": "3.14.3",
+  "versions": {
+    "torch": "2.13.0+cu130",
+    "transformers": "4.57.1",
+    "huggingface-hub": "0.36.2",
+    "tokenizers": "0.22.2",
+    "safetensors": "0.8.0"
+  },
+  "cuda_matrix_probe": {
+    "shape": [
+      32,
+      32
+    ],
+    "all_ones_matmul_sum": 32768.0,
+    "passed": true
+  },
+  "offline_unit_tests": {
+    "passed": 3,
+    "failed": 0
+  }
+}

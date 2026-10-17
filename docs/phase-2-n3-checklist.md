@@ -74,24 +74,28 @@ trước chạy thật; split v1 không bị thay đổi.
 - [x] Đếm prediction lỗi, vector invalid và target lỗi riêng; không âm thầm bỏ dòng.
 - [x] Split rỗng/cặp score rỗng trả null/N/A, không tạo metric 0 giả.
 - [x] Báo riêng toàn miền và scoped, validation và test.
-- [ ] Notebook gọi module, đọc artifact thật và lưu output; không sao chép thuật toán.
+- [x] Notebook gọi module, đọc artifact thật và lưu output; N1 chạy 12 cell trong
+  `notebooks/02_model_eval_n1.ipynb` ngày 17/10, không train/đánh giá lại test.
 - [x] Xuất ít nhất 10 lỗi **validation** cho N2, kèm
   [phân tích bảo mật từng ca](../reports/validation_error_analysis.md).
-- [ ] N2 xác nhận đã nhận/đọc/review độc lập; cần bằng chứng riêng, không được
-  suy ra chỉ từ việc tạo file.
+- [x] N2 đã review 13 CVE: `reports/p2_validation_security_review.md`, commit
+  `add095a`, N1 đối chiếu với release v1 và bảng lỗi N3.
 
 ## 4. Chứng cứ cần có cho Bước C — khóa/test/bàn giao
 
 - [x] Khóa config, artifact/hash và tiêu chí lựa chọn trước khi chạy test cuối.
 - [x] Ghi kết quả test thực tế sau khóa, không chỉnh model từ lỗi/điểm test.
-- [ ] Model card ghi mục đích, giới hạn, version/split, cấu hình chọn, thiết bị,
+- [x] Model card ghi mục đích, giới hạn, version/split, cấu hình chọn, thiết bị,
   thời gian và validation/test riêng.
-- [ ] Model card có bảng Costa bên dưới và nguồn gốc từng khẳng định.
+- [x] Model card có bảng Costa bên dưới và nguồn gốc từng khẳng định.
 - [x] Nêu NVD là snapshot hiện tại, mô tả/nhãn có thể cập nhật sau published;
   MinHash có thể bỏ sót và sản phẩm vẫn giao nhau giữa các split.
 - [x] Manifest artifact thật có SHA-256, version và dependency; không ghi hash giả.
-- [ ] N1 tái chạy trên máy thứ hai, đối chiếu hash/version/prediction thành công.
-- [ ] Commit/push/PR và việc người khác đã nhận artifact có chứng cứ riêng.
+- [x] N1 chạy lại cấu hình N3 đã chọn, metric khớp; tạo artifact phiên bản riêng,
+  kiểm checksum và inference sau giải nén. Đây là retraining, chưa kiểm joblib gốc
+  N3 vì chưa nhận file. Xem `reports/p2_reproduction_n1.md`.
+- [x] Commit N2/N3 đã merge và push develop đến `fe99cdd`; gói ZIP N1 có checksum.
+  Chưa ghi thay lời xác nhận hai bạn đã tải ZIP N1 mới.
 
 Không kiểm tra ô metric full-run/test/second-machine chỉ từ smoke test hoặc từ số
 được ghi trong kế hoạch. Khi thiếu release v1, giữ các mục đó chưa hoàn thành.
@@ -100,9 +104,9 @@ Không kiểm tra ô metric full-run/test/second-machine chỉ từ smoke test h
 
 - [x] Kiểm tra CPU, RAM, GPU, Python và dependency hiện tại bằng truy vấn đọc.
 - [x] Ghi trạng thái thật vào [reports/phase2_hardware.json](../reports/phase2_hardware.json).
-- [x] DistilBERT ghi `not_run`, gate D05 `pending`.
-- [ ] N1 chốt D05: phạm vi, thiết bị/backend, ngân sách máy và cách ước tính thời gian.
-- [ ] Nếu D05 cho chạy: xác minh backend, chạy smoke có giới hạn rồi đo ước tính;
+- [x] Trạng thái cuối: N1 chạy thay N3, DistilBERT đã hoàn tất; xem [báo cáo](../reports/p2_distilbert_run.md). Probe N3 bên dưới là lịch sử trước quyết định này.
+- [x] N1 chốt D05: một epoch, RTX 3050/CUDA, ngân sách tối đa 6 giờ máy, ước tính từ smoke.
+- [x] Đã xác minh backend, chạy smoke rồi train thật;
   dùng cùng ID/labels/evaluator, lưu checkpoint revision/tokenizer phù hợp.
 
 Máy kiểm tra có Ryzen 7 7730U **8 nhân/16 luồng**, RAM vật lý **15,4 GiB**,
