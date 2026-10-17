@@ -5,6 +5,12 @@
 > [Kế hoạch tổng](../05-ke-hoach-phan-cong.md) · [Phase trước](phase-2-mo-hinh-nlp.md) · [Phase sau](phase-4-tich-hop-va-demo.md) · [Hợp đồng dữ liệu](../data_contract.md).
 > Git: [quy trình branch/PR](../06-git-workflow.md). N1 `test/p3-ranking-quality`; N2 `feat/p3-ranking-context`; N3 `feat/p3-security-plots`.
 
+> Giao việc cập nhật 17/10/2026: [Người 2](../phase-3-nguoi-2.md) và [Người 3](../phase-3-nguoi-3.md).
+> Dùng release `t08-v1.0-20261010`: ranking 396 CVE, 3 KEV; không thu thập/train lại.
+> Ranking CLI đã có; metric/Environmental/context/plot còn cần triển khai. Hướng dẫn riêng phân biệt lệnh có sẵn và interface mới.
+> N2 sở hữu ranking/context, N3 sở hữu plots; N1 kiểm tích hợp ở file riêng. N2 tạo `config/phase3.yaml` và artifact contract,
+> N3 tạo `config/phase3_plots.yaml`; không dùng version/path pilot trong `config/project.yaml` cho release hiện tại.
+
 ## 1. Câu hỏi phải trả lời sau phase này
 
 1. Cùng ngân sách vá K CVE Web/mobile, xếp theo CVSS và EPSS chọn những CVE khác nhau như thế nào?
@@ -30,7 +36,7 @@ Không gọi ba chính sách là “ba thang điểm độc lập”: KEV là da
 
 ### 2.1. Cùng snapshot, cùng mẫu so sánh
 
-- Ngày T là ngày snapshot thống nhất trong `data/metadata.json`; EPSS dùng `epss_date=T`; KEV phải có lịch sử/snapshot tương thích T và ngày thu thập được ghi lại.
+- Thiết kế lý tưởng dùng snapshot cùng ngày; **release v1 thực tế có EPSS 2026-09-29, KEV phát hành 2026-09-30, tải 2026-10-01 UTC**. Metadata tại `data/processed/phase1_v1_20261010/metadata.json`. Giữ các ngày riêng và công bố độ lệch; không sửa dữ liệu để giả đồng ngày.
 - CVE phải được công bố không muộn hơn T. Không ghép EPSS cũ với KEV hiện tại rồi gọi là thí nghiệm dự báo trong quá khứ.
 - Phân tích chính là **đối chiếu quan sát tại snapshot T**. Dữ liệu khai thác có thể đã phản ánh vào EPSS ở T; KEV không phải tập kiểm định dự báo độc lập trong thiết kế này.
 - Việc “không thấy trong KEV” nghĩa là không có trong danh mục đã tải; không chứng minh CVE chưa từng bị khai thác.
@@ -87,7 +93,7 @@ Nêu số dòng đồng điểm tại ranh giới K để người đọc biết
 Có thể hiển thị vị trí/hit count của KEV-first như đặc tính vận hành; không dùng nó làm kiểm định độc lập.
 Không tính “accuracy dự báo khai thác” bằng cách coi mọi CVE không nằm KEV là nhãn âm.
 
-Ngưỡng scatter minh họa dự kiến: CVSS cao `>=7.0`, EPSS cao `>=0.10`; khóa trong `config/project.yaml` trước xem kết quả.
+Ngưỡng scatter minh họa dự kiến: CVSS cao `>=7.0`, EPSS cao `>=0.10`; N2 khai báo trong `config/phase3.yaml` trước chạy thống kê, ghi ngày/hash cấu hình.
 Ngưỡng EPSS 0.10 là lựa chọn minh họa của nhóm, không phải chuẩn bắt buộc; thử thêm 0.01 và 0.50 trong phụ lục nếu đủ dữ liệu.
 Các ngưỡng dùng chia ô để đọc case, không thay đổi ba chính sách ranking liên tục.
 Nếu dùng trục log cho EPSS, xử lý EPSS=0 bằng quy tắc chỉ dành cho hiển thị, ghi epsilon trong chú thích; không sửa điểm trong CSV.
@@ -169,14 +175,14 @@ Không đổi sang cộng trọng số tùy ý rồi gọi là CVSS Environmenta
 | P3-N3-5 | Chốt trường UI cần đọc, bảng tra CVE, trạng thái missing/review | `docs/data_contract.md`, thiết kế app Phase 4 | 2 | Người 1 |
 | P3-N3-6 | Review artifact, caption, mock luồng trình bày từ file offline | Tài liệu/figures | 2 | Cả nhóm |
 
-`plots.py` vẫn thuộc trách nhiệm cuối của Người 2, nhưng Người 3 thực hiện PR này; tránh hai người sửa cùng file đồng thời.
+Trong đợt giao việc 17/10, N3 sở hữu `plots.py`; N2 đối chiếu cách diễn giải bằng số liệu, N1 tích hợp. Tránh hai người sửa cùng file đồng thời.
 Người 3 không tiếp tục tuning DistilBERT trong phase này; nếu chưa có prediction hợp lệ, ghi thiếu thí nghiệm phụ và hoàn thiện biểu đồ chính.
 
 ## 7. Bản đồ file và interface cần triển khai
 
 | File | Hiện trạng / người làm | Chức năng, input → output |
 |---|---|---|
-| `src/analysis/compare_rankings.py` | Có TODO; Người 2 | `build_rankings(cohort, policies)`; `evaluate_rankings(...)`; dataset → ranking đầy đủ + metric; không tự tải API |
+| `src/analysis/compare_rankings.py` | Đã có ranking/CLI; Người 2 bảo trì | Giữ `build_rankings` và schema; thêm metric ở `src/analysis/ranking_metrics.py` mới, không viết lại ba policy |
 | `src/analysis/plots.py` | Có TODO; Người 3, Người 2 review | Ranking + dataset + context → PNG/SVG và caption; không tự tính một policy khác |
 | `src/environmental/asset_inventory.py` | Bổ sung từ Phase 2; Người 2 | `load_assets(path)`, `validate_mapping(...)`; YAML + mapping → inventory/mapping hợp lệ |
 | `src/environmental/cvss_environmental.py` | Mở rộng scorer Phase 2; Người 2 | `environmental_score(base_vector, metrics)` → vector/score; kiểm tra v3.1, X, Roundup |
@@ -284,14 +290,15 @@ Tính tay một trường hợp Jaccard/Recall, không chỉ gọi lại chính 
 | 19 | Fix dữ liệu nếu lỗi; ghi version | Review case/plot | Chốt UI fields/caption | Artifact sạch cho app |
 | 20 | Đóng gói/bàn giao | Giải thích bảo mật 5 phút | Demo hình/CSV offline | Gate cuối phase và backlog còn lại |
 
-CLI cần triển khai rồi mới xác minh, chạy từ root:
+CLI ranking đã có, chạy từ root:
 
 ```powershell
-python -m src.analysis.compare_rankings --config config/project.yaml
-python -m src.environmental.cvss_environmental --config config/project.yaml --assets config/assets.yaml
-python -m src.analysis.context_priority --config config/project.yaml --assets config/assets.yaml
-python -m src.analysis.plots --config config/project.yaml
+python -m src.analysis.compare_rankings --output data/processed/p3_n2/rankings.csv
 ```
+
+CLI metrics/Environmental/context/plots **chưa có** tại ngày giao việc. Triển khai theo hai
+hướng dẫn cá nhân, ghi `--help` và câu lệnh đã chạy thật; không dùng lại lệnh `--config`
+của bản kế hoạch cũ như thể tất cả module đã hỗ trợ.
 
 - [ ] Cùng cohort/snapshot cho ba policy; eligibility và missing được thống kê; ranking đầy đủ lưu được.
 - [ ] Có top-50 khi đủ N, nếu không có K thực tế và kế hoạch/giải thích thay thế; ties được công bố.

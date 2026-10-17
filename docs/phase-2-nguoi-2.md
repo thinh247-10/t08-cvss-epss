@@ -118,7 +118,8 @@ Input là `ranking_cohort.parquet` của v1; output `data/processed/rankings.csv
 
 CLI cho module này chưa có; khi triển khai xong, ghi lệnh đã chạy vào
 `reports/p2_ranking_smoke.md`, gồm 396 dòng, 3 KEV, schema, checksum output.
-Chuyển quyền bảo trì module ranking cho N1 ở Phase 3; không cùng sửa một file song song.
+Phân công được cập nhật ngày 17/10: N2 tiếp tục bảo trì ranking ở Phase 3,
+N1 kiểm tích hợp bằng test riêng; xem [hướng dẫn mới](phase-3-nguoi-2.md).
 
 ### Bước C — Case study và lỗi model, khoảng 5 giờ
 
