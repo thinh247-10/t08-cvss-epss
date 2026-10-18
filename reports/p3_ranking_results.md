@@ -30,6 +30,10 @@ Lỗi logging pip do encoding đường dẫn Unicode được xử lý bằng `
   rank sai, K invalid, N=1, score hằng, KEV=0 và K>=N.
 - CLI kiểm hash/bytes của parquet với release metadata, rồi đối chiếu toàn bộ
   396 ID/tín hiệu/rank với `build_rankings` từ release; không chỉ đối chiếu N.
+- Provenance dùng Git for Windows giống terminal repo; MSYS2 Git trong PATH dùng
+  autocrlf khác và từng báo dirty do newline. Không sửa cấu hình Git toàn máy.
+- Kiểm chéo CSV thật độc lập: đếm concordant/discordant/ties từng cặp cho tau-b,
+  đếm lại top-K/overlap/cutoff, kiểm toàn bộ hash/bytes output trong metadata.
 - Output CSV UTF-8/LF; JSON strict (không NaN/Infinity). Metadata ghi hashes/bytes
   của config/input/code/output, commit chạy và package versions, số dòng CSV.
 - `rankings.csv` giữ nguyên 48.438 byte, SHA-256

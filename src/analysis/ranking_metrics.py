@@ -9,7 +9,9 @@ from importlib.metadata import version
 from itertools import combinations
 import json
 import math
+import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 
@@ -134,8 +136,20 @@ def file_record(path, rows=None):
     return info
 
 
+def git_executable():
+    # Match Git for Windows used by the project terminal, not MSYS2 git with
+    # a different global autocrlf config (which can report spurious dirty files).
+    candidate = Path(os.environ.get("ProgramFiles", "C:/Program Files")) / "Git/cmd/git.exe"
+    if os.name == "nt" and candidate.is_file():
+        return str(candidate)
+    executable = shutil.which("git")
+    if executable is None:
+        raise ValueError("Git is required to record provenance")
+    return executable
+
+
 def git_output(root, *args):
-    result = subprocess.run(["git", "-C", str(root), *args], capture_output=True,
+    result = subprocess.run([git_executable(), "-C", str(root), *args], capture_output=True,
                             text=True, encoding="utf-8", errors="replace", check=True)
     return result.stdout.strip()
 
@@ -216,7 +230,7 @@ def main(argv=None):
                     command=[sys.executable, "-m", "src.analysis.ranking_metrics",
                              "--rankings", str(args.rankings), "--config", str(args.config),
                              "--output-dir", str(args.output_dir)],
-                    commit=git_output(root, "rev-parse", "HEAD"),
+                    commit=git_output(root, "rev-parse", "HEAD"), git_executable=git_executable(),
                     tracked_dirty=bool(git_output(root, "status", "--porcelain", "--untracked-files=no")),
                     python=sys.version, packages={p: version(p) for p in ("pandas", "pyarrow", "scipy", "PyYAML", "numpy")},
                     inputs={p.name: file_record(p) for p in (args.rankings, args.config, source_path, meta_path)},
