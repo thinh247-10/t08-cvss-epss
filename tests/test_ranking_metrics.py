@@ -117,7 +117,9 @@ class RankingMetricsChecks(unittest.TestCase):
                               ("dataset_version", "wrong"), ("policy_version", "wrong"),
                               ("epss", None), ("cve_id", "CVE-2024-1002"),
                               ("is_kev", None)):
-            bad = rank(cohort()).astype(object)
+            bad = rank(cohort()).copy()
+            if value is None:
+                bad[column] = bad[column].astype(object)
             bad.loc[0, column] = value
             with self.subTest(column=column), self.assertRaises(ValueError):
                 metrics(bad)
