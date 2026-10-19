@@ -59,3 +59,51 @@ Không dùng ngưỡng để lọc cohort hoặc đổi ngưỡng theo kết qu�
 N3 dùng cột `kev_recall_reason` khi tạo caption/null display; total_kev chỉ 3.
 Đọc `metadata.json` và kiểm SHA trước khi vẽ, không sửa CSV bằng Excel rồi lưu lại.
 Chưa có Environmental/queue ở đợt này; chúng sẽ có contract/version bổ sung rõ ràng.
+
+## Bổ sung đợt C+D — 2026-10-19
+
+Không đổi schema A+B. Context artifact schema riêng `p3-context-artifacts-v1`,
+context `phase3-context-v1`, inventory vẫn `phase1-v1` vì không đổi tài sản/CR/IR/AR.
+Không tự hiểu context đã có từ chuỗi version trong metadata B cũ.
+
+### Files và khóa
+
+- `cve_asset_mapping.csv`: giữ trường §8 của data contract, thêm `context_version`,
+  `evidence_read_at` (ISO date), `exploit_conditions`, `evidence_limitations`.
+  Key `(cve_id,asset_id)`, applicability affected/unaffected/needs_review.
+  6 dòng: 5 affected có điều kiện giả định + 1 unknown candidate, không phải 6 affected.
+- `environmental_scores.csv`: đúng 13 cột contract §8, key cặp, chỉ affected đủ
+  vector/nhãn quan sát. `score_source=observed`, 5 dòng. Full vector giữ rõ tất cả X.
+- `priority_queue.csv`: đúng 14 cột contract §9, key cặp, 6 dòng; policy `context-v1`.
+  `priority_rank` integer nullable, chỉ patch có 1..M. Không được điền rank mobile từ Base.
+- `priority_queue_env_first.csv`: cùng 6 cặp và queue_status, policy `context-v1-env-first`.
+- `context_comparison.csv`: key cặp, chỉ 3 patch pairs có đủ Base/Environmental:
+  `cve_id,asset_id,context_rank,dataset_version,context_version,sensitivity_rank,base_score,environmental_score,base_rank,environmental_rank,rank_delta_base_environmental,rank_delta_context_sensitivity,primary_policy_version,sensitivity_policy_version`.
+- `context_sensitivity.json`: số cặp/coverage/exclusions/target, source dates,
+  thay đổi thứ tự, Jaccard@K cùng patch population, định nghĩa delta và limitations.
+- `context_metadata.json`: command/commit/dirty/packages/input/code/output hashes/bytes,
+  số dòng và version; không ghi đè `metadata.json` dành cho ranking B.
+- `environmental_first_check.json`: oracle FIRST source URL/SHA-256, 280 fixture,
+  expected/actual (không phải dữ liệu nghiên cứu), seed và số mismatch.
+
+### Null, policy và hướng delta
+
+Missing không thành 0/false. API-02 thiếu product/version giữ needs_review;
+unaffected (nếu có bằng chứng) luôn not_applicable. Client/unknown exposure và
+missing signals vẫn review_required, KEV present cần xác minh sớm. CSV ô rỗng là null.
+
+Policy context-v1: KEV ↓ → exposure internet/internal/isolated=2/1/0 ↓ →
+Environmental ↓ → EPSS ↓ → CVE/asset ↑. Client không có numeric exposure.
+Sensitivity chỉ hoán đổi exposure/Environmental sau KEV, giữ cùng patch pairs.
+Base/Environmental rank là điểm giảm + CVE/asset tăng, cũng trên cùng 3 patch pairs,
+không so với top-50 của cohort 396 hoặc thêm client vào một phía.
+
+- `rank_delta_base_environmental = base_rank - environmental_rank`: dương là Env sớm hơn.
+- `rank_delta_context_sensitivity = context_rank - sensitivity_rank`: dương là env-first sớm hơn.
+- K context=[1,2]; nếu M<2 hoặc K>=M, Jaccard null + reason, không claim ưu tiên phân biệt.
+
+N3 vẽ context chỉ từ artifact này, không tự tạo scorer/queue. 5 scored pairs không đồng
+nghĩa 5 numeric patch priorities; hiển thị review list riêng. N3 còn phải đối chiếu độc
+lập một case; N2 oracle check không tự đánh dấu thay N3. Quy tắc all-X identity trong
+bản giao việc có ngoại lệ Scope Changed đã ghi `reports/p3_environmental_check.md`;
+scorer tuân FIRST v3.1, không ép identity sai chuẩn.

@@ -16,3 +16,4 @@ source_dates:
   kev_date_released: '2026-09-30T16:59:23.0688Z'
   kev_retrieved_at: '2026-10-01T11:29:35.854976+00:00'
 missing_policy: reject_ranking_inputs_null_undefined_metrics_with_reason
+context_sensitivity_k: [1, 2]

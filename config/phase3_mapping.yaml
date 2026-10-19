@@ -1,0 +1,92 @@
+# Reviewed evidence, not a real deployment assessment. Frozen release is untouched.
+limitations:
+  - Only six justified pairs; target 15 not met. No Cartesian expansion or invented affected versions.
+  - Five inherited v1 affected pairs remain conditional on the hypothetical inventory/attack paths.
+  - API-02 has unknown product/version; candidate is review only, not a claim that PgHero is installed.
+  - No N3 Phase 3 branch/case or independent Environmental check was available at fetch on 2026-10-19.
+  - Meta advisory was blocked; Hermes condition independently checked via official CVE CNA record and fix commit.
+mappings:
+  - cve_id: CVE-2018-25067
+    asset_id: WEB-01
+    applicability: affected
+    product: Joomla with JoomGallery
+    assumed_version: JoomGallery 3.3.3
+    affected_version_evidence: 'v1 CVE says <=3.3.3; project release 3.3.4 and SQL injection fix commit confirm fix.'
+    evidence_url: https://github.com/JoomGallery/JoomGallery/commit/dc414ee954e849082260f8613e15a1c1e1d354a1
+    mapping_reason: Hypothetical installed component/version matches v1 affected range; not tested on a real service.
+    exploit_conditions: Image sorting configuration path; high privileges per observed vector; verify enabled plugin and database permissions.
+    evidence_limitations: Release note alone does not enumerate complete affected range; version range retained from locked v1 description.
+    evidence_read_at: '2026-10-19'
+    reviewer: Codex-assisted source review for N2; no independent human approval claimed
+    dataset_version: t08-v1.0-20261010
+    context_version: phase3-context-v1
+  - cve_id: CVE-2022-46177
+    asset_id: API-01
+    applicability: affected
+    product: Discourse
+    assumed_version: 2.8.13
+    affected_version_evidence: 'Vendor affected stable <=2.8.13; stable >2.8.13 patched. Beta prose conflicts with table; use stable only.'
+    evidence_url: https://github.com/discourse/discourse/security/advisories/GHSA-5www-jxvf-vrc3
+    mapping_reason: Hypothetical stable 2.8.13 matches explicit vendor affected stable range.
+    exploit_conditions: Old password reset link after primary email change; attacker access to old mailbox; verify token lifetime.
+    evidence_limitations: Vendor Base 5.7 differs from v1 observed Base 8.1; preserve v1 vector and do not overwrite source labels.
+    evidence_read_at: '2026-10-19'
+    reviewer: Codex-assisted source review for N2; no independent human approval claimed
+    dataset_version: t08-v1.0-20261010
+    context_version: phase3-context-v1
+  - cve_id: CVE-2023-22626
+    asset_id: ADMIN-01
+    applicability: affected
+    product: PgHero
+    assumed_version: 3.0.1
+    affected_version_evidence: 'Official issue #439 affected 0.1.1 through 3.0.1; fixed 3.1.0.'
+    evidence_url: https://github.com/ankane/pghero/issues/439
+    mapping_reason: Hypothetical dashboard version 3.0.1 is explicitly affected.
+    exploit_conditions: Access EXPLAIN and crafted inputs; accessible data depends on database role; no assumed superuser or MAV downgrade from internal exposure.
+    evidence_limitations: Observed PR:N retained despite advisory describing PgHero users; deployment authentication requires confirmation.
+    evidence_read_at: '2026-10-19'
+    reviewer: Codex-assisted source review for N2; no independent human approval claimed
+    dataset_version: t08-v1.0-20261010
+    context_version: phase3-context-v1
+  - cve_id: CVE-2023-30470
+    asset_id: MOB-01
+    applicability: affected
+    product: React Native with Hermes
+    assumed_version: Hermes before da8990f737ebb9d9810633502f65ed462b819c09
+    affected_version_evidence: CNA Meta record states Hermes before fix commit da8990f737ebb9d9810633502f65ed462b819c09; optimized untrusted JS required.
+    evidence_url: https://cveawg.mitre.org/api/cve/CVE-2023-30470
+    mapping_reason: Inherited conditional hypothetical build and untrusted-JS assumptions match CNA; most React Native apps are not affected.
+    exploit_conditions: Execute attacker-controlled JavaScript with bytecode optimizations; verify engine build and actual JS trust path; client remains review_required.
+    evidence_limitations: No real application verified; Meta web page blocked, CNA record and fix commit read instead. No N3 mobile handoff yet.
+    evidence_read_at: '2026-10-19'
+    reviewer: Codex-assisted source review for N2; no independent human approval claimed
+    dataset_version: t08-v1.0-20261010
+    context_version: phase3-context-v1
+  - cve_id: CVE-2023-41387
+    asset_id: MOB-02
+    applicability: affected
+    product: Flutter with flutter_downloader
+    assumed_version: flutter_downloader 1.11.1
+    affected_version_evidence: CNA description says flutter_downloader iOS through 1.11.1; project changelog 1.11.2 has iOS security update.
+    evidence_url: https://pub.dev/packages/flutter_downloader/changelog
+    mapping_reason: Hypothetical iOS 1.11.1 version matches CNA affected range; verify actual integration before operational action.
+    exploit_conditions: Attacker-controlled downloader input; local path requires UIFileSharingEnabled and LSSupportsOpeningDocumentsInPlace; client remains review_required.
+    evidence_limitations: CNA affected product table is nonspecific, range comes from description; source C:N retained despite token-theft description.
+    evidence_read_at: '2026-10-19'
+    reviewer: Codex-assisted source review for N2; no independent human approval claimed
+    dataset_version: t08-v1.0-20261010
+    context_version: phase3-context-v1
+  - cve_id: CVE-2023-22626
+    asset_id: API-02
+    applicability: needs_review
+    product: unknown
+    assumed_version: unknown
+    affected_version_evidence: 'Vendor range 0.1.1-3.0.1 exists, but API-02 has no identified product/version.'
+    evidence_url: https://github.com/ankane/pghero/issues/439
+    mapping_reason: Deliberate unresolved database-adjacent backend candidate; inventory has no evidence of PgHero installation, cannot mark affected or unaffected.
+    exploit_conditions: First identify stack/version and whether PgHero EXPLAIN exists; no exploitation or numeric patch priority until confirmed.
+    evidence_limitations: Candidate for verification only; functional similarity to database services is not product applicability evidence.
+    evidence_read_at: '2026-10-19'
+    reviewer: Codex-assisted source review for N2; no independent human approval claimed
+    dataset_version: t08-v1.0-20261010
+    context_version: phase3-context-v1
