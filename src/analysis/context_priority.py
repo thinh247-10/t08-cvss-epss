@@ -267,6 +267,23 @@ def main(argv=None):
     raw = yaml.safe_load(args.mapping.read_text(encoding="utf-8"))
     mapping = pd.DataFrame(raw["mappings"])
     version, context = config["dataset_version"], config["context_version"]
+    extension_path = None
+    if config.get("context_mapping_extension"):
+        extension_path = root / config["context_mapping_extension"]
+        extension = yaml.safe_load(extension_path.read_text(encoding="utf-8"))
+        additions = []
+        for entry in extension["mappings"]:
+            additions.append(dict(asset_id="API-01", product="Discourse", assumed_version="2.8.13",
+                                  evidence_read_at="2026-10-19", dataset_version=version,
+                                  context_version=context,
+                                  reviewer="Codex-assisted source review for N2; no independent human approval claimed",
+                                  **entry))
+        mapping = pd.concat([mapping, pd.DataFrame(additions)], ignore_index=True)
+        raw["limitations"] = extension.get("limitations", []) + [
+            "Five original affected pairs remain conditional on the hypothetical inventory.",
+            "API-02 has unknown product/version; candidate does not establish PgHero installation."]
+    # New artifact revision, while preserving historical evidence fields in r1 source.
+    mapping["context_version"] = context
     mapping = validate_mapping(mapping, assets, version, context)
     master = pd.read_parquet(args.master)
     env, excluded = build_environmental(master, mapping, assets, dataset_version=version, context_version=context)
@@ -290,6 +307,8 @@ def main(argv=None):
     summary_path = args.output_dir / "context_sensitivity.json"
     summary_path.write_text(json.dumps(summary, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     inputs = (args.master, args.mapping, args.inventory, args.config, meta_path)
+    if extension_path is not None:
+        inputs += (extension_path,)
     provenance = dict(schema_version="p3-context-artifacts-v1", dataset_version=version,
                       context_version=context, inventory_version=inventory.inventory_version,
                       policy_versions=["context-v1", "context-v1-env-first"], source_dates=dates,

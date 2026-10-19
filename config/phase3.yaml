@@ -3,7 +3,8 @@ schema_version: p3-ranking-metrics-v1
 dataset_version: t08-v1.0-20261010
 cohort_id: t08-v1.0-20261010:ranking
 policy_version: cvss-epss-kev-first-v1
-context_version: phase3-context-v1
+context_version: phase3-context-v2
+context_mapping_extension: config/phase3_mapping_extension.yaml
 release_folder: data/processed/phase1_v1_20261010
 rankings_path: data/processed/p3_n2/rankings.csv
 output_dir: data/processed/p3_n2

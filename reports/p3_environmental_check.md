@@ -1,5 +1,9 @@
 # Phase 3 N2 — kiểm chứng Environmental và mapping (mục 7)
 
+**Fixture scorer vẫn áp dụng; bảng mapping bên dưới mô tả r1/context-v1.**
+Mapping hiện hành context-v2 có 15 cặp/10 scored; xem báo cáo independent completion.
+Không dùng số cặp cũ để chú thích hình của output v2.
+
 Ngày 2026-10-19, branch `feat/p3-ranking-context`. Không thay scorer Base, inventory
 `phase1-v1`, release v1, nhãn nguồn hay cohort 396 CVE. Không suy MAV từ internal,
 MAC từ WAF hoặc Modified C/I/A từ backup. CR/IR/AR từ lý do tài sản giả định.

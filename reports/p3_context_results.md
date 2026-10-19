@@ -1,5 +1,9 @@
 # Phase 3 N2 — context queue và sensitivity (mục 8)
 
+**Báo cáo r1/context-v1 lịch sử.** Output hiện hành đã là context-v2 (15 cặp).
+Xem reports/p3_n2_independent_completion.md và context_metadata.json cho revision
+mới; không gán số 6/5/3 bên dưới cho artifact v2 hoặc tái ghi ZIP r1.
+
 Ngày thực hiện 2026-10-19. Branch `feat/p3-ranking-context`.
 Dataset `t08-v1.0-20261010`, context `phase3-context-v1`, inventory `phase1-v1`.
 Không sửa release hay inventory cũ. Ranking A/B vẫn cùng 396 ID/3 KEV.

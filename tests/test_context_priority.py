@@ -202,7 +202,14 @@ class ContextChecks(unittest.TestCase):
             for name, info in meta["outputs"].items():
                 self.assertEqual(digest(output / name), info["sha256"])
             queue_csv = pd.read_csv(output / "priority_queue.csv")
-            self.assertEqual(len(queue_csv), 6)
+            self.assertEqual(len(queue_csv), 15)
+            self.assertEqual(queue_csv.queue_status.value_counts().to_dict(), {"patch": 8, "review_required": 7})
+            self.assertTrue(queue_csv.context_version.eq("phase3-context-v2").all())
+            candidates = queue_csv.loc[queue_csv.cve_id.isin(["CVE-2022-46168", "CVE-2023-22454",
+                                                            "CVE-2023-22455", "CVE-2023-22468"])]
+            self.assertTrue(candidates.queue_status.eq("review_required").all())
+            self.assertTrue(candidates.priority_rank.isna().all())
+            self.assertTrue(any("phase3_mapping_extension.yaml" in key for key in meta["inputs"]))
             self.assertTrue(queue_csv.loc[queue_csv.exposure.eq("client"), "priority_rank"].isna().all())
             self.assertEqual(before, [digest(p) for p in inputs])
 

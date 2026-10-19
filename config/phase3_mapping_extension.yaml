@@ -1,0 +1,71 @@
+# Adds reviewed pairs to the six-row r1 source without editing its historical evidence.
+# Context version is assigned uniformly by the producer from phase3.yaml.
+limitations:
+  - Context v2 contains 15 justified pairs, not 15 affected pairs; feature-dependent candidates remain needs_review.
+  - Nine additional pairs concern one Discourse asset; these are not independent deployments or nine distinct patch operations.
+  - Snapshot labels/ranking cohort remain frozen. New advisory evidence changes only context mapping, not observed CVSS labels.
+  - N1/N3 case integration, N3 independent Environmental check and figure/caption review remain pending.
+mappings:
+  - cve_id: CVE-2022-23548
+    applicability: affected
+    affected_version_evidence: 'Vendor stable <=2.8.13; patched >=2.8.14.'
+    evidence_url: https://github.com/discourse/discourse/security/advisories/GHSA-7rw2-f4x7-7pxf
+    mapping_reason: Hypothetical Discourse 2.8.13 matches explicit stable range; conditional on reachable post parsing.
+    exploit_conditions: Authenticated post input reaches vulnerable regular-expression parser; verify feature/access path before rollout.
+    evidence_limitations: Component/version mapping is hypothetical, not proof of reachable exploitation on a real service.
+  - cve_id: CVE-2022-23549
+    applicability: affected
+    affected_version_evidence: 'Vendor stable <=2.8.13; patched >=2.8.14.'
+    evidence_url: https://github.com/discourse/discourse/security/advisories/GHSA-p47g-v5wr-p4xp
+    mapping_reason: Hypothetical stable 2.8.13 matches affected post length-validation code.
+    exploit_conditions: Posting HTML comments bypasses raw body length counting; verify posting permissions and max_length settings.
+    evidence_limitations: No throughput/load measurements; do not equate post size bypass with measured outage.
+  - cve_id: CVE-2022-46168
+    applicability: needs_review
+    affected_version_evidence: 'Vendor stable <=2.8.13; patched >=2.8.14; vulnerable path requires group SMTP.'
+    evidence_url: https://github.com/discourse/discourse/security/advisories/GHSA-8p7g-3wm6-p3rm
+    mapping_reason: Version matches but inventory does not establish group SMTP usage; verify configuration before affected decision.
+    exploit_conditions: Group SMTP messages expose recipients; inspect enabled groups and staged/non-staged recipients.
+    evidence_limitations: No evidence group SMTP is enabled; not marked unaffected merely because configuration is unknown.
+  - cve_id: CVE-2023-22453
+    applicability: affected
+    affected_version_evidence: 'Vendor stable <=2.8.13; patched >=2.8.14.'
+    evidence_url: https://github.com/discourse/discourse/security/advisories/GHSA-xx97-6494-p2rv
+    mapping_reason: Hypothetical stable 2.8.13 matches affected core user metadata endpoint.
+    exploit_conditions: Unauthorized requests to user JSON reveal per-topic post counts; verify endpoint exposure/access controls.
+    evidence_limitations: Metadata disclosure scope is limited; do not expand impact beyond observed vector without evidence.
+  - cve_id: CVE-2023-22454
+    applicability: needs_review
+    affected_version_evidence: 'Vendor stable <=2.8.13; patched >=2.8.14.'
+    evidence_url: https://github.com/discourse/discourse/security/advisories/GHSA-ggq4-4qxc-c462
+    mapping_reason: Version matches but pending-topic approval and modified/disabled default CSP are not established by inventory.
+    exploit_conditions: Pending post title rendering plus approval setting; full XSS requires weakened default CSP per vendor.
+    evidence_limitations: Do not assume CSP disabled or downgrade MAC from a control label; keep needs_review.
+  - cve_id: CVE-2023-22455
+    applicability: needs_review
+    affected_version_evidence: 'Vendor stable <=2.8.13; patched >=2.8.14.'
+    evidence_url: https://github.com/discourse/discourse/security/advisories/GHSA-5rq6-466r-6mr9
+    mapping_reason: Version matches but tag-description editing and CSP conditions are unverified.
+    exploit_conditions: Moderator-controlled tag descriptions render to victims; full XSS requires modified/disabled default CSP.
+    evidence_limitations: Moderator role and CSP state cannot be inferred from generic internet exposure.
+  - cve_id: CVE-2023-22468
+    applicability: needs_review
+    affected_version_evidence: 'Current vendor GHSA stable <=3.0.0, fixed >=3.0.1; locked v1 description instead says fixed stable 2.8.13.'
+    evidence_url: https://github.com/discourse/discourse/security/advisories/GHSA-8mr2-xf8r-wr8m
+    mapping_reason: Source range conflict plus unverified CSP; do not mark 2.8.13 unaffected or change v1 labels automatically.
+    exploit_conditions: Crafted local-onebox URL with disabled/permissive CSP; default CSP prevents attack per vendor.
+    evidence_limitations: Needs vendor/release-history resolution and deployment CSP verification; no numeric priority meanwhile.
+  - cve_id: CVE-2023-23620
+    applicability: affected
+    affected_version_evidence: 'Vendor stable <=3.0.0; patched >=3.0.1; assumed 2.8.13 lies in declared stable range.'
+    evidence_url: https://github.com/discourse/discourse/security/advisories/GHSA-hvj9-g84x-5prx
+    mapping_reason: Hypothetical stable 2.8.13 matches affected restricted-tag route authorization code.
+    exploit_conditions: Latest/top routes reveal restricted-tag topics; verify routes and tag permissions before operational assessment.
+    evidence_limitations: No claim all customer records exposed; preserve selected observed vector from v1.
+  - cve_id: CVE-2023-23621
+    applicability: affected
+    affected_version_evidence: 'Vendor stable <=3.0 (3.0.0); patched >=3.0.1; assumed stable 2.8.13 in range.'
+    evidence_url: https://github.com/discourse/discourse/security/advisories/GHSA-mrfp-54hf-jrcv
+    mapping_reason: Hypothetical stable 2.8.13 matches user-agent parser affected version range.
+    exploit_conditions: Crafted user-agent header reaches vulnerable regex; assess affected path without executing a DoS payload.
+    evidence_limitations: No measured outage or control efficacy; do not modify AC/Scope to fit deployment assumptions.

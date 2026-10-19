@@ -1,5 +1,13 @@
 # Phase 3 — Artifact contract N2 → N3
 
+**Revision hiện hành 2026-10-20: context-v2.** Ranking schema/policy không đổi.
+15 mapping rows (10 affected có điều kiện, 5 needs_review), 10 score rows,
+15 dòng mỗi queue (8 patch/7 review), 8 comparison rows. Cấu trúc cột C/D giữ nguyên.
+Phần C/D bên dưới ghi số r1/v1 lịch sử; không dùng 6/5/3 làm số lượng v2.
+Config khai báo context_mapping_extension; metadata hash cả source r1 và extension.
+K sensitivity=[1,2] trên M=8; không so population v2 trực tiếp với r1 M=3.
+docs/analysis-results.md và playbook đã có bản N2; peer input/check/figure còn chờ.
+
 Schema `p3-ranking-metrics-v1`, chốt 2026-10-18 trước lần chạy B.
 N2 sở hữu producer; N3 đọc artifact, không tự tính lại bằng cách đổi cohort/tie-break.
 Không sửa `docs/data_contract.md` hoặc schema ranking 11 cột hiện có.
