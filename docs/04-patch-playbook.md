@@ -1,8 +1,13 @@
 # RQ4 — playbook xác minh và ưu tiên vá Web/mobile
 
-Phiên bản tài liệu 2026-10-20, áp dụng mô phỏng context-v2. Đây là quy trình đề xuất
+Phiên bản tài liệu 2026-10-21 (rà Phase 4), áp dụng mô phỏng context-v2. Đây là quy trình đề xuất
 cho tổ chức thương mại điện tử giả định, chưa được chạy trên hệ thống thật.
 Không coi rank là lệnh tự động triển khai bản vá.
+
+Revision này chỉ đồng bộ trạng thái tích hợp và làm rõ hồ sơ ngoại lệ; không đổi
+dataset, context, scorer, queue policy hay các mốc thời gian giả định. Căn cứ:
+[biên bản tích hợp Phase 3 ngày 21/10](phase-3-completion.md) và yêu cầu rà ngoại lệ
+trong [bước C Phase 4 N2](phase-4-nguoi-2.md).
 
 ## 1. Trigger, chủ trách nhiệm và đầu vào
 
@@ -109,6 +114,12 @@ Ví dụ Discourse SMTP/CSP cần kiểm cấu hình; restored default CSP khôn
 status nếu chưa xác minh đường bị ảnh hưởng và version. Mọi ngoại lệ cần owner,
 lý do, residual risk, người duyệt và ngày tái xét; không được để vô thời hạn.
 
+Hồ sơ ngoại lệ đề xuất tối thiểu gồm CVE–asset/version, lý do chưa thể vá, evidence
+vendor/config, biện pháp tạm và kết quả kiểm nếu đã thực hiện, owner, người duyệt,
+deadline tái xét, điều kiện thoát và trigger mở lại. Quá hạn hoặc đổi điều kiện
+thì mở lại triage/escalate cho người duyệt; không tự gia hạn hoặc ký thay người khác.
+Đây là cách ghi nhận quy trình giả định, không phải hồ sơ phê duyệt thật đã có.
+
 ## 7. Áp dụng vào artifact hiện tại
 
 Context-v2 giữ 15 cặp: 8 patch và 7 review. Năm case chi tiết trong
@@ -121,5 +132,7 @@ context rank 8 lên sensitivity rank 2 khi đổi thứ tự exposure/Env: giả
 cần kế hoạch upgrade chung, nhưng xác nhận fix riêng từng CVE sau triển khai.
 
 RQ2 vẫn 396 ID/3 KEV, không trộn với 8 patch pairs. Báo KEV coverage@K và overlap
-như chỉ số mô tả; không-KEV không phải false positive. N1/N3 còn kiểm tích hợp,
-case độc lập và caption hình; không tự đánh dấu phê duyệt/thực thi thay họ.
+như chỉ số mô tả; không-KEV không phải false positive. N1 đã ghi nhận tích hợp
+case/hình/context-v2 ngày 21/10 trong biên bản Phase 3. Demo máy nhận, diễn tập và
+nghiệm thu màn hình thuộc Phase 4 vẫn cần bằng chứng riêng; không suy đã thực thi
+vá hoặc được phê duyệt vận hành từ kết quả kiểm kỹ thuật Phase 3.
