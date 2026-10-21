@@ -1,0 +1,47 @@
+schema_version: p3-n3-plots-v1
+font: DejaVu Sans
+font_size: 10
+svg_fonttype: path  # Embed glyph outlines so the viewer need not install DejaVu.
+dpi: 160
+colors:
+  regular: '#246b94'
+  kev: '#b44224'
+sizes:
+  scatter: [10, 7]
+  top50: [15, 11]
+  metrics: [9, 6]
+thresholds:
+  cvss: 7.0
+  epss: 0.10
+  status: locked
+  reason: Verified N2 step B config dated 2026-10-18; illustrative only, no policy changes.
+expected:
+  dataset_version: t08-v1.0-20261010
+  cohort_id: t08-v1.0-20261010:ranking
+  policy_version: cvss-epss-kev-first-v1
+  epss_date: '2026-09-29'
+  n: 396
+  kev: 3
+  rankings_sha256: 4615bd970c5ef589bb7c04e81ecc48217388a79d60ad8b3d5565a3f93f822b67
+paths:
+  rankings: data/processed/p3_n3_input/rankings.csv
+  figures: reports/figures/phase3
+  tables: data/processed/p3_n3
+n2_archive:
+  path: D:/Downloads/n2_p3_step_b_20261018.zip
+  bytes: 19198
+  sha256: c3aacd4e7b8afddc5950365c929c71358a56e2d794a3d37626feb714d7508945
+# Verified supplied r1 archive; newer branch revisions are separate populations.
+context:
+  version: phase3-context-v1
+  queue_policy_version: context-v1
+  schema_version: p3-context-artifacts-v1
+  population: complete_patch_pairs
+  archive_sha256: 8a2fc661f369e1fa6327472a9464aa01277d4e5406c3eefdd46e416d175069d9
+  archive_bytes: 45788
+# Column names are a reader adapter, not a replacement producer contract.
+context_columns:
+  base_score: base_score
+  environmental_score: environmental_score
+  base_rank: base_rank
+  environmental_rank: environmental_rank
