@@ -1,0 +1,4 @@
+-r requirements-data.txt
+-r requirements-model.txt
+# Verified in this repository's Windows Python 3.13 environment.
+matplotlib==3.11.2
