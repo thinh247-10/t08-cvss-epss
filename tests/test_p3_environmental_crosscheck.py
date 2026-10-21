@@ -23,6 +23,10 @@ class EnvironmentalCrosscheckTests(unittest.TestCase):
                     frame.assign(context_version='wrong'), pd.concat([frame, frame])]:
             with self.assertRaises(ValueError):
                 crosscheck(bad)
+        newer = frame.assign(context_version='phase3-context-v2')
+        self.assertEqual(crosscheck(newer, 'phase3-context-v2')['status'], 'pass')
+        with self.assertRaises(ValueError):
+            crosscheck(newer)
 
     @unittest.skipUnless(Path('data/processed/p3_n2_context_20261019_r1_received/p3_n2/environmental_scores.csv').is_file(), 'N2 r1 not installed')
     def test_real_n2_mobile_pair(self):

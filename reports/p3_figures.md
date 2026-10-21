@@ -28,7 +28,7 @@ CVSS cutoff at K=10/20 spans 28 tied CVEs; 10/20 chosen by N2's ID tie-break. Se
 
 ## Context severity and action queue
 
-Unit=CVE/asset pair; context=phase3-context-v1; queue policy=context-v1. Complete identical pairs=3; comparison population=N2 patch pairs with complete Base and Environmental scores; scored pairs outside comparison=2; all mapping pairs outside comparison=3 (retained with reasons in context_excluded.csv).
+Unit=CVE/asset pair; context=phase3-context-v2; queue policy=context-v1. Complete identical pairs=8; comparison population=N2 patch pairs with complete Base and Environmental scores; scored pairs outside comparison=2; all mapping pairs outside comparison=7 (retained with reasons in context_excluded.csv).
 
 Base→Environmental severity ranks and patch/review decisions are different views. No ranks are derived from queue position, and no missing value is converted to zero.
 
@@ -38,43 +38,46 @@ Base→Environmental severity ranks and patch/review decisions are different vie
 
 | Queue status | Pairs |
 |---|---:|
-| patch | 3 |
-| review_required | 3 |
+| patch | 8 |
+| review_required | 7 |
 | not_applicable | 0 |
 
 Client/unknown review rows retain null priority_rank=N/A, plus the producer's reason/action.
 
 | CVE | Asset | Exposure | Rank | Supplied review reason | Supplied action |
 |---|---|---|---|---|---|
+| CVE-2022-46168 | API-01 | internet | N/A | Applicability not established: Version matches but inventory does not establish group SMTP usage; verify configuration before affected decision. Missing environmental_score; not imputed. | Verify applicability, client attack path and missing signals before numeric ranking. |
+| CVE-2023-22454 | API-01 | internet | N/A | Applicability not established: Version matches but pending-topic approval and modified/disabled default CSP are not established by inventory. Missing environmental_score; not imputed. | Verify applicability, client attack path and missing signals before numeric ranking. |
+| CVE-2023-22455 | API-01 | internet | N/A | Applicability not established: Version matches but tag-description editing and CSP conditions are unverified. Missing environmental_score; not imputed. | Verify applicability, client attack path and missing signals before numeric ranking. |
+| CVE-2023-22468 | API-01 | internet | N/A | Applicability not established: Source range conflict plus unverified CSP; do not mark 2.8.13 unaffected or change v1 labels automatically. Missing environmental_score; not imputed. | Verify applicability, client attack path and missing signals before numeric ranking. |
 | CVE-2023-22626 | API-02 | internal | N/A | Applicability not established: Deliberate unresolved database-adjacent backend candidate; inventory has no evidence of PgHero installation, cannot mark affected or unaffected. Missing environmental_score; not imputed. | Verify applicability, client attack path and missing signals before numeric ranking. |
 | CVE-2023-30470 | MOB-01 | client | N/A | Exposure client/unknown has no numeric rule; verify attack path. | Verify applicability, client attack path and missing signals before numeric ranking. |
 | CVE-2023-41387 | MOB-02 | client | N/A | Exposure client/unknown has no numeric rule; verify attack path. | Verify applicability, client attack path and missing signals before numeric ranking. |
 
-Source version is phase3-context-v1 from the supplied package; it is not automatically replaced by newer revisions on N2's branch. Queue counts include every mapping pair; the Environmental table retains all scored client pairs. Plot completion is not completion of the independent Environmental crosscheck or all Phase 3 tasks.
+Source version is phase3-context-v2 from the supplied package; it is not automatically replaced by newer revisions on N2's branch. Queue counts include every mapping pair; the Environmental table retains all scored client pairs. Plot completion is not completion of the independent Environmental crosscheck or all Phase 3 tasks.
 
 ## Input integrity
 
 | Input | Bytes | SHA-256 |
 |---|---:|---|
-| data/processed/p3_n3_input/rankings.csv | 48438 | `4615bd970c5ef589bb7c04e81ecc48217388a79d60ad8b3d5565a3f93f822b67` |
-| config/phase3_plots.yaml | 1496 | `44b2db73be7eb2220bdd1415d21ab1873cee57bec857865f250976d1ec4679a9` |
-| data/processed/p3_n2_context_20261019_r1_received/p3_n2/metadata.json | 4329 | `2f62ee29f7ed7a2a0be87c39bf3ea72f30498fb09933486878e1b5951a7fddc0` |
-| data/processed/p3_n2_context_20261019_r1_received/p3_n2/rankings.csv | 48438 | `4615bd970c5ef589bb7c04e81ecc48217388a79d60ad8b3d5565a3f93f822b67` |
-| data/processed/p3_n2_context_20261019_r1_received/p3_n2/ranking_metrics.json | 6189 | `f747c31deb91a023238556bcc9d731606f24d2888ed9b5e2cdd5e5622f2a94f7` |
-| data/processed/p3_n2_context_20261019_r1_received/p3_n2/topk_metrics.csv | 599 | `7a68e595bcb695b732a8bbf269cff793ecdd369d1d4265ac2afac3bb721f12f6` |
-| data/processed/p3_n2_context_20261019_r1_received/p3_n2/overlap.csv | 374 | `714e2804b6fef880a5a6c6ee9338f8347f6ca6a6fb113e890ce17b24b3b19fa4` |
-| data/processed/p3_n2_context_20261019_r1_received/p3_n2/rank_deltas.csv | 11906 | `2607c46f468ae2f2292207b9fb1da0049f73b319ffb47c8b9ccaed196bef4173` |
-| data/processed/p3_n2_context_20261019_r1_received/docs/phase-3-artifact-contract.md | 7673 | `2c40c071c5fd1f81323d1a592df30981bf4731597b09f11a86c524175080fe44` |
-| data/processed/p3_n2_context_20261019_r1_received/config/phase3.yaml | 720 | `d403aa02bcb622566b45ffff9ad407723fadbaeed9dc550a974b7063463286d0` |
-| data/processed/p3_n2_context_20261019_r1_received/handoff_manifest.json | 3409 | `4d543693c01cffbd24280b74112d95236dd8f55b51beccb1c944473d7b0f3029` |
-| D:/Downloads/n2_p3_context_20261019_r1.zip | 45788 | `8a2fc661f369e1fa6327472a9464aa01277d4e5406c3eefdd46e416d175069d9` |
-| data/processed/p3_n2_context_20261019_r1_received/p3_n2/context_metadata.json | 5079 | `6df5d966c8dc91609ab6b4cdde0a00d70e59abcb806602fa933649299450971f` |
-| data/processed/p3_n2_context_20261019_r1_received/docs/phase-3-artifact-contract.md | 7673 | `2c40c071c5fd1f81323d1a592df30981bf4731597b09f11a86c524175080fe44` |
-| data/processed/p3_n2_context_20261019_r1_received/handoff_manifest.json | 3409 | `4d543693c01cffbd24280b74112d95236dd8f55b51beccb1c944473d7b0f3029` |
-| data/processed/p3_n2_context_20261019_r1_received/p3_n2/environmental_scores.csv | 3214 | `1d40e31ed9341b90a8af93ca2dc5a3c9788ad0bd76cc3890fb6d2c17d8b2cf33` |
-| data/processed/p3_n2_context_20261019_r1_received/p3_n2/context_comparison.csv | 584 | `c51b733e4838ba12c479b990f3370e0bf84fbdb85607536959fa22738ef9895b` |
-| data/processed/p3_n2_context_20261019_r1_received/p3_n2/priority_queue.csv | 2117 | `8946e90fb5308bd34e3e1c3c7c8b0f476bb144413e8a39cd5a7c64e7fdf6405f` |
-| data/processed/p3_n2_context_20261019_r1_received/p3_n2/cve_asset_mapping.csv | 4382 | `8872293c53ff1fe429259aeb17ac3dd7ee8e6d5433e51c3d56b9b0cab3c9a98b` |
+| data/processed/p3_n2/rankings.csv | 48438 | `4615bd970c5ef589bb7c04e81ecc48217388a79d60ad8b3d5565a3f93f822b67` |
+| config/phase3_plots_n1.yaml | 1105 | `88370db32835038da62b74a2de87d9937199949907b0ffc8bdb7775f19842193` |
+| data/processed/p3_n1_context_verified_20261021/p3_n2/metadata.json | 4131 | `40f1da8cebfc80f5dbcd85cd694d0d9757eee6e6d130a55b871603a45041e550` |
+| data/processed/p3_n1_context_verified_20261021/p3_n2/rankings.csv | 48438 | `4615bd970c5ef589bb7c04e81ecc48217388a79d60ad8b3d5565a3f93f822b67` |
+| data/processed/p3_n1_context_verified_20261021/p3_n2/ranking_metrics.json | 6189 | `49eca7c469c59b74d15ee670d2103804d1a6b6fc29887aedf36452b2c7bb3165` |
+| data/processed/p3_n1_context_verified_20261021/p3_n2/topk_metrics.csv | 599 | `7a68e595bcb695b732a8bbf269cff793ecdd369d1d4265ac2afac3bb721f12f6` |
+| data/processed/p3_n1_context_verified_20261021/p3_n2/overlap.csv | 374 | `714e2804b6fef880a5a6c6ee9338f8347f6ca6a6fb113e890ce17b24b3b19fa4` |
+| data/processed/p3_n1_context_verified_20261021/p3_n2/rank_deltas.csv | 11906 | `2607c46f468ae2f2292207b9fb1da0049f73b319ffb47c8b9ccaed196bef4173` |
+| data/processed/p3_n1_context_verified_20261021/docs/phase-3-artifact-contract.md | 8414 | `f2dc6738040c952ff5d00a0c68939da92e47cff0282f4ea8d450a3d42c5a541f` |
+| data/processed/p3_n1_context_verified_20261021/config/phase3.yaml | 804 | `715657ccbc60ffb84302268faa1a5df9df1e5d98ee006fb62ef43975dff933c7` |
+| data/processed/p3_n1_context_verified_20261021/handoff_manifest.json | 4808 | `5148db8026e38a734fff725b6bf6ad18a46e07c3eb5913e8beba7b9b325426ea` |
+| data/processed/p3_n1_context_verified_20261021/p3_n2/context_metadata.json | 5312 | `899966c4cad3f1512578b009b9ebf2c3edfbac60f98786c1fa5be5fda64098e5` |
+| data/processed/p3_n1_context_verified_20261021/docs/phase-3-artifact-contract.md | 8414 | `f2dc6738040c952ff5d00a0c68939da92e47cff0282f4ea8d450a3d42c5a541f` |
+| data/processed/p3_n1_context_verified_20261021/handoff_manifest.json | 4808 | `5148db8026e38a734fff725b6bf6ad18a46e07c3eb5913e8beba7b9b325426ea` |
+| data/processed/p3_n1_context_verified_20261021/p3_n2/environmental_scores.csv | 6208 | `878f89ea8d5435188cff99e58ee6bbf0e55b60faf033ae2ce8ff9d447f7a94f2` |
+| data/processed/p3_n1_context_verified_20261021/p3_n2/context_comparison.csv | 1139 | `6b80612e1bab86f4ae24f3cdf763a8ec6de5c84c1479bac263651e79b6c38366` |
+| data/processed/p3_n1_context_verified_20261021/p3_n2/priority_queue.csv | 5262 | `38204e9c317209cc64fcbc2f87bd1f66581ddf5d4cfe6bf65c1c768505880946` |
+| data/processed/p3_n1_context_verified_20261021/p3_n2/cve_asset_mapping.csv | 9799 | `2f05ed03ba10a730d868b30d10db00535d853d4a6d1f5ae832980477d938bf36` |
 
 Output hashes/bytes and exact command: `data/processed/p3_n3/figures_manifest.json`.
 

@@ -182,7 +182,7 @@ Environmental xét bối cảnh; không nhân EPSS với Base để gọi đó l
   có lý do, trường chưa xác định giữ X. Không tự suy MAV từ internal hay MAC từ WAF.
 - Kiểm Scope changed/unchanged, Modified Scope khác Base Scope, MPR theo Scope,
   impact bằng 0, trọng số CR/IR/AR, giới hạn impact và Roundup đúng **v3.1**.
-- Tất cả Environmental/Temporal X phải trả về Base tương ứng. Test vector malformed,
+- Đính chính 21/10: all-X không luôn bằng Base khi Scope=C vì công thức Modified Impact v3.1 khác; dùng expected FIRST độc lập. Test vector malformed,
   metric trùng/giá trị sai, không âm thầm fallback thành 0.
 - `tests/test_cvss_environmental.py` có expected từ calculator/đặc tả và giải thích;
   lưu vector/expected/source trong `reports/p3_environmental_check.md`.

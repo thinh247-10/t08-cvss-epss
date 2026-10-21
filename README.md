@@ -10,6 +10,7 @@ Kế hoạch nhóm: [Lộ trình 30 ngày, 6 phase và phân công chi tiết ch
 > Phase 2: code baseline/evaluation của N3 và ranking của N2 đã tích hợp. N1 đã chạy lại baseline, đối chiếu metric và kiểm gói model: [kết quả](reports/p2_reproduction_n1.md) · [nhận và chạy gói model](docs/phase-2-n1-chay-thay-n3.md).
 > Phase 2 đã hoàn tất thí nghiệm Dummy, TF-IDF và DistilBERT: [nghiệm thu và bàn giao](docs/phase-2-completion.md). Phân tích Environmental và demo tiếp tục ở các phase sau. Schema bàn giao: [data contract](docs/data_contract.md).
 > Bắt đầu Phase 3: [việc Người 2 — ranking/bối cảnh](docs/phase-3-nguoi-2.md) · [việc Người 3 — biểu đồ/case mobile](docs/phase-3-nguoi-3.md). Hai hướng dẫn có branch, cài môi trường, đầu vào, prompt từng bước và checklist bàn giao.
+> Phase 3 đã tích hợp context-v2 ngày 21/10: [nghiệm thu](docs/phase-3-completion.md). Tiếp theo Phase 4: [Người 1](docs/phase-4-nguoi-1.md) · [Người 2](docs/phase-4-nguoi-2.md) · [Người 3](docs/phase-4-nguoi-3.md).
 
 Quy trình làm nhóm: [chia branch, commit, push và Pull Request](docs/06-git-workflow.md).
 

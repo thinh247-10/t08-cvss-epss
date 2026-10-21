@@ -4,6 +4,7 @@ Downloads the inspected official CVSS calculator into memory only; records its
 hash and reproducible vector fixtures, not a second production scorer.
 """
 import argparse
+from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
@@ -53,7 +54,7 @@ process.stdout.write(JSON.stringify(result));"""
         if row["actual"] != row["expected"]:
             raise AssertionError(row)
     report = dict(source_url=URL, source_sha256=hashlib.sha256(response.content).hexdigest(),
-                  source_read_date="2026-10-19", seed=42, cases=len(cases), mismatches=0,
+                  source_read_date=datetime.now(timezone.utc).date().isoformat(), seed=42, cases=len(cases), mismatches=0,
                   expected_origin="Official FIRST CVSS31.calculateCVSSFromVector; not scorer under test",
                   fixtures=cases)
     args.output.parent.mkdir(parents=True, exist_ok=True)

@@ -19,6 +19,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import yaml
+from src.analysis.ranking_metrics import git_output
 
 POLICIES = ("cvss", "epss", "kev_first")
 LABELS = {"cvss": "CVSS Base", "epss": "EPSS", "kev_first": "KEV-first"}
@@ -767,7 +768,7 @@ def main(argv=None):
         "dependencies": {"python": platform.python_version(), "matplotlib": matplotlib.__version__,
                          "pandas": pd.__version__, "numpy": np.__version__, "PyYAML": yaml.__version__},
         "code": file_info(Path(__file__)),
-        "commit": subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True, check=True).stdout.strip(),
+        "commit": git_output(Path(__file__).resolve().parents[2], 'rev-parse', 'HEAD'),
         "plot_code_may_be_uncommitted": True,
         "scope": "Only files listed in outputs belong to this run; pre-existing files are not certified."})
     (args.tables_dir / "figures_manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")

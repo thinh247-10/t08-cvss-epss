@@ -4,6 +4,11 @@
 **Mục tiêu:** một người khác có thể mở dự án, đọc đúng snapshot, tái tạo kết quả và xem demo trả lời câu hỏi bảo mật của thầy.
 **Trạng thái:** đây là kế hoạch thực hiện; các ô chưa đánh dấu là việc sẽ làm, không phải kiểm tra đã hoàn tất.
 
+> Cập nhật21/10: Phase3 đã tích hợp context-v2. Hướng dẫn thực hiện hiện hành:
+> [N1](../phase-4-nguoi-1.md), [N2](../phase-4-nguoi-2.md), [N3](../phase-4-nguoi-3.md).
+> Dùng release Phase1 `data/processed/phase1_v1_20261010/` và gói Phase3 thống nhất;
+> các đường dẫn tổng quát bên dưới chỉ là kế hoạch cũ. DistilBERT đã hoàn tất Phase2.
+
 - Kế hoạch chung: [Phân công 30 ngày](../05-ke-hoach-phan-cong.md).
 - Đầu vào: [Phase 3 — Xếp hạng và bối cảnh](phase-3-xep-hang-va-boi-canh.md).
 - Tiếp theo: [Phase 5 — Báo cáo và bảo vệ](phase-5-bao-cao-va-bao-ve.md).

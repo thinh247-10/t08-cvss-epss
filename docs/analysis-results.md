@@ -185,7 +185,8 @@ Target 15 mapping đã đạt bằng nguồn cụ thể, không phải 15 cặp 
 Discourse mới giữ needs_review do SMTP/CSP hoặc xung đột source; API-02 unknown
 là cặp thứ năm chưa tính Env. Không impute missing thành 0/false.
 
-N2 đã điền năm case và playbook độc lập. Còn chờ case Web riêng từ N1, case mobile
-riêng và một kiểm Environmental độc lập từ N3, cùng hình/caption để đối chiếu CSV.
-Không tự tạo hình hoặc sửa file N3 để giả hoàn tất tích hợp. Báo cáo validation
-Phase 2 vẫn ở reports/p2_validation_security_review.md, không trộn vào các case train.
+N1 đã tích hợp ngày 21/10: [case Web PgHero](cases/p3-web-n1.md),
+[case mobile N3](cases/p3-mobile-n3.md), Decimal crosscheck MOB-02=9.8 và bộ hình
+context-v2/8 patch pairs. Xem [nghiệm thu](phase-3-completion.md) và
+[caption hiện hành](../reports/p3_figures.md). Báo cáo validation Phase 2 vẫn ở
+reports/p2_validation_security_review.md, không trộn vào các case train.

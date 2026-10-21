@@ -6,7 +6,7 @@ K chốt trước chạy: 10, 20, 50. Coverage từng model = prediction hợp l
 
 ```powershell
 .\.venv\Scripts\python.exe -m src.analysis.prediction_rank_impact --help
-& "D:\Bảo mật web và ứng dụng\t08-cvss-epss\.venv\Scripts\python.exe" -m src.analysis.prediction_rank_impact
+& C:\Users\LOQ\Desktop\t08-cvss-epss\t08-cvss-epss\.venv\Scripts\python.exe -m src.analysis.prediction_rank_impact --tfidf data/processed/p2_n1_reproduction_20261017/data/processed/predictions.csv --distilbert data/processed/p2_distilbert_20261017/predictions.csv
 ```
 
 Join audit: `{"ranking_ids": 396, "ml_ids": 67242, "ranking_missing_from_ml": 0, "ranking_missing_from_ml_ids": [], "train_excluded": 219, "heldout_ids": 177}`.
@@ -41,38 +41,5 @@ Chỉ dùng score prediction đã lưu; kiểm vector/score là kiểm tính h�
 |---|---:|---|
 | data/processed/phase1_v1_20261010/ranking_cohort.parquet | 171785 | `07bdaba5b21e2f21161b1339704e68924d8f4bfa34118b8eb02ec8b51affdfff` |
 | data/processed/phase1_v1_20261010/ml_cohort.parquet | 21858636 | `eaa7f845596cc8b1a0ac802a792f2b495006cec87acc7cab28434fcb8905fdb6` |
-| data/processed/phase2_received/baseline/data/processed/predictions.csv | 12359308 | `6af4021db182ca24421f8f457e881410e272366f0dde5b30b2abacefd0fd95b1` |
-| data/processed/phase2_received/distilbert/predictions.csv | 5757046 | `3fa8e432a9ad84043fd323c3a088f6ec2f5624e97df050af3bc1f393d93c5f86` |
-
-## Kiểm chứng lần bàn giao mục 8 — 2026-10-21 (Asia/Saigon)
-
-Đã kiểm `D:/Downloads/phase2_handoff_20261017.zip` theo receipt tracked
-`docs/handoffs/phase-2-complete-20261017.json`: 253.203.876 byte,
-SHA-256 `902f97cc84727a98cd36b9f3c17797927979e85f87466972d3f4ab5add1171ce`.
-Manifest, baseline.zip và prediction DistilBERT đã giải nén khớp byte với ZIP này;
-prediction TF-IDF khớp byte với member trong baseline.zip. Không chạy lại model.
-Phase 1 verifier trả `PHASE1 RELEASE OK`, xác minh 14 file, bao gồm hai cohort đầu vào.
-
-Đã chạy CLI `--help` và lệnh phân tích ghi phía trên: exit 0, 354 dòng đối chiếu,
-0 dòng model bị loại. Cùng 69 ID validation / 108 ID test cho observed và cả hai model;
-giao giữa hai split rỗng. Cả 177 ID là Web, không có mobile held-out.
-219 ID train được loại trước khi join prediction, không thêm vào để đủ 396.
-
-```powershell
-.\.venv\Scripts\python.exe -m unittest tests.test_prediction_rank_impact -v
-```
-
-**12 tests pass**: join ID dù đổi thứ tự, split/version sai, ID lạ/trống,
-duplicate, lọc Dummy, missing/invalid prediction, observed mismatch, ties,
-score 0 hợp lệ, N=0/N=1, tau-b không xác định khi score hằng, bảo vệ input
-và kiểm cùng cohort trên artifact thật. Fixture synthetic chỉ nằm trong test/tempfile.
-
-Kiểm sau xuất: mọi hash input/output/code trong JSON khớp file trên đĩa;
-khóa `(cve_id,model_version)` duy nhất; mỗi split/model có rank 1..N;
-observed rank giống nhau giữa hai model; delta đúng `observed_rank - predicted_rank`.
-Ví dụ CSV validation/TF-IDF: `CVE-2023-38709` có Base 7.3 → 9.1,
-rank 25 → 2, delta +23; `CVE-2023-48297` có Base 7.5 → 4.3,
-rank 12 → 56, delta −44. Đây là thay đổi severity rank, không phải thứ tự queue vá.
-
-Phần kiểm chứng này là log lần bàn giao; nội dung bảng kết quả phía trên được CLI sinh
-từ dữ liệu thật. Không sửa evaluator, notebook Phase 2, cấu hình model hoặc file N2.
+| data/processed/p2_n1_reproduction_20261017/data/processed/predictions.csv | 12359308 | `6af4021db182ca24421f8f457e881410e272366f0dde5b30b2abacefd0fd95b1` |
+| data/processed/p2_distilbert_20261017/predictions.csv | 5757046 | `3fa8e432a9ad84043fd323c3a088f6ec2f5624e97df050af3bc1f393d93c5f86` |

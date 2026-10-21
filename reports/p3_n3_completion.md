@@ -1,5 +1,9 @@
 # Phase 3 — kiểm tra hoàn tất phạm vi người 3
 
+> Bản dưới là lịch sử N3 với r1. N1 đã tái tạo và cập nhật hình/notebook lên context-v2
+> ngày21/10: [biên bản hiện hành](../docs/phase-3-completion.md). Receipt riêng N3 chưa
+> có trong commit nhận được; gói thống nhất dùng `docs/handoffs/phase-3-complete-20261021.json`.
+
 Ngày rà: **2026-10-21 (Asia/Saigon)**. Dataset `t08-v1.0-20261010`; dùng đúng gói
 N2 `n2_p3_context_20261019_r1.zip` theo hash người dùng xác nhận. Không trộn context
 revision mới hơn hoặc thay cohort/model/policy. Đây là gate N3; tích hợp chung thuộc N1/N2.

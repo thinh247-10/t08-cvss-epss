@@ -1,0 +1,47 @@
+schema_version: p3-n3-plots-v1
+font: DejaVu Sans
+font_size: 10
+svg_fonttype: path
+dpi: 160
+colors:
+  regular: '#246b94'
+  kev: '#b44224'
+sizes:
+  scatter:
+  - 10
+  - 7
+  top50:
+  - 15
+  - 11
+  metrics:
+  - 9
+  - 6
+thresholds:
+  cvss: 7.0
+  epss: 0.1
+  status: locked
+  reason: Verified N2 step B config dated 2026-10-18; illustrative only, no policy
+    changes.
+expected:
+  dataset_version: t08-v1.0-20261010
+  cohort_id: t08-v1.0-20261010:ranking
+  policy_version: cvss-epss-kev-first-v1
+  epss_date: '2026-09-29'
+  n: 396
+  kev: 3
+  rankings_sha256: 4615bd970c5ef589bb7c04e81ecc48217388a79d60ad8b3d5565a3f93f822b67
+paths:
+  rankings: data/processed/p3_n3_input/rankings.csv
+  figures: reports/figures/phase3
+  tables: data/processed/p3_n3
+n2_archive: null
+context:
+  version: phase3-context-v2
+  queue_policy_version: context-v1
+  schema_version: p3-context-artifacts-v1
+  population: complete_patch_pairs
+context_columns:
+  base_score: base_score
+  environmental_score: environmental_score
+  base_rank: base_rank
+  environmental_rank: environmental_rank

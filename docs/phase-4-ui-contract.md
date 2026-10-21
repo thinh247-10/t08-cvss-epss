@@ -6,12 +6,12 @@ không sửa data contract chung, policy hoặc scorer N2. Chưa triển khai �
 ## Bộ dữ liệu và kiểm toàn vẹn
 
 Dataset bắt buộc `t08-v1.0-20261010`; ranking cohort `t08-v1.0-20261010:ranking`,
-policy `cvss-epss-kev-first-v1`. Context dùng **r1 được người dùng xác nhận**:
-`phase3-context-v1`, policy `context-v1`, inventory `phase1-v1`;
+policy `cvss-epss-kev-first-v1`. Tích hợp N1 ngày 21/10 chuyển sang **context-v2**:
+`phase3-context-v2`, policy `context-v1`, inventory `phase1-v1`;
 schema N2 `p3-ranking-metrics-v1` và `p3-context-artifacts-v1`.
-Không tự thay r1 bằng revision mới trên branch hoặc ghép hai context version.
+Không ghép hai context version. Gói thống nhất và receipt: `docs/handoffs/phase-3-complete-20261021.json`.
 
-App cần Phase 1 release, gói Phase 2 nếu bật view AI, gói N2 context r1 và gói N3.
+App cần Phase 1 release, gói Phase 2 nếu bật view AI và gói Phase 3 thống nhất N1.
 Đường dẫn gốc là cấu hình triển khai, không hard-code `D:/Downloads` trong UI.
 Kiểm receipt ZIP SHA-256/bytes trước giải nén; kiểm từng file theo manifest, rồi
 dataset/context/model version và uniqueness. Sai hash/version/duplicate: dừng view
@@ -31,9 +31,9 @@ liên quan với lỗi cụ thể; không tự lấy dữ liệu khác. Thiếu 
 | Hình | N3 `reports/figures/phase3/*.{png,svg}` + `reports/p3_figures.md` | chỉ hiển thị hình có trong manifest; top-50 gồm cả trang 1–25 và 26–50; nguồn/caption/N/K/đơn vị đi cùng hình |
 
 Với tra CVE, nếu hai nguồn có cùng trường thì kiểm bằng nhau trước khi chọn giá trị;
-không dựa vào thứ tự dòng hoặc suffix ngầm. Mapping là bảng dẫn cho bối cảnh: 6 cặp
-ở r1; score chỉ có 5, queue có 6. Không inner join làm mất API-02 hoặc client review.
-Context comparison là 3 cặp patch có đủ điểm, không phải toàn bộ queue hay cả 5 score.
+không dựa vào thứ tự dòng hoặc suffix ngầm. Mapping là bảng dẫn cho bối cảnh: 15 cặp
+ở v2; score có 10, queue có 15 (8 patch/7 review). Không inner join làm mất API-02 hoặc client review.
+Context comparison là 8 cặp patch có đủ điểm, không phải toàn bộ queue hay cả 10 score.
 
 ## Quy tắc kiểu dữ liệu và trạng thái
 

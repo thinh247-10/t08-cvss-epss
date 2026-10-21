@@ -28,7 +28,7 @@ def independent_expected():
             "inner_roundup": str(inner), "expected": float(expected)}
 
 
-def crosscheck(frame):
+def crosscheck(frame, context_version='phase3-context-v1'):
     if frame.duplicated(['cve_id', 'asset_id']).any():
         raise ValueError('Duplicate CVE/asset pair')
     pair = frame.loc[frame.cve_id.eq('CVE-2023-41387') & frame.asset_id.eq('MOB-02')]
@@ -37,7 +37,7 @@ def crosscheck(frame):
     row = pair.iloc[0]
     for key, expected in {'base_vector': BASE, 'environmental_vector': VECTOR,
             'CR': 'H', 'IR': 'H', 'AR': 'M', 'score_source': 'observed',
-            'dataset_version': 't08-v1.0-20261010', 'context_version': 'phase3-context-v1'}.items():
+            'dataset_version': 't08-v1.0-20261010', 'context_version': context_version}.items():
         if row[key] != expected:
             raise ValueError(f'Fixed-case assumption/version mismatch: {key}')
     result = independent_expected()
@@ -53,8 +53,9 @@ def crosscheck(frame):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--scores', type=Path, default=Path('data/processed/p3_n2_context_20261019_r1_received/p3_n2/environmental_scores.csv'))
+    parser.add_argument('--context-version', choices=['phase3-context-v1', 'phase3-context-v2'], default='phase3-context-v1')
     args = parser.parse_args()
-    result = crosscheck(pd.read_csv(args.scores))
+    result = crosscheck(pd.read_csv(args.scores), args.context_version)
     result['input'] = {'path': args.scores.as_posix(), 'bytes': args.scores.stat().st_size,
                        'sha256': hashlib.sha256(args.scores.read_bytes()).hexdigest()}
     out = Path('data/processed/p3_n3/environmental_crosscheck_n3.json')

@@ -10,6 +10,7 @@ DATA = ROOT / "data/processed/p3_n2"
 
 
 class Phase3ReportChecks(unittest.TestCase):
+    @unittest.skipUnless((DATA / 'environmental_scores.csv').is_file(), 'Phase 3 data must be reproduced or received for artifact checks')
     def test_five_case_table_matches_observed_ranking_environmental_queue(self):
         report = (ROOT / "docs/analysis-results.md").read_text(encoding="utf-8")
         rank = pd.read_csv(DATA / "rankings.csv").set_index("cve_id")
@@ -40,6 +41,7 @@ class Phase3ReportChecks(unittest.TestCase):
                      "sau vá", "giả định", "review_required", "deadline", "mobile"):
             self.assertIn(term, report)
 
+    @unittest.skipUnless((DATA / 'context_comparison.csv').is_file(), 'Phase 3 data must be reproduced or received for artifact checks')
     def test_context_summary_count_and_pair_population(self):
         mapping = pd.read_csv(DATA / "cve_asset_mapping.csv")
         env = pd.read_csv(DATA / "environmental_scores.csv")

@@ -1,0 +1,14 @@
+{
+  "archive": "data/processed/phase3_handoff_20261021.zip",
+  "bytes": 2040877,
+  "sha256": "df03b51e7a9572d8ac055f40e6343a3fc827efd286a2e7cb2c862a2776d9cd0a",
+  "release_version": "phase3-n1-integrated-20261021",
+  "dataset_version": "t08-v1.0-20261010",
+  "context_version": "phase3-context-v2",
+  "fresh_extraction": {
+    "status": "pass",
+    "files": 103,
+    "context_version": "phase3-context-v2"
+  },
+  "original_peer_zips_received": false
+}

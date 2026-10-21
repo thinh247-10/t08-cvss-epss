@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "dataset_version": "t08-v1.0-20261010",
+  "context_version": "phase3-context-v2",
+  "ranking_cves": 396,
+  "kev": 3,
+  "independent_tau_b": 0.30569771817081276,
+  "top50_rows": 150,
+  "mapping_pairs": 15,
+  "environmental_pairs": 10,
+  "patch_pairs": 8,
+  "review_pairs": 7,
+  "client_review_pairs": 2,
+  "source": "N1 rerun from merged peer code; original N2 r2/N3 ZIPs not received",
+  "checks": [
+    "ranking hash and cohort",
+    "pairwise tau-b",
+    "all Jaccard/recall entries",
+    "all top50 IDs",
+    "mapping/queue completeness",
+    "client null ranks",
+    "context-v2 plot cohort",
+    "manifest inputs/outputs/code"
+  ]
+}
