@@ -1,7 +1,9 @@
 # Phase 4 — contract đọc offline do N3 bàn giao
 
 Schema đề xuất `p4-ui-read-contract-v1`, ngày 2026-10-21. Đây là adapter đọc artifact;
-không sửa data contract chung, policy hoặc scorer N2. Chưa triển khai ứng dụng.
+không sửa data contract chung, policy hoặc scorer N2. Adapter CLI/notebook đã
+triển khai ngày 22/10/2026; xem [lệnh chạy](demo-commands.md) và
+[bằng chứng local/pending](../reports/p4_demo_check.md).
 
 ## Bộ dữ liệu và kiểm toàn vẹn
 
@@ -66,5 +68,5 @@ Context comparison là 8 cặp patch có đủ điểm, không phải toàn bộ
 5. Chọn AI validation rồi test: N=69 rồi108, không gộp; hiển thị coverage 100% cho r1
    prediction hiện có và giải thích đây là thứ tự severity, không đo hiệu quả vá.
 
-N1/N2 chịu trách nhiệm chốt tích hợp chung; tài liệu này không khẳng định app Phase 4
-đã chạy hoặc toàn nhóm đã hoàn tất Phase 3.
+N1/N2 chịu trách nhiệm chốt tích hợp chung. Bằng chứng CLI/notebook chạy local ở
+báo cáo N3 không thay thế xác nhận nội dung N2, runbook N1 hoặc diễn tập toàn nhóm.

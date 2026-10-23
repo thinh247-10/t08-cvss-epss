@@ -1,0 +1,106 @@
+{
+  "status": "pass",
+  "executed_at": "2026-10-23T10:23:04.155388+00:00",
+  "python": "3.13.16",
+  "os": "Windows-11-10.0.26200-SP0",
+  "commit": "d09b752cae512872c5336ebac621452c8016428b",
+  "working_tree_has_uncommitted_demo": false,
+  "code_hashes": {
+    "src\\demo\\__init__.py": {
+      "bytes": 48,
+      "sha256": "040f129ce02bb4f39901b46dbb53d5a6123ea6d9fecaefc84c3bc528d88e6b15"
+    },
+    "src\\demo\\cli.py": {
+      "bytes": 3639,
+      "sha256": "4a65139ec660f48b806d95361b7cf7f8d95caf442b1e1bd795c767df88cadd72"
+    },
+    "src\\demo\\data_loader.py": {
+      "bytes": 23487,
+      "sha256": "7bab50bbc2465f22335f243409eddc0766aecd85f952750eb41ba85b98364501"
+    },
+    "src\\demo\\presentation.py": {
+      "bytes": 4300,
+      "sha256": "fa84a978a5e90781ded11877f4da6139ec6563858452ea02a471778464e9f564"
+    },
+    "scripts\\execute_demo_notebook.py": {
+      "bytes": 6663,
+      "sha256": "2d7e62c9254f72e9e848505aa4146ad314b07d9d643c155e1eb645cdc3597776"
+    }
+  },
+  "dependencies": {
+    "pandas": "3.0.6",
+    "numpy": "2.5.3",
+    "pyarrow": "25.0.1",
+    "PyYAML": "6.0.3"
+  },
+  "paths": {
+    "phase1": "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\phase1_v1_20261010",
+    "phase2": null,
+    "phase3": "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\p3_received_20261021"
+  },
+  "code_cells": 7,
+  "embedded_pngs": 7,
+  "seconds": 0.6601738999961526,
+  "cell_timings": [
+    {
+      "cell": 1,
+      "seconds": 0.3476153000010527
+    },
+    {
+      "cell": 3,
+      "seconds": 0.006373399999574758
+    },
+    {
+      "cell": 5,
+      "seconds": 0.01770530000067083
+    },
+    {
+      "cell": 7,
+      "seconds": 0.052191999995557126
+    },
+    {
+      "cell": 9,
+      "seconds": 0.01953940000385046
+    },
+    {
+      "cell": 11,
+      "seconds": 0.0061876999970991164
+    },
+    {
+      "cell": 13,
+      "seconds": 0.014419500002986751
+    }
+  ],
+  "summary": {
+    "dataset_version": "t08-v1.0-20261010",
+    "context_version": "phase3-context-v2",
+    "cohort_id": "t08-v1.0-20261010:ranking",
+    "policy_version": "cvss-epss-kev-first-v1",
+    "n": 396,
+    "total_kev": 3,
+    "source_dates": {
+      "epss_date": "2026-09-29",
+      "kev_date_released": "2026-09-30T16:59:23.0688Z",
+      "kev_retrieved_at": "2026-10-01T11:29:35.854976+00:00"
+    },
+    "mapping": 15,
+    "scored": 10,
+    "queue": {
+      "patch": 8,
+      "review_required": 7
+    },
+    "ai_status": "Chưa có prediction đã xác minh",
+    "load_seconds": 0.346978500005207
+  },
+  "offline": "Python socket audit guard active; DNS guard probe blocked; OS adapter was not disabled",
+  "guard_verified": true,
+  "input_hashes_unchanged": 119,
+  "model": null,
+  "ai_result": {
+    "mode": "unavailable",
+    "reason": "Chưa có prediction đã xác minh"
+  },
+  "rehearsal_six_minutes": "pending human rehearsal; execution timing is not narration timing",
+  "n2_content_acceptance": "pending",
+  "n1_runbook_second_machine": "pending"
+}

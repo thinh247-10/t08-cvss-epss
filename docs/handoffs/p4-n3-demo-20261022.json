@@ -1,0 +1,79 @@
+{
+  "status": "local_implementation_verified_peer_gates_pending",
+  "date": "2026-10-22",
+  "base_head": "0f18dd3e852250539e6db303e1be2593b0c054a9",
+  "branch": "develop",
+  "demo_committed": false,
+  "dataset_version": "t08-v1.0-20261010",
+  "context_version": "phase3-context-v2",
+  "files": {
+    "src/demo/__init__.py": {
+      "bytes": 48,
+      "sha256": "040f129ce02bb4f39901b46dbb53d5a6123ea6d9fecaefc84c3bc528d88e6b15"
+    },
+    "src/demo/cli.py": {
+      "bytes": 3584,
+      "sha256": "3bb3cc045b01f2d659487142e53c4a4f64c42adcd5b17c1ace5b3f4cfc84dbbb"
+    },
+    "src/demo/data_loader.py": {
+      "bytes": 22738,
+      "sha256": "0dc45d6c14ec010e4e2a3e2cfe2606e17b9fb1ea4aa447c8eaf592cad3e683d7"
+    },
+    "src/demo/presentation.py": {
+      "bytes": 4139,
+      "sha256": "4837fcbd408deafff53c64bbd69725aef1a5457b68804ccd3256d414b1aff228"
+    },
+    "scripts/execute_demo_notebook.py": {
+      "bytes": 6215,
+      "sha256": "59b716ff186de671c954ec8f86fb29ea2a8cfa8ff09c4d5c6355d5a5e64ccdf4"
+    },
+    "scripts/receive_demo_inputs.py": {
+      "bytes": 2302,
+      "sha256": "83e0e619aa56f74d0b84623f2e5b11a6595e0b0b52dac918cb8a08a5d026cb2d"
+    },
+    "tests/test_demo_data.py": {
+      "bytes": 17303,
+      "sha256": "ead4370b7f6e5c5535d2d56d8fbe98fb5175e2d7c83c8802c3471582e1c3b1de"
+    },
+    "notebooks/03_demo.ipynb": {
+      "bytes": 1353483,
+      "sha256": "801fb4b362bbc3f6b54691508fba696d0e01e900eb7b545e901f9b1d6eed5627"
+    },
+    "docs/demo-commands.md": {
+      "bytes": 7947,
+      "sha256": "769ab3ed791a125e3a219538437783ff410e74893c672c9cc54bf45e3518f6fa"
+    },
+    "reports/p4_demo_check.md": {
+      "bytes": 8295,
+      "sha256": "447bc374bf3f0d30c6ad20e6107d0cfe90afb31ddf9d8b66c11666923caf1e60"
+    }
+  },
+  "evidence": [
+    "reports/p4_demo_input_receipt.json",
+    "reports/p4_demo_tests.log",
+    "reports/p4_demo_tests_final.log",
+    "reports/p4_demo_test_result.json",
+    "reports/p4_demo_test_final_result.json",
+    "reports/p4_demo_cli_checks.json",
+    "reports/p4_demo_execution.json",
+    "reports/p4_demo_saved_execution.json",
+    "reports/p4_demo_no_ai_execution.json",
+    "reports/p4_phase1_verification.log"
+  ],
+  "checks": {
+    "regression_tests": 85,
+    "final_demo_tests": 26,
+    "cli_commands": 10,
+    "notebook_cells": 7,
+    "embedded_pngs": 7,
+    "live_seconds": 5.411855899998045,
+    "network_guard": "socket audit hook; OS adapter not disabled",
+    "inputs_readonly": true
+  },
+  "pending": [
+    "N2 security narration and content acceptance",
+    "N1 final runbook and runbook-based receiver rehearsal",
+    "Human six-minute joint rehearsal",
+    "Dedicated commit/push/PR"
+  ]
+}

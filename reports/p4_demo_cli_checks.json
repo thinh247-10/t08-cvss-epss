@@ -1,0 +1,176 @@
+[
+  {
+    "command": [
+      "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-m",
+      "src.demo.cli",
+      "--help"
+    ],
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "seconds": 1.504943899999489,
+    "stdout": "usage: cli.py [-h] [--phase1 PHASE1] [--phase2 PHASE2] [--phase3 PHASE3]\n              [--no-ai] [--json]\n              {summary,cve,predict} ...\n\nDemo local offline: summary, cve, predict. Không thu thập hoặc train.\n\npositional arguments:\n  {summary,cve,predict}\n    summary             Snapshot, số CVE/cặp tài sản và trạng thái AI\n    cve                 CVSS quan sát, ba rank và các cặp tài sản\n    predict             Dự đoán đã lưu; --live mới chạy TF-IDF CPU\n\noptions:\n  -h, --help            show this help message and exit\n  --phase1 PHASE1\n  --phase2 PHASE2\n  --phase3 PHASE3\n  --no-ai               Chỉ mở dữ liệu quan sát/bối cảnh\n  --json                JSON giữ null và boolean đúng kiểu\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-m",
+      "src.demo.cli",
+      "--json",
+      "summary"
+    ],
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "seconds": 2.9219425999981468,
+    "stdout": "{\n  \"dataset_version\": \"t08-v1.0-20261010\",\n  \"context_version\": \"phase3-context-v2\",\n  \"cohort_id\": \"t08-v1.0-20261010:ranking\",\n  \"policy_version\": \"cvss-epss-kev-first-v1\",\n  \"n\": 396,\n  \"total_kev\": 3,\n  \"source_dates\": {\n    \"epss_date\": \"2026-09-29\",\n    \"kev_date_released\": \"2026-09-30T16:59:23.0688Z\",\n    \"kev_retrieved_at\": \"2026-10-01T11:29:35.854976+00:00\"\n  },\n  \"mapping\": 15,\n  \"scored\": 10,\n  \"queue\": {\n    \"patch\": 8,\n    \"review_required\": 7\n  },\n  \"ai_status\": \"Dự đoán — kết quả đã lưu; live TF-IDF chỉ khi yêu cầu\",\n  \"load_seconds\": 1.5904418999998597\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-m",
+      "src.demo.cli",
+      "--json",
+      "cve",
+      "CVE-2023-22626"
+    ],
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "seconds": 2.152680999999575,
+    "stdout": "{\n  \"CVSS quan sát\": {\n    \"cve_id\": \"CVE-2023-22626\",\n    \"cvss_base_score\": 7.5,\n    \"epss\": 0.00831,\n    \"is_kev\": false,\n    \"cvss_rank\": 75,\n    \"epss_rank\": 134,\n    \"kev_first_rank\": 134,\n    \"dataset_version\": \"t08-v1.0-20261010\",\n    \"epss_date\": \"2026-09-29\",\n    \"cohort_id\": \"t08-v1.0-20261010:ranking\",\n    \"policy_version\": \"cvss-epss-kev-first-v1\",\n    \"published\": \"2023-01-05T08:15:08.947Z\",\n    \"last_modified\": \"2026-06-17T05:35:46.040Z\",\n    \"vuln_status\": \"Modified\",\n    \"description\": \"PgHero before 3.1.0 allows Information Disclosure via EXPLAIN because query results may be present in an error message. (Depending on database user privileges, this may only be information from the database, or may be information from file contents on the database server.)\",\n    \"cvss_version\": \"3.1\",\n    \"cvss_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N\",\n    \"cvss_source\": \"nvd@nist.gov\",\n    \"cvss_type\": \"Primary\",\n    \"AV\": \"N\",\n    \"AC\": \"L\",\n    \"PR\": \"N\",\n    \"UI\": \"N\",\n    \"S\": \"U\",\n    \"C\": \"H\",\n    \"I\": \"N\",\n    \"A\": \"N\",\n    \"has_cvss31_label\": true,\n    \"epss_percentile\": 0.55915,\n    \"kev_date_added\": null,\n    \"kev_known_ransomware\": null,\n    \"domain_tags\": [\n      \"web\"\n    ],\n    \"in_scope\": true,\n    \"scope_reason\": \"PgHero is documented by the official project as a performance dashboard for PostgreSQL; the issue concerns information disclosure through its EXPLAIN feature, establishing a web dashboard role.\",\n    \"scope_evidence\": [\n      \"https://github.com/ankane/pghero/issues/439\"\n    ],\n    \"scope_status\": \"included\",\n    \"split\": \"train\",\n    \"retrieved_at\": \"2026-10-05T16:49:12.356Z\",\n    \"epss_status\": \"available\",\n    \"product_groups\": [\n      \"a:pghero_project:pghero\"\n    ],\n    \"reference_urls\": [\n      \"https://github.com/ankane/pghero/issues/439\"\n    ],\n    \"scope_policy_version\": \"web-mobile-cpe-v1\",\n    \"source_dataset_version\": \"pilot-v0.1-nvd-20261002T171532_735222Z-joined-20261005T164912_356960Z\",\n    \"ml_exclusion_reason\": null,\n    \"duplicate_component\": \"b2201641b052f0328ee0e672b673b2e0515384bdb6f5e807c660e21be6ce6615\"\n  },\n  \"Bối cảnh và hành động\": [\n    {\n      \"cve_id\": \"CVE-2023-22626\",\n      \"asset_id\": \"ADMIN-01\",\n      \"applicability\": \"affected\",\n      \"affected_version_evidence\": \"Official issue #439 affected 0.1.1 through 3.0.1; fixed 3.1.0.\",\n      \"evidence_url\": \"https://github.com/ankane/pghero/issues/439\",\n      \"mapping_reason\": \"Hypothetical dashboard version 3.0.1 is explicitly affected.\",\n      \"product\": \"PgHero\",\n      \"assumed_version\": \"3.0.1\",\n      \"reviewer\": \"Codex-assisted source review for N2; no independent human approval claimed\",\n      \"dataset_version\": \"t08-v1.0-20261010\",\n      \"context_version\": \"phase3-context-v2\",\n      \"evidence_read_at\": \"2026-10-19\",\n      \"exploit_conditions\": \"Access EXPLAIN and crafted inputs; accessible data depends on database role; no assumed superuser or MAV downgrade from internal exposure.\",\n      \"evidence_limitations\": \"Observed PR:N retained despite advisory describing PgHero users; deployment authentication requires confirmation.\",\n      \"base_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N\",\n      \"base_score\": 7.5,\n      \"environmental_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N/E:X/RL:X/RC:X/CR:H/IR:H/AR:M/MAV:X/MAC:X/MPR:X/MUI:X/MS:X/MC:X/MI:X/MA:X\",\n      \"environmental_score\": 9.3,\n      \"CR\": \"H\",\n      \"IR\": \"H\",\n      \"AR\": \"M\",\n      \"modification_reason\": \"CR/IR/AR from hypothetical inventory: Tai khoan quan tri co quyen cao, nen tinh bi mat va toan ven quan trong. Temporal E/RL/RC and all Modified metrics remain X: no verified controls; internal/client exposure does not change MAV. Access EXPLAIN and crafted inputs; accessible data depends on database role; no assumed superuser or MAV downgrade from internal exposure.\",\n      \"score_source\": \"observed\",\n      \"is_kev\": false,\n      \"epss\": 0.00831,\n      \"exposure\": \"internal\",\n      \"queue_status\": \"patch\",\n      \"priority_rank\": 8,\n      \"priority_reason\": \"Affected under stated assumptions; KEV=False; exposure=internal; Environmental=9.3; EPSS=0.00831; policy=context-v1.\",\n      \"recommended_action\": \"Plan vendor patch; verify version, compatibility, backup/rollback and post-patch checks.\",\n      \"policy_version\": \"context-v1\",\n      \"asset_name\": \"Bang dieu khien van hanh CSDL\",\n      \"asset_function\": \"Theo doi hieu nang PostgreSQL phuc vu he thong thuong mai dien tu\",\n      \"asset_domain\": \"web\",\n      \"asset_product\": \"PgHero\",\n      \"asset_version\": \"3.0.1\",\n      \"asset_exposure\": \"internal\",\n      \"asset_data_type\": [\n        \"du lieu quan tri\",\n        \"thong tin khach hang\"\n      ],\n      \"asset_CR\": \"H\",\n      \"asset_IR\": \"H\",\n      \"asset_AR\": \"M\",\n      \"asset_rationale\": \"Tai khoan quan tri co quyen cao, nen tinh bi mat va toan ven quan trong.\",\n      \"asset_assumptions\": [\n        \"Chi danh cho nhan vien noi bo.\",\n        \"Gia dinh dashboard dang dung PgHero 3.0.1: issue chinh thuc #439 xac nhan dai 0.1.1-3.0.1; khong suy 3.0.4 affected tu mo ta NVD before 3.1.0.\",\n        \"Chua co bang chung de thay doi Modified Base Metrics.\"\n      ],\n      \"environmental_missing_reason\": null,\n      \"priority_rank_missing_reason\": null\n    },\n    {\n      \"cve_id\": \"CVE-2023-22626\",\n      \"asset_id\": \"API-02\",\n      \"applicability\": \"needs_review\",\n      \"affected_version_evidence\": \"Vendor range 0.1.1-3.0.1 exists, but API-02 has no identified product/version.\",\n      \"evidence_url\": \"https://github.com/ankane/pghero/issues/439\",\n      \"mapping_reason\": \"Deliberate unresolved database-adjacent backend candidate; inventory has no evidence of PgHero installation, cannot mark affected or unaffected.\",\n      \"product\": \"unknown\",\n      \"assumed_version\": \"unknown\",\n      \"reviewer\": \"Codex-assisted source review for N2; no independent human approval claimed\",\n      \"dataset_version\": \"t08-v1.0-20261010\",\n      \"context_version\": \"phase3-context-v2\",\n      \"evidence_read_at\": \"2026-10-19\",\n      \"exploit_conditions\": \"First identify stack/version and whether PgHero EXPLAIN exists; no exploitation or numeric patch priority until confirmed.\",\n      \"evidence_limitations\": \"Candidate for verification only; functional similarity to database services is not product applicability evidence.\",\n      \"base_vector\": null,\n      \"base_score\": null,\n      \"environmental_vector\": null,\n      \"environmental_score\": null,\n      \"CR\": null,\n      \"IR\": null,\n      \"AR\": null,\n      \"modification_reason\": null,\n      \"score_source\": null,\n      \"is_kev\": false,\n      \"epss\": 0.00831,\n      \"exposure\": \"internal\",\n      \"queue_status\": \"review_required\",\n      \"priority_rank\": null,\n      \"priority_reason\": \"Applicability not established: Deliberate unresolved database-adjacent backend candidate; inventory has no evidence of PgHero installation, cannot mark affected or unaffected. Missing environmental_score; not imputed.\",\n      \"recommended_action\": \"Verify applicability, client attack path and missing signals before numeric ranking.\",\n      \"policy_version\": \"context-v1\",\n      \"asset_name\": \"Backend don hang va thanh toan\",\n      \"asset_function\": \"Xu ly don hang va luong thanh toan\",\n      \"asset_domain\": \"web\",\n      \"asset_product\": null,\n      \"asset_version\": null,\n      \"asset_exposure\": \"internal\",\n      \"asset_data_type\": [\n        \"don hang\",\n        \"du lieu thanh toan\"\n      ],\n      \"asset_CR\": \"H\",\n      \"asset_IR\": \"H\",\n      \"asset_AR\": \"H\",\n      \"asset_rationale\": \"Sai lech du lieu don hang hoac thanh toan co the anh huong truc tiep toi nghiep vu.\",\n      \"asset_assumptions\": [\n        \"Backend nam sau lop API cong khai.\",\n        \"Exposure internal khong tu dong lam thay doi MAV.\"\n      ],\n      \"environmental_missing_reason\": \"Deliberate unresolved database-adjacent backend candidate; inventory has no evidence of PgHero installation, cannot mark affected or unaffected.\",\n      \"priority_rank_missing_reason\": \"Applicability not established: Deliberate unresolved database-adjacent backend candidate; inventory has no evidence of PgHero installation, cannot mark affected or unaffected. Missing environmental_score; not imputed.\"\n    }\n  ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-m",
+      "src.demo.cli",
+      "--json",
+      "cve",
+      "CVE-2023-41387"
+    ],
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "seconds": 2.0000760999973863,
+    "stdout": "{\n  \"CVSS quan sát\": {\n    \"cve_id\": \"CVE-2023-41387\",\n    \"cvss_base_score\": 9.1,\n    \"epss\": 0.00874,\n    \"is_kev\": false,\n    \"cvss_rank\": 30,\n    \"epss_rank\": 128,\n    \"kev_first_rank\": 127,\n    \"dataset_version\": \"t08-v1.0-20261010\",\n    \"epss_date\": \"2026-09-29\",\n    \"cohort_id\": \"t08-v1.0-20261010:ranking\",\n    \"policy_version\": \"cvss-epss-kev-first-v1\",\n    \"published\": \"2023-09-19T09:15:07.860Z\",\n    \"last_modified\": \"2026-06-17T06:22:04.343Z\",\n    \"vuln_status\": \"Modified\",\n    \"description\": \"A SQL injection in the flutter_downloader component through 1.11.1 for iOS allows remote attackers to steal session tokens and overwrite arbitrary files inside the app's container. The internal database of the framework is exposed to the local user if an app uses UIFileSharingEnabled and LSSupportsOpeningDocumentsInPlace properties. As a result, local users can obtain the same attack primitives as remote attackers by tampering with the internal database of the framework on the device.\",\n    \"cvss_version\": \"3.1\",\n    \"cvss_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H\",\n    \"cvss_source\": \"nvd@nist.gov\",\n    \"cvss_type\": \"Primary\",\n    \"AV\": \"N\",\n    \"AC\": \"L\",\n    \"PR\": \"N\",\n    \"UI\": \"N\",\n    \"S\": \"U\",\n    \"C\": \"N\",\n    \"I\": \"H\",\n    \"A\": \"H\",\n    \"has_cvss31_label\": true,\n    \"epss_percentile\": 0.57343,\n    \"kev_date_added\": null,\n    \"kev_known_ransomware\": null,\n    \"domain_tags\": [\n      \"mobile\"\n    ],\n    \"in_scope\": true,\n    \"scope_reason\": \"Vulnerable application CPE plus official product role: patreon:flutter_downloader (Flutter Android/iOS downloader plugin)\",\n    \"scope_evidence\": [\n      \"https://pub.dev/packages/flutter_downloader\",\n      \"https://nvd.nist.gov/vuln/detail/CVE-2023-41387\"\n    ],\n    \"scope_status\": \"included\",\n    \"split\": \"train\",\n    \"retrieved_at\": \"2026-10-05T16:49:12.356Z\",\n    \"epss_status\": \"available\",\n    \"product_groups\": [\n      \"a:patreon:flutter_downloader\"\n    ],\n    \"reference_urls\": [\n      \"https://pub.dev/packages/flutter_downloader/changelog\",\n      \"https://seredynski.com/articles/exploiting-ios-apps-to-extract-session-tokens-and-overwrite-user-data\"\n    ],\n    \"scope_policy_version\": \"web-mobile-cpe-v1\",\n    \"source_dataset_version\": \"pilot-v0.1-nvd-20261002T171532_735222Z-joined-20261005T164912_356960Z\",\n    \"ml_exclusion_reason\": null,\n    \"duplicate_component\": \"f5eea133cfc4dbbaab10b5a7a4df7345bd82d84333b2d77eb3e8c49e68ddf456\"\n  },\n  \"Bối cảnh và hành động\": [\n    {\n      \"cve_id\": \"CVE-2023-41387\",\n      \"asset_id\": \"MOB-02\",\n      \"applicability\": \"affected\",\n      \"affected_version_evidence\": \"CNA description says flutter_downloader iOS through 1.11.1; project changelog 1.11.2 has iOS security update.\",\n      \"evidence_url\": \"https://pub.dev/packages/flutter_downloader/changelog\",\n      \"mapping_reason\": \"Hypothetical iOS 1.11.1 version matches CNA affected range; verify actual integration before operational action.\",\n      \"product\": \"Flutter with flutter_downloader\",\n      \"assumed_version\": \"flutter_downloader 1.11.1\",\n      \"reviewer\": \"Codex-assisted source review for N2; no independent human approval claimed\",\n      \"dataset_version\": \"t08-v1.0-20261010\",\n      \"context_version\": \"phase3-context-v2\",\n      \"evidence_read_at\": \"2026-10-19\",\n      \"exploit_conditions\": \"Attacker-controlled downloader input; local path requires UIFileSharingEnabled and LSSupportsOpeningDocumentsInPlace; client remains review_required.\",\n      \"evidence_limitations\": \"CNA affected product table is nonspecific, range comes from description; source C:N retained despite token-theft description.\",\n      \"base_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H\",\n      \"base_score\": 9.1,\n      \"environmental_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H/E:X/RL:X/RC:X/CR:H/IR:H/AR:M/MAV:X/MAC:X/MPR:X/MUI:X/MS:X/MC:X/MI:X/MA:X\",\n      \"environmental_score\": 9.8,\n      \"CR\": \"H\",\n      \"IR\": \"H\",\n      \"AR\": \"M\",\n      \"modification_reason\": \"CR/IR/AR from hypothetical inventory: Ung dung xu ly du lieu nguoi dung va phu thuoc SDK/framework phia client. Temporal E/RL/RC and all Modified metrics remain X: no verified controls; internal/client exposure does not change MAV. Attacker-controlled downloader input; local path requires UIFileSharingEnabled and LSSupportsOpeningDocumentsInPlace; client remains review_required.\",\n      \"score_source\": \"observed\",\n      \"is_kev\": false,\n      \"epss\": 0.00874,\n      \"exposure\": \"client\",\n      \"queue_status\": \"review_required\",\n      \"priority_rank\": null,\n      \"priority_reason\": \"Exposure client/unknown has no numeric rule; verify attack path.\",\n      \"recommended_action\": \"Verify applicability, client attack path and missing signals before numeric ranking.\",\n      \"policy_version\": \"context-v1\",\n      \"asset_name\": \"Ung dung iOS\",\n      \"asset_function\": \"Ung dung mua hang tren iOS\",\n      \"asset_domain\": \"mobile\",\n      \"asset_product\": \"Flutter with flutter_downloader\",\n      \"asset_version\": \"flutter_downloader 1.11.1\",\n      \"asset_exposure\": \"client\",\n      \"asset_data_type\": [\n        \"thong tin tai khoan\",\n        \"du lieu dat hang\"\n      ],\n      \"asset_CR\": \"H\",\n      \"asset_IR\": \"H\",\n      \"asset_AR\": \"M\",\n      \"asset_rationale\": \"Ung dung xu ly du lieu nguoi dung va phu thuoc SDK/framework phia client.\",\n      \"asset_assumptions\": [\n        \"Gia dinh ung dung nhung flutter_downloader 1.11.1 tren iOS de thu applicability; day khong phai cau hinh he thong that.\",\n        \"Exposure client chua xac dinh duong tan cong; cap affected can review_required truoc khi xep hang tu dong.\"\n      ],\n      \"environmental_missing_reason\": null,\n      \"priority_rank_missing_reason\": \"Exposure client/unknown has no numeric rule; verify attack path.\"\n    }\n  ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-m",
+      "src.demo.cli",
+      "--json",
+      "predict",
+      "CVE-2023-38709",
+      "--split",
+      "validation"
+    ],
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "seconds": 2.0832148999979836,
+    "stdout": "{\n  \"CVSS quan sát\": {\n    \"cve_id\": \"CVE-2023-38709\",\n    \"cvss_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L\",\n    \"cvss_base_score\": 7.3,\n    \"cvss_source\": \"134c704f-9b21-4f2e-91b3-4a467353bcc0\",\n    \"cvss_type\": \"Secondary\"\n  },\n  \"Dự đoán\": {\n    \"mode\": \"saved\",\n    \"label\": \"Dự đoán — kết quả đã lưu\",\n    \"cve_id\": \"CVE-2023-38709\",\n    \"split\": \"validation\",\n    \"dataset_version\": \"t08-v1.0-20261010\",\n    \"model_version\": \"tfidf-v1-n1-reproduction-20261017\",\n    \"prediction_usage\": \"evaluation\",\n    \"pred_AV\": \"N\",\n    \"pred_AC\": \"L\",\n    \"pred_PR\": \"N\",\n    \"pred_UI\": \"N\",\n    \"pred_S\": \"U\",\n    \"pred_C\": \"N\",\n    \"pred_I\": \"H\",\n    \"pred_A\": \"H\",\n    \"predicted_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H\",\n    \"predicted_base_score\": 9.1,\n    \"vector_valid\": true,\n    \"prediction_error\": null\n  }\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-m",
+      "src.demo.cli",
+      "--json",
+      "predict",
+      "CVE-2023-38709",
+      "--live"
+    ],
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "seconds": 3.9536934000025212,
+    "stdout": "{\n  \"CVSS quan sát\": {\n    \"cve_id\": \"CVE-2023-38709\",\n    \"cvss_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L\",\n    \"cvss_base_score\": 7.3,\n    \"cvss_source\": \"134c704f-9b21-4f2e-91b3-4a467353bcc0\",\n    \"cvss_type\": \"Secondary\"\n  },\n  \"Dự đoán\": {\n    \"mode\": \"live\",\n    \"label\": \"Dự đoán — TF-IDF CPU vừa chạy\",\n    \"cve_id\": \"CVE-2023-38709\",\n    \"split\": \"validation\",\n    \"dataset_version\": \"t08-v1.0-20261010\",\n    \"model_version\": \"tfidf-v1-n1-reproduction-20261017\",\n    \"prediction_usage\": \"demo\",\n    \"pred_AV\": \"N\",\n    \"pred_AC\": \"L\",\n    \"pred_PR\": \"N\",\n    \"pred_UI\": \"N\",\n    \"pred_S\": \"U\",\n    \"pred_C\": \"N\",\n    \"pred_I\": \"H\",\n    \"pred_A\": \"H\",\n    \"predicted_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H\",\n    \"predicted_base_score\": 9.1,\n    \"vector_valid\": true,\n    \"prediction_error\": \"\"\n  }\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-m",
+      "src.demo.cli",
+      "--json",
+      "predict",
+      "CVE-2023-38709",
+      "--model-version",
+      "distilbert-v1-n1-20261017",
+      "--split",
+      "validation"
+    ],
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "seconds": 2.135597999997117,
+    "stdout": "{\n  \"CVSS quan sát\": {\n    \"cve_id\": \"CVE-2023-38709\",\n    \"cvss_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L\",\n    \"cvss_base_score\": 7.3,\n    \"cvss_source\": \"134c704f-9b21-4f2e-91b3-4a467353bcc0\",\n    \"cvss_type\": \"Secondary\"\n  },\n  \"Dự đoán\": {\n    \"mode\": \"saved\",\n    \"label\": \"Dự đoán — kết quả đã lưu\",\n    \"cve_id\": \"CVE-2023-38709\",\n    \"split\": \"validation\",\n    \"dataset_version\": \"t08-v1.0-20261010\",\n    \"model_version\": \"distilbert-v1-n1-20261017\",\n    \"prediction_usage\": \"evaluation\",\n    \"pred_AV\": \"N\",\n    \"pred_AC\": \"L\",\n    \"pred_PR\": \"N\",\n    \"pred_UI\": \"R\",\n    \"pred_S\": \"C\",\n    \"pred_C\": \"L\",\n    \"pred_I\": \"L\",\n    \"pred_A\": \"N\",\n    \"predicted_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N\",\n    \"predicted_base_score\": 6.1,\n    \"vector_valid\": true,\n    \"prediction_error\": null\n  }\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-m",
+      "src.demo.cli",
+      "--no-ai",
+      "--json",
+      "summary"
+    ],
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "seconds": 1.1960651999979746,
+    "stdout": "{\n  \"dataset_version\": \"t08-v1.0-20261010\",\n  \"context_version\": \"phase3-context-v2\",\n  \"cohort_id\": \"t08-v1.0-20261010:ranking\",\n  \"policy_version\": \"cvss-epss-kev-first-v1\",\n  \"n\": 396,\n  \"total_kev\": 3,\n  \"source_dates\": {\n    \"epss_date\": \"2026-09-29\",\n    \"kev_date_released\": \"2026-09-30T16:59:23.0688Z\",\n    \"kev_retrieved_at\": \"2026-10-01T11:29:35.854976+00:00\"\n  },\n  \"mapping\": 15,\n  \"scored\": 10,\n  \"queue\": {\n    \"patch\": 8,\n    \"review_required\": 7\n  },\n  \"ai_status\": \"Chưa có prediction đã xác minh\",\n  \"load_seconds\": 0.3442544999998063\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-m",
+      "src.demo.cli",
+      "--no-ai",
+      "cve",
+      ""
+    ],
+    "expected_exit": 2,
+    "actual_exit": 2,
+    "seconds": 1.191864299998997,
+    "stdout": "",
+    "stderr": "Demo: CVE ID rỗng hoặc sai định dạng (ví dụ CVE-2023-41387).\n"
+  },
+  {
+    "command": [
+      "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "-m",
+      "src.demo.cli",
+      "--no-ai",
+      "cve",
+      "CVE-2099-99999"
+    ],
+    "expected_exit": 2,
+    "actual_exit": 2,
+    "seconds": 1.615129000001616,
+    "stdout": "",
+    "stderr": "Demo: Không có bản ghi trong ranking cohort: CVE-2099-99999\n"
+  }
+]

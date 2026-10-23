@@ -1,0 +1,37 @@
+{
+  "phase2": {
+    "archive": "D:\\Downloads\\phase2_handoff_20261017.zip",
+    "bytes": 253203876,
+    "sha256": "902f97cc84727a98cd36b9f3c17797927979e85f87466972d3f4ab5add1171ce",
+    "manifest_matches_receipt_zip": true,
+    "manifest": {
+      "bytes": 9688,
+      "sha256": "d5ae0c045be7f2c4477a1f937413cc0b4edcb1bc1b7ac351d34389e64889c3f7"
+    }
+  },
+  "phase3": {
+    "archive": "D:\\Downloads\\phase3_handoff_20261021.zip",
+    "bytes": 2040877,
+    "sha256": "df03b51e7a9572d8ac055f40e6343a3fc827efd286a2e7cb2c862a2776d9cd0a",
+    "manifest_matches_receipt_zip": true,
+    "manifest": {
+      "bytes": 17904,
+      "sha256": "819ce7df4ec77e04843d0bbe2e0915a33d414c0d4a11678cdc68e6b777cec904"
+    }
+  },
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.16",
+    "dependencies": {
+      "pandas": "3.0.6",
+      "numpy": "2.5.3",
+      "pyarrow": "25.0.1",
+      "PyYAML": "6.0.3",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "scipy": "1.18.1",
+      "matplotlib": "3.11.2"
+    }
+  },
+  "commit": "0f18dd3e852250539e6db303e1be2593b0c054a9"
+}

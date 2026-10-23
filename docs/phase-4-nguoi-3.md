@@ -1,5 +1,12 @@
 # Phase 4 — Người 3: demo local offline và hiển thị AI
 
+> Cập nhật 23/10/2026: đã triển khai và kiểm demo local, nhận lời thoại/Q&A N2
+> từ commit 43ce980, ghép các case vào notebook, chuẩn bị hướng dẫn máy nhận
+> và gói fallback HTML/PNG/CSV. Lệnh: [demo-commands.md](demo-commands.md).
+> Bàn giao hiện hành: [p4_n3_delivery.md](../reports/p4_n3_delivery.md).
+> Xác nhận màn hình N2, runbook N1 và diễn tập người thật vẫn cần nhóm thực hiện;
+> không tự ký nghiệm thu thay N1/N2.
+
 Giao21/10/2026, khoảng8giờ/4–5ngày. Sản phẩm bắt buộc **CLI+notebook6phút**.
 Chưa cần Streamlit/Docker/cloud; chỉ mở rộng sau khi demo tối thiểu chạy đúng.
 Đọc [nghiệm thu Phase3](phase-3-completion.md), [UI contract](phase-4-ui-contract.md)

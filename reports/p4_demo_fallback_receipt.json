@@ -1,0 +1,10 @@
+{
+  "archive": "data\\processed\\p4_demo_fallback_20261023.zip",
+  "bytes": 2754860,
+  "sha256": "097176740d0c15aa26740db9395694b238f1b9bfc2410c203acdc2f8f6b85ee8",
+  "files": 55,
+  "status": "verified",
+  "mode": "saved_outputs_only",
+  "notebook_executed_at": "2026-10-23T10:17:16.770339+00:00",
+  "input_files_unchanged": true
+}

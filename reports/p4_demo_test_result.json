@@ -1,0 +1,18 @@
+{
+  "command": [
+    "D:\\B\u1ea3o m\u1eadt web v\u00e0 \u1ee9ng d\u1ee5ng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "tests.test_demo_data",
+    "tests.test_baseline",
+    "tests.test_rankings",
+    "tests.test_ranking_metrics",
+    "tests.test_context_priority",
+    "tests.test_prediction_rank_impact",
+    "-v"
+  ],
+  "exit_code": 0,
+  "log": "reports/p4_demo_tests.log"
+}

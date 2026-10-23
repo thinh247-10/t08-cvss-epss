@@ -1,0 +1,37 @@
+{
+  "result": "PHASE1 RELEASE OK",
+  "dataset_version": "t08-v1.0-20261010",
+  "files_verified": 14,
+  "statistics": {
+    "master": 71653,
+    "unique_cve_ids": 71653,
+    "rejected": 2884,
+    "missing_epss": 2884,
+    "scope_status": {
+      "needs_review": 68362,
+      "excluded": 2895,
+      "included": 396
+    },
+    "web": 388,
+    "mobile": 8,
+    "ranking": 396,
+    "ranking_kev": 3,
+    "ml_before_duplicates": 67912,
+    "ml": 67242,
+    "excluded_duplicate_rows": 670,
+    "splits": {
+      "train": 28815,
+      "validation": 19606,
+      "test": 18821
+    },
+    "scoped_ml_splits": {
+      "train": 219,
+      "test": 108,
+      "validation": 69
+    },
+    "base_scores_checked": 67912,
+    "base_score_mismatches": 0,
+    "shared_product_groups": 5944,
+    "case_pairs": 5
+  }
+}

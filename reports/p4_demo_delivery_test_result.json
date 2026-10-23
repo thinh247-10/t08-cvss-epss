@@ -1,0 +1,12 @@
+{
+  "command": [
+    "D:\\B\u1ea3o m\u1eadt web v\u00e0 \u1ee9ng d\u1ee5ng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "tests.test_demo_data",
+    "-v"
+  ],
+  "exit_code": 0
+}

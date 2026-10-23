@@ -1,0 +1,100 @@
+{
+  "status": "n3_technical_delivery_verified_peer_gates_pending",
+  "date": "2026-10-23",
+  "supersedes": "docs/handoffs/p4-n3-demo-20261022.json",
+  "implementation_commit": "d09b752cae512872c5336ebac621452c8016428b",
+  "branch": "feat/p4-demo",
+  "dataset_version": "t08-v1.0-20261010",
+  "context_version": "phase3-context-v2",
+  "files": {
+    "src/demo/__init__.py": {
+      "bytes": 48,
+      "sha256": "040f129ce02bb4f39901b46dbb53d5a6123ea6d9fecaefc84c3bc528d88e6b15"
+    },
+    "src/demo/cli.py": {
+      "bytes": 3639,
+      "sha256": "4a65139ec660f48b806d95361b7cf7f8d95caf442b1e1bd795c767df88cadd72"
+    },
+    "src/demo/data_loader.py": {
+      "bytes": 23487,
+      "sha256": "7bab50bbc2465f22335f243409eddc0766aecd85f952750eb41ba85b98364501"
+    },
+    "src/demo/presentation.py": {
+      "bytes": 4300,
+      "sha256": "fa84a978a5e90781ded11877f4da6139ec6563858452ea02a471778464e9f564"
+    },
+    "scripts/execute_demo_notebook.py": {
+      "bytes": 6663,
+      "sha256": "2d7e62c9254f72e9e848505aa4146ad314b07d9d643c155e1eb645cdc3597776"
+    },
+    "scripts/receive_demo_inputs.py": {
+      "bytes": 2302,
+      "sha256": "83e0e619aa56f74d0b84623f2e5b11a6595e0b0b52dac918cb8a08a5d026cb2d"
+    },
+    "scripts/package_demo_fallback.py": {
+      "bytes": 8210,
+      "sha256": "503a0cc8307c8502ce2e4e66271d9e2ff45ad35f749fa5df7ae94e26474dbea1"
+    },
+    "scripts/check_demo_handoff.py": {
+      "bytes": 4182,
+      "sha256": "9e2d490455875144beb7141511d0f75d34b9d6d4184c2ee91bf384b973a80d1c"
+    },
+    "tests/test_demo_data.py": {
+      "bytes": 18211,
+      "sha256": "0d142122ee58ab2bc99aa30e1702c1fc7b9a4ef11181cf7c583f801bfa18276d"
+    },
+    "notebooks/03_demo.ipynb": {
+      "bytes": 1360748,
+      "sha256": "a86710912314f0bde9e7ed646ff0d911f3e2e019286d87ef82b45478711a395e"
+    },
+    "docs/demo-commands.md": {
+      "bytes": 8889,
+      "sha256": "71c412ea36e1164e57fd5e7cbc1fda269e926bd1ec9917f4b735be32748d3c5b"
+    },
+    "docs/demo-receiver-n3.md": {
+      "bytes": 4923,
+      "sha256": "682a2c1ddde98f572a4155d716da59a996c3d0ab26ada3ea2a83c7f2a61f403c"
+    },
+    "reports/demo-script-n3.md": {
+      "bytes": 5220,
+      "sha256": "a23919b8e9f88c80f87f2a4209942e8a9e0f590e74ec1d4530573e07dd2e78f7"
+    },
+    "reports/p4_n3_delivery.md": {
+      "bytes": 4792,
+      "sha256": "b091d9ced4eb863c598bc509edda3e543f483437a38f1b1f89ab4072b8605093"
+    },
+    "reports/p4_n3_clean_checkout.json": {
+      "bytes": 13504,
+      "sha256": "dd040373ad668e1eb16d8509a14cd51cb368372565b307a27aaef349b031d0e4"
+    },
+    "reports/p4_n3_content_checks.json": {
+      "bytes": 3200,
+      "sha256": "2f241a78e9a0aefb596024665dcd93fffbc213bdaca6368fc154eb5e36ee3850"
+    },
+    "reports/p4_demo_fallback_receipt.json": {
+      "bytes": 342,
+      "sha256": "feb00d8fab5747a76985ef2f2f2e3a710cbb0acdcea54a331fd6950ccd1b2501"
+    }
+  },
+  "checks": {
+    "demo_tests": 29,
+    "n2_narrative_self_checks": 13,
+    "clean_clone_commands": 6,
+    "clean_clone_fixture_tests": 26,
+    "notebook_cells_each_mode": 7,
+    "png_each_mode": 7,
+    "modes": [
+      "live",
+      "saved",
+      "no_ai"
+    ],
+    "fallback_files": 55,
+    "same_machine": true,
+    "shared_existing_venv": true
+  },
+  "n2_received_commit": "43ce98028a817eff7643581a26e48cd9fd233408",
+  "human_rehearsal": "not_performed",
+  "n2_demo_acceptance": "pending",
+  "n1_final_runbook": "not_received",
+  "publication": "See reports/p4_n3_git_delivery.json for actual push/PR result"
+}

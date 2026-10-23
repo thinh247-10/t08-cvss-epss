@@ -1,0 +1,20 @@
+{
+  "source_ref": "origin/docs/p4-playbook-cases",
+  "source_commit": "43ce98028a817eff7643581a26e48cd9fd233408",
+  "received_date": "2026-10-23",
+  "scope": "Unmodified copies of N2 narration, QA and historical acceptance report; not an N2 acceptance of the N3 demo.",
+  "files": {
+    "reports/demo-script-security.md": {
+      "bytes": 9999,
+      "sha256": "dc361660f25a3c719245a172ff5ff474bcf31633162bfb904991eff3af11bcc7"
+    },
+    "reports/p4_security_acceptance.md": {
+      "bytes": 14059,
+      "sha256": "d574714ef94137f0717f7821e86cbba50dec506cafa081b603c734f0b85633a6"
+    },
+    "docs/demo-qa.md": {
+      "bytes": 10582,
+      "sha256": "5f3b3fd84d412faf51d117c108de5baa02d139b6ef654f7754a4dd4110c7559d"
+    }
+  }
+}

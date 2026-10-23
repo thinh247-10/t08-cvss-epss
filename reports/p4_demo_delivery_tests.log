@@ -1,0 +1,34 @@
+test_ai_split_mismatch_locks_ai (tests.test_demo_data.DemoContractTests.test_ai_split_mismatch_locks_ai) ... ok
+test_bad_ai_hash_stops_only_ai (tests.test_demo_data.DemoContractTests.test_bad_ai_hash_stops_only_ai) ... ok
+test_bad_boolean_and_fractional_rank (tests.test_demo_data.DemoContractTests.test_bad_boolean_and_fractional_rank) ... ok
+test_bad_hash_blocks_release (tests.test_demo_data.DemoContractTests.test_bad_hash_blocks_release) ... ok
+test_bad_phase1_hash (tests.test_demo_data.DemoContractTests.test_bad_phase1_hash) ... ok
+test_blank_description_no_model_call (tests.test_demo_data.DemoContractTests.test_blank_description_no_model_call) ... ok
+test_blank_id_and_outside_cohort (tests.test_demo_data.DemoContractTests.test_blank_id_and_outside_cohort) ... ok
+test_cli_preserves_string_list_items (tests.test_demo_data.DemoContractTests.test_cli_preserves_string_list_items) ... ok
+test_context_v1_rejected (tests.test_demo_data.DemoContractTests.test_context_v1_rejected) ... ok
+test_duplicate_cve_rejected (tests.test_demo_data.DemoContractTests.test_duplicate_cve_rejected) ... ok
+test_duplicate_pair_rejected (tests.test_demo_data.DemoContractTests.test_duplicate_pair_rejected) ... ok
+test_duplicate_prediction_locks_ai (tests.test_demo_data.DemoContractTests.test_duplicate_prediction_locks_ai) ... ok
+test_false_zero_null_and_left_join (tests.test_demo_data.DemoContractTests.test_false_zero_null_and_left_join) ... ok
+test_load_readonly_no_network_train_or_inference (tests.test_demo_data.DemoContractTests.test_load_readonly_no_network_train_or_inference) ... ok
+test_missing_ai_does_not_break_summary (tests.test_demo_data.DemoContractTests.test_missing_ai_does_not_break_summary) ... ok
+test_model_missing_saved_predictions_still_work (tests.test_demo_data.DemoContractTests.test_model_missing_saved_predictions_still_work) ... ok
+test_model_removed_after_load_falls_back (tests.test_demo_data.DemoContractTests.test_model_removed_after_load_falls_back) ... ok
+test_overlapping_observed_fields_must_match (tests.test_demo_data.DemoContractTests.test_overlapping_observed_fields_must_match) ... ok
+test_path_traversal (tests.test_demo_data.DemoContractTests.test_path_traversal) ... ok
+test_receive_rejects_bad_hash_before_extract (tests.test_demo_data.DemoContractTests.test_receive_rejects_bad_hash_before_extract) ... ok
+test_receive_rejects_unsafe_zip (tests.test_demo_data.DemoContractTests.test_receive_rejects_unsafe_zip) ... ok
+test_saved_views_without_ml_dependencies (tests.test_demo_data.DemoContractTests.test_saved_views_without_ml_dependencies) ... ok
+test_split_and_model_selection (tests.test_demo_data.DemoContractTests.test_split_and_model_selection) ... ok
+test_unknown_figure_rejected (tests.test_demo_data.DemoContractTests.test_unknown_figure_rejected) ... ok
+test_unknown_prediction_id_does_not_break_notebook (tests.test_demo_data.DemoContractTests.test_unknown_prediction_id_does_not_break_notebook) ... ok
+test_version_mismatch_even_with_valid_hash (tests.test_demo_data.DemoContractTests.test_version_mismatch_even_with_valid_hash) ... ok
+test_cli_json_and_error (tests.test_demo_data.RealReleaseSmokeTests.test_cli_json_and_error) ... ok
+test_missing_dependency_falls_back_to_saved (tests.test_demo_data.RealReleaseSmokeTests.test_missing_dependency_falls_back_to_saved) ... ok
+test_real_offline_readonly_and_live_model_reload (tests.test_demo_data.RealReleaseSmokeTests.test_real_offline_readonly_and_live_model_reload) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 10.504s
+
+OK

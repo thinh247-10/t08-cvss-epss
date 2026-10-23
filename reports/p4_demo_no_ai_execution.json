@@ -1,0 +1,84 @@
+{
+  "status": "pass",
+  "executed_at": "2026-10-22T12:57:34.058416+00:00",
+  "python": "3.13.16",
+  "os": "Windows-11-10.0.26200-SP0",
+  "commit": "0f18dd3e852250539e6db303e1be2593b0c054a9",
+  "working_tree_has_uncommitted_demo": true,
+  "dependencies": {
+    "pandas": "3.0.6",
+    "numpy": "2.5.3",
+    "pyarrow": "25.0.1",
+    "PyYAML": "6.0.3"
+  },
+  "paths": {
+    "phase1": "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\phase1_v1_20261010",
+    "phase2": null,
+    "phase3": "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\p3_received_20261021"
+  },
+  "code_cells": 7,
+  "embedded_pngs": 7,
+  "seconds": 1.0382054000001517,
+  "cell_timings": [
+    {
+      "cell": 1,
+      "seconds": 0.5696754999989935
+    },
+    {
+      "cell": 3,
+      "seconds": 0.011700399998517241
+    },
+    {
+      "cell": 5,
+      "seconds": 0.02535120000175084
+    },
+    {
+      "cell": 7,
+      "seconds": 0.04475259999890113
+    },
+    {
+      "cell": 9,
+      "seconds": 0.03520150000258582
+    },
+    {
+      "cell": 11,
+      "seconds": 0.01212419999865233
+    },
+    {
+      "cell": 13,
+      "seconds": 0.027693899999576388
+    }
+  ],
+  "summary": {
+    "dataset_version": "t08-v1.0-20261010",
+    "context_version": "phase3-context-v2",
+    "cohort_id": "t08-v1.0-20261010:ranking",
+    "policy_version": "cvss-epss-kev-first-v1",
+    "n": 396,
+    "total_kev": 3,
+    "source_dates": {
+      "epss_date": "2026-09-29",
+      "kev_date_released": "2026-09-30T16:59:23.0688Z",
+      "kev_retrieved_at": "2026-10-01T11:29:35.854976+00:00"
+    },
+    "mapping": 15,
+    "scored": 10,
+    "queue": {
+      "patch": 8,
+      "review_required": 7
+    },
+    "ai_status": "Chưa có prediction đã xác minh",
+    "load_seconds": 0.5685307999992801
+  },
+  "offline": "Python socket audit guard active; DNS guard probe blocked; OS adapter was not disabled",
+  "guard_verified": true,
+  "input_hashes_unchanged": 119,
+  "model": null,
+  "ai_result": {
+    "mode": "unavailable",
+    "reason": "Chưa có prediction đã xác minh"
+  },
+  "rehearsal_six_minutes": "pending human rehearsal; execution timing is not narration timing",
+  "n2_content_acceptance": "pending",
+  "n1_runbook_second_machine": "pending"
+}

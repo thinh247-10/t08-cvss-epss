@@ -1,0 +1,104 @@
+test_ai_split_mismatch_locks_ai (tests.test_demo_data.DemoContractTests.test_ai_split_mismatch_locks_ai) ... ok
+test_bad_ai_hash_stops_only_ai (tests.test_demo_data.DemoContractTests.test_bad_ai_hash_stops_only_ai) ... ok
+test_bad_boolean_and_fractional_rank (tests.test_demo_data.DemoContractTests.test_bad_boolean_and_fractional_rank) ... ok
+test_bad_hash_blocks_release (tests.test_demo_data.DemoContractTests.test_bad_hash_blocks_release) ... ok
+test_bad_phase1_hash (tests.test_demo_data.DemoContractTests.test_bad_phase1_hash) ... ok
+test_blank_description_no_model_call (tests.test_demo_data.DemoContractTests.test_blank_description_no_model_call) ... ok
+test_blank_id_and_outside_cohort (tests.test_demo_data.DemoContractTests.test_blank_id_and_outside_cohort) ... ok
+test_context_v1_rejected (tests.test_demo_data.DemoContractTests.test_context_v1_rejected) ... ok
+test_duplicate_cve_rejected (tests.test_demo_data.DemoContractTests.test_duplicate_cve_rejected) ... ok
+test_duplicate_pair_rejected (tests.test_demo_data.DemoContractTests.test_duplicate_pair_rejected) ... ok
+test_duplicate_prediction_locks_ai (tests.test_demo_data.DemoContractTests.test_duplicate_prediction_locks_ai) ... ok
+test_false_zero_null_and_left_join (tests.test_demo_data.DemoContractTests.test_false_zero_null_and_left_join) ... ok
+test_load_readonly_no_network_train_or_inference (tests.test_demo_data.DemoContractTests.test_load_readonly_no_network_train_or_inference) ... ok
+test_missing_ai_does_not_break_summary (tests.test_demo_data.DemoContractTests.test_missing_ai_does_not_break_summary) ... ok
+test_model_missing_saved_predictions_still_work (tests.test_demo_data.DemoContractTests.test_model_missing_saved_predictions_still_work) ... ok
+test_overlapping_observed_fields_must_match (tests.test_demo_data.DemoContractTests.test_overlapping_observed_fields_must_match) ... ok
+test_path_traversal (tests.test_demo_data.DemoContractTests.test_path_traversal) ... ok
+test_receive_rejects_bad_hash_before_extract (tests.test_demo_data.DemoContractTests.test_receive_rejects_bad_hash_before_extract) ... ok
+test_receive_rejects_unsafe_zip (tests.test_demo_data.DemoContractTests.test_receive_rejects_unsafe_zip) ... ok
+test_saved_views_without_ml_dependencies (tests.test_demo_data.DemoContractTests.test_saved_views_without_ml_dependencies) ... ok
+test_split_and_model_selection (tests.test_demo_data.DemoContractTests.test_split_and_model_selection) ... ok
+test_unknown_figure_rejected (tests.test_demo_data.DemoContractTests.test_unknown_figure_rejected) ... ok
+test_version_mismatch_even_with_valid_hash (tests.test_demo_data.DemoContractTests.test_version_mismatch_even_with_valid_hash) ... ok
+test_cli_json_and_error (tests.test_demo_data.RealReleaseSmokeTests.test_cli_json_and_error) ... ok
+test_missing_dependency_falls_back_to_saved (tests.test_demo_data.RealReleaseSmokeTests.test_missing_dependency_falls_back_to_saved) ... ok
+test_real_offline_readonly_and_live_model_reload (tests.test_demo_data.RealReleaseSmokeTests.test_real_offline_readonly_and_live_model_reload) ... ok
+test_artifact_wrong_schema_or_preprocessing_is_rejected (tests.test_baseline.BaselineTests.test_artifact_wrong_schema_or_preprocessing_is_rejected) ... ok
+test_configuration_errors (tests.test_baseline.BaselineTests.test_configuration_errors) ... ok
+test_description_only_train_vocabulary_and_classifiers (tests.test_baseline.BaselineTests.test_description_only_train_vocabulary_and_classifiers) ... ok
+test_dummy_uses_train_majority (tests.test_baseline.BaselineTests.test_dummy_uses_train_majority) ... ok
+test_empty_train_wrong_version_and_split_fail (tests.test_baseline.BaselineTests.test_empty_train_wrong_version_and_split_fail) ... ok
+test_explicit_cvss_masking_audited_and_business_words_preserved (tests.test_baseline.BaselineTests.test_explicit_cvss_masking_audited_and_business_words_preserved) ... ok
+test_fit_does_not_modify_source_frame_or_config (tests.test_baseline.BaselineTests.test_fit_does_not_modify_source_frame_or_config) ... ok
+test_inference_empty_invalid_and_duplicate_index (tests.test_baseline.BaselineTests.test_inference_empty_invalid_and_duplicate_index) ... ok
+test_save_load_preserves_both_models_and_metadata (tests.test_baseline.BaselineTests.test_save_load_preserves_both_models_and_metadata) ... ok
+test_single_class_fallback_logs_and_predicts_constant (tests.test_baseline.BaselineTests.test_single_class_fallback_logs_and_predicts_constant) ... ok
+test_train_only_arrow_strings_keep_empty_audit_splits (tests.test_baseline.BaselineTests.test_train_only_arrow_strings_keep_empty_audit_splits) ... ok
+test_duplicate_and_invalid_ids_are_rejected (tests.test_rankings.RankingChecks.test_duplicate_and_invalid_ids_are_rejected) ... ok
+test_hand_ordered_ties_and_same_population (tests.test_rankings.RankingChecks.test_hand_ordered_ties_and_same_population) ... ok
+test_invalid_scores_and_string_booleans_are_rejected (tests.test_rankings.RankingChecks.test_invalid_scores_and_string_booleans_are_rejected) ... ok
+test_missing_values_and_columns_are_rejected (tests.test_rankings.RankingChecks.test_missing_values_and_columns_are_rejected) ... ok
+test_mixed_or_invalid_dates_are_rejected (tests.test_rankings.RankingChecks.test_mixed_or_invalid_dates_are_rejected) ... ok
+test_mixed_wrong_version_and_policy_are_rejected (tests.test_rankings.RankingChecks.test_mixed_wrong_version_and_policy_are_rejected) ... ok
+test_reordered_input_and_nonunique_index_do_not_change_result (tests.test_rankings.RankingChecks.test_reordered_input_and_nonunique_index_do_not_change_result) ... ok
+test_valid_zero_scores_and_nullable_booleans_are_preserved (tests.test_rankings.RankingChecks.test_valid_zero_scores_and_nullable_booleans_are_preserved) ... ok
+test_bad_rank_cohort_version_duplicate_missing_rejected (tests.test_ranking_metrics.RankingMetricsChecks.test_bad_rank_cohort_version_duplicate_missing_rejected) ... ok
+test_cli_bad_config_fails_before_output (tests.test_ranking_metrics.RankingMetricsChecks.test_cli_bad_config_fails_before_output) ... ok
+test_cli_roundtrip_hashes_nulls_and_reference_tampering (tests.test_ranking_metrics.RankingMetricsChecks.test_cli_roundtrip_hashes_nulls_and_reference_tampering) ... ok
+test_constant_column_tau_is_null (tests.test_ranking_metrics.RankingMetricsChecks.test_constant_column_tau_is_null) ... ok
+test_different_ids_or_scores_from_reference_rejected (tests.test_ranking_metrics.RankingMetricsChecks.test_different_ids_or_scores_from_reference_rejected) ... ok
+test_empty_wrong_schema_and_float_rank_rejected (tests.test_ranking_metrics.RankingMetricsChecks.test_empty_wrong_schema_and_float_rank_rejected) ... ok
+test_hand_calculated_jaccard_recall_delta_and_tau (tests.test_ranking_metrics.RankingMetricsChecks.test_hand_calculated_jaccard_recall_delta_and_tau) ... ok
+test_invalid_k (tests.test_ranking_metrics.RankingMetricsChecks.test_invalid_k) ... ok
+test_kev_first_cutoff_tuple_excludes_id (tests.test_ranking_metrics.RankingMetricsChecks.test_kev_first_cutoff_tuple_excludes_id) ... ok
+test_shuffled_input_is_identical_and_unchanged (tests.test_ranking_metrics.RankingMetricsChecks.test_shuffled_input_is_identical_and_unchanged) ... ok
+test_single_row_and_k_at_least_n_are_explicit (tests.test_ranking_metrics.RankingMetricsChecks.test_single_row_and_k_at_least_n_are_explicit) ... ok
+test_ties_use_raw_scores_not_id_order (tests.test_ranking_metrics.RankingMetricsChecks.test_ties_use_raw_scores_not_id_order) ... ok
+test_zero_kev_is_null_not_zero (tests.test_ranking_metrics.RankingMetricsChecks.test_zero_kev_is_null_not_zero) ... ok
+test_all_pairs_preserved_and_clients_review (tests.test_context_priority.ContextChecks.test_all_pairs_preserved_and_clients_review) ... ok
+test_cli_real_release_roundtrip_and_hashes (tests.test_context_priority.ContextChecks.test_cli_real_release_roundtrip_and_hashes) ... ok
+test_comparison_missing_scores_and_bad_policy_rejected (tests.test_context_priority.ContextChecks.test_comparison_missing_scores_and_bad_policy_rejected) ... ok
+test_duplicate_joins_rejected (tests.test_context_priority.ContextChecks.test_duplicate_joins_rejected) ... ok
+test_env_first_changes_order_but_not_membership_and_kev_dominates (tests.test_context_priority.ContextChecks.test_env_first_changes_order_but_not_membership_and_kev_dominates) ... ok
+test_forged_or_orphan_environmental_rejected (tests.test_context_priority.ContextChecks.test_forged_or_orphan_environmental_rejected) ... ok
+test_invalid_vector_is_excluded_not_zero (tests.test_context_priority.ContextChecks.test_invalid_vector_is_excluded_not_zero) ... ok
+test_kev_unknown_mapping_stays_visible_with_verify_promptly (tests.test_context_priority.ContextChecks.test_kev_unknown_mapping_stays_visible_with_verify_promptly) ... ok
+test_missing_signals_scores_cve_and_exposure_review (tests.test_context_priority.ContextChecks.test_missing_signals_scores_cve_and_exposure_review) ... ok
+test_no_patch_pairs_outputs_empty_comparison_without_nan (tests.test_context_priority.ContextChecks.test_no_patch_pairs_outputs_empty_comparison_without_nan) ... ok
+test_sensitivity_and_base_env_compare_same_pairs (tests.test_context_priority.ContextChecks.test_sensitivity_and_base_env_compare_same_pairs) ... ok
+test_shuffled_input_and_ties_deterministic (tests.test_context_priority.ContextChecks.test_shuffled_input_and_ties_deterministic) ... ok
+test_small_patch_population_null_topk (tests.test_context_priority.ContextChecks.test_small_patch_population_null_topk) ... ok
+test_unaffected_precedes_kev_and_client (tests.test_context_priority.ContextChecks.test_unaffected_precedes_kev_and_client) ... ok
+test_unknown_asset_version_and_bad_evidence_rejected (tests.test_context_priority.ContextChecks.test_unknown_asset_version_and_bad_evidence_rejected) ... ok
+test_cli_reports_actual_paths_and_protects_input (tests.test_prediction_rank_impact.PredictionImpactTests.test_cli_reports_actual_paths_and_protects_input) ... ok
+test_duplicates_fail (tests.test_prediction_rank_impact.PredictionImpactTests.test_duplicates_fail) ... ok
+test_empty_split_and_join_audit (tests.test_prediction_rank_impact.PredictionImpactTests.test_empty_split_and_join_audit) ... ok
+test_frozen_release_common_ids_and_split_separation (tests.test_prediction_rank_impact.PredictionImpactTests.test_frozen_release_common_ids_and_split_separation) ... ok
+test_id_join_ties_known_jaccard_tau_and_no_mutation (tests.test_prediction_rank_impact.PredictionImpactTests.test_id_join_ties_known_jaccard_tau_and_no_mutation) ... ok
+test_missing_and_invalid_reduce_both_models_to_common_ids (tests.test_prediction_rank_impact.PredictionImpactTests.test_missing_and_invalid_reduce_both_models_to_common_ids) ... ok
+test_observed_mismatch_and_missing_observation (tests.test_prediction_rank_impact.PredictionImpactTests.test_observed_mismatch_and_missing_observation) ... ok
+test_train_not_used_and_constant_tau_undefined (tests.test_prediction_rank_impact.PredictionImpactTests.test_train_not_used_and_constant_tau_undefined) ... ok
+test_version_filter_ignores_dummy (tests.test_prediction_rank_impact.PredictionImpactTests.test_version_filter_ignores_dummy) ... ok
+test_wrong_join_split_unknown_id_blank_key_and_source_version_fail (tests.test_prediction_rank_impact.PredictionImpactTests.test_wrong_join_split_unknown_id_blank_key_and_source_version_fail) ... ok
+test_wrong_split_usage_dataset_and_vector_score (tests.test_prediction_rank_impact.PredictionImpactTests.test_wrong_split_usage_dataset_and_vector_score) ... ok
+test_zero_score_valid_and_invalid_vector_counted_without_zero_imputation (tests.test_prediction_rank_impact.PredictionImpactTests.test_zero_score_valid_and_invalid_vector_counted_without_zero_imputation) ... ok
+
+----------------------------------------------------------------------
+Ran 85 tests in 16.094s
+
+OK
+{
+  "n": 3,
+  "total_kev": 1,
+  "tau_b": {
+    "value": -0.33333333333333337,
+    "reason": null,
+    "inputs": [
+      "cvss_base_score",
+      "epss"
+    ],
+    "variant": "b"
+  },
+  "output_dir": "C:\\Users\\ASUS\\AppData\\Local\\Temp\\tmpv6sc8_77\\out"
+}

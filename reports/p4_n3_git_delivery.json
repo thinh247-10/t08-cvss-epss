@@ -1,0 +1,58 @@
+{
+  "checked_at": "2026-10-23T16:08:58.318437+00:00",
+  "status": "pending",
+  "reported_implementation_commit": "d09b752cae512872c5336ebac621452c8016428b",
+  "observations": [
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "0f18dd3e852250539e6db303e1be2593b0c054a9\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "branch",
+        "--show-current"
+      ],
+      "exit_code": 0,
+      "stdout": "feat/p4-demo\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "ls-remote",
+        "--heads",
+        "origin",
+        "feat/p4-demo"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "status",
+        "--short",
+        "--",
+        "src/demo",
+        "scripts/execute_demo_notebook.py",
+        "notebooks/03_demo.ipynb",
+        "reports/p4_n3_delivery.md"
+      ],
+      "exit_code": 0,
+      "stdout": "?? notebooks/03_demo.ipynb\n?? reports/p4_n3_delivery.md\n?? scripts/execute_demo_notebook.py\n?? src/demo/\n",
+      "stderr": ""
+    }
+  ],
+  "push_attempted_in_this_audit": false,
+  "pr_creation_attempted_in_this_audit": false,
+  "pr_body": "reports/p4_n3_pr.md",
+  "note": "Read-only Git audit. Current branch points to Phase 3; demo paths are untracked. No remote feat/p4-demo branch was returned. Historical commit object exists, but is not current HEAD. Do not count Git delivery as complete."
+}

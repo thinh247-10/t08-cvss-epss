@@ -1,0 +1,185 @@
+{
+  "status": "pass",
+  "scope": "N3 self-check against received N2 narration; NOT N2 acceptance",
+  "checked_at_utc": "2026-10-23T10:18:04.311439+00:00",
+  "python": "3.13.16",
+  "os": "Windows-11-10.0.26200-SP0",
+  "seconds": 1.6826275000057649,
+  "n2_source_commit": "43ce98028a817eff7643581a26e48cd9fd233408",
+  "dataset_version": "t08-v1.0-20261010",
+  "context_version": "phase3-context-v2",
+  "network": "socket audit blocked",
+  "input_files_unchanged": 224,
+  "checks": [
+    {
+      "name": "population",
+      "expected": [
+        396,
+        3,
+        15,
+        10
+      ],
+      "actual": [
+        396,
+        3,
+        15,
+        10
+      ],
+      "pass": true
+    },
+    {
+      "name": "queue",
+      "expected": {
+        "patch": 8,
+        "review_required": 7
+      },
+      "actual": {
+        "patch": 8,
+        "review_required": 7
+      },
+      "pass": true
+    },
+    {
+      "name": "N2 lower Base/high EPSS",
+      "expected": [
+        5.3,
+        0.99827,
+        true,
+        3,
+        3
+      ],
+      "actual": [
+        5.3,
+        0.99827,
+        true,
+        3,
+        3
+      ],
+      "pass": true
+    },
+    {
+      "name": "PgHero context",
+      "expected": [
+        7.5,
+        9.3,
+        8
+      ],
+      "actual": [
+        7.5,
+        9.3,
+        8
+      ],
+      "pass": true
+    },
+    {
+      "name": "API-02 retained",
+      "expected": [
+        "review_required",
+        null,
+        null
+      ],
+      "actual": [
+        "review_required",
+        null,
+        null
+      ],
+      "pass": true
+    },
+    {
+      "name": "PgHero severity/context/sensitivity",
+      "expected": [
+        2,
+        1,
+        8,
+        2
+      ],
+      "actual": [
+        2,
+        1,
+        8,
+        2
+      ],
+      "pass": true
+    },
+    {
+      "name": "Discourse",
+      "expected": [
+        8.1,
+        8.8,
+        2
+      ],
+      "actual": [
+        8.1,
+        8.8,
+        2
+      ],
+      "pass": true
+    },
+    {
+      "name": "MOB-02",
+      "expected": [
+        9.8,
+        "client",
+        "review_required",
+        null
+      ],
+      "actual": [
+        9.8,
+        "client",
+        "review_required",
+        null
+      ],
+      "pass": true
+    },
+    {
+      "name": "client count",
+      "expected": 2,
+      "actual": 2,
+      "pass": true
+    },
+    {
+      "name": "AI common cohort",
+      "expected": [
+        69,
+        108
+      ],
+      "actual": [
+        69,
+        108
+      ],
+      "pass": true
+    },
+    {
+      "name": "AI saved mode",
+      "expected": "saved",
+      "actual": "saved",
+      "pass": true
+    },
+    {
+      "name": "AI observed/predicted",
+      "expected": [
+        7.3,
+        9.1
+      ],
+      "actual": [
+        7.3,
+        9.1
+      ],
+      "pass": true
+    },
+    {
+      "name": "AI error metrics",
+      "expected": [
+        "N",
+        "H",
+        "H"
+      ],
+      "actual": [
+        "N",
+        "H",
+        "H"
+      ],
+      "pass": true
+    }
+  ]
+}

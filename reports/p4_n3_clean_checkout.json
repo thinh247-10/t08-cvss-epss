@@ -1,0 +1,151 @@
+{
+  "status": "pass",
+  "source_commit": "d09b752cae512872c5336ebac621452c8016428b",
+  "checkout": "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\p4_n3_clean_20261023",
+  "machine": "NgocAnh",
+  "os": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.16 (tags/v3.13.16:cbc944f, Sep 30 2026, 19:17:50) [MSC v.1944 64 bit (AMD64)]",
+  "environment": "same machine and existing N3 venv; clean Git clone only, not a second physical machine or freshly installed dependencies",
+  "worktree_clean_before": true,
+  "worktree_clean_after": true,
+  "commands": [
+    {
+      "command": [
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "scripts/execute_demo_notebook.py",
+        "--phase1",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\phase1_v1_20261010",
+        "--phase2",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\phase2_received",
+        "--phase3",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\p3_received_20261021",
+        "--output",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\p4_n3_clean_20261023\\data\\processed\\audit\\live.ipynb",
+        "--report",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\reports\\p4_n3_clean_live.json"
+      ],
+      "exit_code": 0,
+      "seconds": 4.351207899999281,
+      "stdout": "{\n  \"status\": \"pass\",\n  \"code_cells\": 7,\n  \"embedded_pngs\": 7,\n  \"seconds\": 3.2676688999999897,\n  \"guard_verified\": true,\n  \"input_hashes_unchanged\": 224\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "scripts/execute_demo_notebook.py",
+        "--phase1",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\phase1_v1_20261010",
+        "--phase2",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\phase2_received",
+        "--phase3",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\p3_received_20261021",
+        "--saved-only",
+        "--output",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\p4_n3_clean_20261023\\data\\processed\\audit\\saved.ipynb",
+        "--report",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\reports\\p4_n3_clean_saved.json"
+      ],
+      "exit_code": 0,
+      "seconds": 2.5677741000035894,
+      "stdout": "{\n  \"status\": \"pass\",\n  \"code_cells\": 7,\n  \"embedded_pngs\": 7,\n  \"seconds\": 1.670569499998237,\n  \"guard_verified\": true,\n  \"input_hashes_unchanged\": 224\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "scripts/execute_demo_notebook.py",
+        "--phase1",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\phase1_v1_20261010",
+        "--phase2",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\phase2_received",
+        "--phase3",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\p3_received_20261021",
+        "--no-ai",
+        "--output",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\p4_n3_clean_20261023\\data\\processed\\audit\\no_ai.ipynb",
+        "--report",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\reports\\p4_n3_clean_no_ai.json"
+      ],
+      "exit_code": 0,
+      "seconds": 1.5569371999954456,
+      "stdout": "{\n  \"status\": \"pass\",\n  \"code_cells\": 7,\n  \"embedded_pngs\": 7,\n  \"seconds\": 0.6601738999961526,\n  \"guard_verified\": true,\n  \"input_hashes_unchanged\": 119\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "src.demo.cli",
+        "--phase1",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\phase1_v1_20261010",
+        "--phase2",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\phase2_received",
+        "--phase3",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\p3_received_20261021",
+        "--json",
+        "cve",
+        "CVE-2023-41387"
+      ],
+      "exit_code": 0,
+      "seconds": 1.9914459999999963,
+      "stdout": "{\n  \"CVSS quan sát\": {\n    \"cve_id\": \"CVE-2023-41387\",\n    \"cvss_base_score\": 9.1,\n    \"epss\": 0.00874,\n    \"is_kev\": false,\n    \"cvss_rank\": 30,\n    \"epss_rank\": 128,\n    \"kev_first_rank\": 127,\n    \"dataset_version\": \"t08-v1.0-20261010\",\n    \"epss_date\": \"2026-09-29\",\n    \"cohort_id\": \"t08-v1.0-20261010:ranking\",\n    \"policy_version\": \"cvss-epss-kev-first-v1\",\n    \"published\": \"2023-09-19T09:15:07.860Z\",\n    \"last_modified\": \"2026-06-17T06:22:04.343Z\",\n    \"vuln_status\": \"Modified\",\n    \"description\": \"A SQL injection in the flutter_downloader component through 1.11.1 for iOS allows remote attackers to steal session tokens and overwrite arbitrary files inside the app's container. The internal database of the framework is exposed to the local user if an app uses UIFileSharingEnabled and LSSupportsOpeningDocumentsInPlace properties. As a result, local users can obtain the same attack primitives as remote attackers by tampering with the internal database of the framework on the device.\",\n    \"cvss_version\": \"3.1\",\n    \"cvss_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H\",\n    \"cvss_source\": \"nvd@nist.gov\",\n    \"cvss_type\": \"Primary\",\n    \"AV\": \"N\",\n    \"AC\": \"L\",\n    \"PR\": \"N\",\n    \"UI\": \"N\",\n    \"S\": \"U\",\n    \"C\": \"N\",\n    \"I\": \"H\",\n    \"A\": \"H\",\n    \"has_cvss31_label\": true,\n    \"epss_percentile\": 0.57343,\n    \"kev_date_added\": null,\n    \"kev_known_ransomware\": null,\n    \"domain_tags\": [\n      \"mobile\"\n    ],\n    \"in_scope\": true,\n    \"scope_reason\": \"Vulnerable application CPE plus official product role: patreon:flutter_downloader (Flutter Android/iOS downloader plugin)\",\n    \"scope_evidence\": [\n      \"https://pub.dev/packages/flutter_downloader\",\n      \"https://nvd.nist.gov/vuln/detail/CVE-2023-41387\"\n    ],\n    \"scope_status\": \"included\",\n    \"split\": \"train\",\n    \"retrieved_at\": \"2026-10-05T16:49:12.356Z\",\n    \"epss_status\": \"available\",\n    \"product_groups\": [\n      \"a:patreon:flutter_downloader\"\n    ],\n    \"reference_urls\": [\n      \"https://pub.dev/packages/flutter_downloader/changelog\",\n      \"https://seredynski.com/articles/exploiting-ios-apps-to-extract-session-tokens-and-overwrite-user-data\"\n    ],\n    \"scope_policy_version\": \"web-mobile-cpe-v1\",\n    \"source_dataset_version\": \"pilot-v0.1-nvd-20261002T171532_735222Z-joined-20261005T164912_356960Z\",\n    \"ml_exclusion_reason\": null,\n    \"duplicate_component\": \"f5eea133cfc4dbbaab10b5a7a4df7345bd82d84333b2d77eb3e8c49e68ddf456\"\n  },\n  \"Bối cảnh và hành động\": [\n    {\n      \"cve_id\": \"CVE-2023-41387\",\n      \"asset_id\": \"MOB-02\",\n      \"applicability\": \"affected\",\n      \"affected_version_evidence\": \"CNA description says flutter_downloader iOS through 1.11.1; project changelog 1.11.2 has iOS security update.\",\n      \"evidence_url\": \"https://pub.dev/packages/flutter_downloader/changelog\",\n      \"mapping_reason\": \"Hypothetical iOS 1.11.1 version matches CNA affected range; verify actual integration before operational action.\",\n      \"product\": \"Flutter with flutter_downloader\",\n      \"assumed_version\": \"flutter_downloader 1.11.1\",\n      \"reviewer\": \"Codex-assisted source review for N2; no independent human approval claimed\",\n      \"dataset_version\": \"t08-v1.0-20261010\",\n      \"context_version\": \"phase3-context-v2\",\n      \"evidence_read_at\": \"2026-10-19\",\n      \"exploit_conditions\": \"Attacker-controlled downloader input; local path requires UIFileSharingEnabled and LSSupportsOpeningDocumentsInPlace; client remains review_required.\",\n      \"evidence_limitations\": \"CNA affected product table is nonspecific, range comes from description; source C:N retained despite token-theft description.\",\n      \"base_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H\",\n      \"base_score\": 9.1,\n      \"environmental_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H/E:X/RL:X/RC:X/CR:H/IR:H/AR:M/MAV:X/MAC:X/MPR:X/MUI:X/MS:X/MC:X/MI:X/MA:X\",\n      \"environmental_score\": 9.8,\n      \"CR\": \"H\",\n      \"IR\": \"H\",\n      \"AR\": \"M\",\n      \"modification_reason\": \"CR/IR/AR from hypothetical inventory: Ung dung xu ly du lieu nguoi dung va phu thuoc SDK/framework phia client. Temporal E/RL/RC and all Modified metrics remain X: no verified controls; internal/client exposure does not change MAV. Attacker-controlled downloader input; local path requires UIFileSharingEnabled and LSSupportsOpeningDocumentsInPlace; client remains review_required.\",\n      \"score_source\": \"observed\",\n      \"is_kev\": false,\n      \"epss\": 0.00874,\n      \"exposure\": \"client\",\n      \"queue_status\": \"review_required\",\n      \"priority_rank\": null,\n      \"priority_reason\": \"Exposure client/unknown has no numeric rule; verify attack path.\",\n      \"recommended_action\": \"Verify applicability, client attack path and missing signals before numeric ranking.\",\n      \"policy_version\": \"context-v1\",\n      \"asset_name\": \"Ung dung iOS\",\n      \"asset_function\": \"Ung dung mua hang tren iOS\",\n      \"asset_domain\": \"mobile\",\n      \"asset_product\": \"Flutter with flutter_downloader\",\n      \"asset_version\": \"flutter_downloader 1.11.1\",\n      \"asset_exposure\": \"client\",\n      \"asset_data_type\": [\n        \"thong tin tai khoan\",\n        \"du lieu dat hang\"\n      ],\n      \"asset_CR\": \"H\",\n      \"asset_IR\": \"H\",\n      \"asset_AR\": \"M\",\n      \"asset_rationale\": \"Ung dung xu ly du lieu nguoi dung va phu thuoc SDK/framework phia client.\",\n      \"asset_assumptions\": [\n        \"Gia dinh ung dung nhung flutter_downloader 1.11.1 tren iOS de thu applicability; day khong phai cau hinh he thong that.\",\n        \"Exposure client chua xac dinh duong tan cong; cap affected can review_required truoc khi xep hang tu dong.\"\n      ],\n      \"environmental_missing_reason\": null,\n      \"priority_rank_missing_reason\": \"Exposure client/unknown has no numeric rule; verify attack path.\"\n    }\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "src.demo.cli",
+        "--phase1",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\phase1_v1_20261010",
+        "--phase2",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\phase2_received",
+        "--phase3",
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\p3_received_20261021",
+        "--json",
+        "predict",
+        "CVE-2023-38709",
+        "--live"
+      ],
+      "exit_code": 0,
+      "seconds": 3.6918848999994225,
+      "stdout": "{\n  \"CVSS quan sát\": {\n    \"cve_id\": \"CVE-2023-38709\",\n    \"cvss_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L\",\n    \"cvss_base_score\": 7.3,\n    \"cvss_source\": \"134c704f-9b21-4f2e-91b3-4a467353bcc0\",\n    \"cvss_type\": \"Secondary\"\n  },\n  \"Dự đoán\": {\n    \"mode\": \"live\",\n    \"label\": \"Dự đoán — TF-IDF CPU vừa chạy\",\n    \"cve_id\": \"CVE-2023-38709\",\n    \"split\": \"validation\",\n    \"dataset_version\": \"t08-v1.0-20261010\",\n    \"model_version\": \"tfidf-v1-n1-reproduction-20261017\",\n    \"prediction_usage\": \"demo\",\n    \"pred_AV\": \"N\",\n    \"pred_AC\": \"L\",\n    \"pred_PR\": \"N\",\n    \"pred_UI\": \"N\",\n    \"pred_S\": \"U\",\n    \"pred_C\": \"N\",\n    \"pred_I\": \"H\",\n    \"pred_A\": \"H\",\n    \"predicted_vector\": \"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H\",\n    \"predicted_base_score\": 9.1,\n    \"vector_valid\": true,\n    \"prediction_error\": \"\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\.venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "tests.test_demo_data.DemoContractTests",
+        "-q"
+      ],
+      "exit_code": 0,
+      "seconds": 7.946364199997333,
+      "stdout": "",
+      "stderr": "----------------------------------------------------------------------\nRan 26 tests in 6.910s\n\nOK\n"
+    }
+  ],
+  "fallback": {
+    "status": "pass",
+    "files": 55,
+    "inline_images": 7,
+    "scripts": 0,
+    "external_stylesheets": 0,
+    "archive_sha256": "097176740d0c15aa26740db9395694b238f1b9bfc2410c203acdc2f8f6b85ee8"
+  },
+  "peer_acceptance": "pending",
+  "human_rehearsal": "pending"
+}

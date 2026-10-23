@@ -1,0 +1,104 @@
+{
+  "status": "pass",
+  "executed_at": "2026-10-22T12:57:35.430447+00:00",
+  "python": "3.13.16",
+  "os": "Windows-11-10.0.26200-SP0",
+  "commit": "0f18dd3e852250539e6db303e1be2593b0c054a9",
+  "working_tree_has_uncommitted_demo": true,
+  "dependencies": {
+    "pandas": "3.0.6",
+    "numpy": "2.5.3",
+    "pyarrow": "25.0.1",
+    "PyYAML": "6.0.3"
+  },
+  "paths": {
+    "phase1": "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\phase1_v1_20261010",
+    "phase2": "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\phase2_received",
+    "phase3": "D:\\Bảo mật web và ứng dụng\\t08-cvss-epss\\data\\processed\\p3_received_20261021"
+  },
+  "code_cells": 7,
+  "embedded_pngs": 7,
+  "seconds": 2.8328068000009807,
+  "cell_timings": [
+    {
+      "cell": 1,
+      "seconds": 2.0019254999970144
+    },
+    {
+      "cell": 3,
+      "seconds": 0.01489930000025197
+    },
+    {
+      "cell": 5,
+      "seconds": 0.026322900001105154
+    },
+    {
+      "cell": 7,
+      "seconds": 0.04793509999944945
+    },
+    {
+      "cell": 9,
+      "seconds": 0.04075390000070911
+    },
+    {
+      "cell": 11,
+      "seconds": 0.05045840000093449
+    },
+    {
+      "cell": 13,
+      "seconds": 0.030343300000822637
+    }
+  ],
+  "summary": {
+    "dataset_version": "t08-v1.0-20261010",
+    "context_version": "phase3-context-v2",
+    "cohort_id": "t08-v1.0-20261010:ranking",
+    "policy_version": "cvss-epss-kev-first-v1",
+    "n": 396,
+    "total_kev": 3,
+    "source_dates": {
+      "epss_date": "2026-09-29",
+      "kev_date_released": "2026-09-30T16:59:23.0688Z",
+      "kev_retrieved_at": "2026-10-01T11:29:35.854976+00:00"
+    },
+    "mapping": 15,
+    "scored": 10,
+    "queue": {
+      "patch": 8,
+      "review_required": 7
+    },
+    "ai_status": "Dự đoán — kết quả đã lưu; live TF-IDF chỉ khi yêu cầu",
+    "load_seconds": 2.0007126000018616
+  },
+  "offline": "Python socket audit guard active; DNS guard probe blocked; OS adapter was not disabled",
+  "guard_verified": true,
+  "input_hashes_unchanged": 224,
+  "model": {
+    "bytes": 7404116,
+    "sha256": "c68d530ff7818f5d469da647246e787517d9d213b59286d9a6f67dd647d05265"
+  },
+  "ai_result": {
+    "mode": "saved",
+    "label": "Dự đoán — kết quả đã lưu",
+    "cve_id": "CVE-2023-38709",
+    "split": "validation",
+    "dataset_version": "t08-v1.0-20261010",
+    "model_version": "tfidf-v1-n1-reproduction-20261017",
+    "prediction_usage": "evaluation",
+    "pred_AV": "N",
+    "pred_AC": "L",
+    "pred_PR": "N",
+    "pred_UI": "N",
+    "pred_S": "U",
+    "pred_C": "N",
+    "pred_I": "H",
+    "pred_A": "H",
+    "predicted_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H",
+    "predicted_base_score": 9.1,
+    "vector_valid": true,
+    "prediction_error": null
+  },
+  "rehearsal_six_minutes": "pending human rehearsal; execution timing is not narration timing",
+  "n2_content_acceptance": "pending",
+  "n1_runbook_second_machine": "pending"
+}
