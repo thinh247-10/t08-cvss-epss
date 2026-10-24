@@ -1,0 +1,126 @@
+{
+  "status": "pass",
+  "executed_at": "2026-10-24T09:21:53.621257+00:00",
+  "python": "3.14.3",
+  "os": "Windows-11-10.0.26300-SP0",
+  "commit": "unavailable",
+  "working_tree_has_uncommitted_demo": null,
+  "code_hashes": {
+    "src\\demo\\__init__.py": {
+      "bytes": 49,
+      "sha256": "6f16919a594e8359cbcc09ecda92d9e55e0800bbb2f569d0aef93549b5387d9a"
+    },
+    "src\\demo\\cli.py": {
+      "bytes": 3720,
+      "sha256": "b497d5ea9e6d15a20f66d41352a02dec71e8a5b07f9813db723c3444573ea6a4"
+    },
+    "src\\demo\\data_loader.py": {
+      "bytes": 23918,
+      "sha256": "73a58ba76918e09e956afeed48be0f82450fa3f68b0c334f74a37ed63e6dbed5"
+    },
+    "src\\demo\\presentation.py": {
+      "bytes": 4393,
+      "sha256": "929969778ba4b4f1d9cc90fc960c7df0d64be2cbe16658d75a723a4d105815fc"
+    },
+    "scripts\\execute_demo_notebook.py": {
+      "bytes": 6789,
+      "sha256": "201e6e808e14ed87eb16e32082a364146bc2cb783fae81fc9fcf91841110b382"
+    }
+  },
+  "dependencies": {
+    "pandas": "3.0.6",
+    "numpy": "2.5.3",
+    "pyarrow": "25.0.1",
+    "PyYAML": "6.0.3"
+  },
+  "paths": {
+    "phase1": "C:\\Users\\LOQ\\Desktop\\t08-cvss-epss\\t08-cvss-epss\\data\\processed\\phase1_v1_20261010",
+    "phase2": "C:\\Users\\LOQ\\Desktop\\t08-cvss-epss\\t08-cvss-epss\\data\\processed\\reviews\\phase2_handoff_verified_20261017",
+    "phase3": "C:\\Users\\LOQ\\Desktop\\t08-cvss-epss\\t08-cvss-epss\\data\\processed\\reviews\\phase3_handoff_verified_20261021"
+  },
+  "code_cells": 7,
+  "embedded_pngs": 7,
+  "seconds": 32.73951880000004,
+  "cell_timings": [
+    {
+      "cell": 1,
+      "seconds": 8.834721999999942
+    },
+    {
+      "cell": 3,
+      "seconds": 0.027194499999950494
+    },
+    {
+      "cell": 5,
+      "seconds": 0.07322339999996075
+    },
+    {
+      "cell": 7,
+      "seconds": 0.14309130000003734
+    },
+    {
+      "cell": 9,
+      "seconds": 0.05717419999996309
+    },
+    {
+      "cell": 11,
+      "seconds": 22.234456600000044
+    },
+    {
+      "cell": 13,
+      "seconds": 0.03695549999997638
+    }
+  ],
+  "summary": {
+    "dataset_version": "t08-v1.0-20261010",
+    "context_version": "phase3-context-v2",
+    "cohort_id": "t08-v1.0-20261010:ranking",
+    "policy_version": "cvss-epss-kev-first-v1",
+    "n": 396,
+    "total_kev": 3,
+    "source_dates": {
+      "epss_date": "2026-09-29",
+      "kev_date_released": "2026-09-30T16:59:23.0688Z",
+      "kev_retrieved_at": "2026-10-01T11:29:35.854976+00:00"
+    },
+    "mapping": 15,
+    "scored": 10,
+    "queue": {
+      "patch": 8,
+      "review_required": 7
+    },
+    "ai_status": "Dự đoán — kết quả đã lưu; live TF-IDF chỉ khi yêu cầu",
+    "load_seconds": 8.83363600000007
+  },
+  "offline": "Python socket audit guard active; DNS guard probe blocked; OS adapter was not disabled",
+  "guard_verified": true,
+  "input_hashes_unchanged": 224,
+  "model": {
+    "bytes": 7404116,
+    "sha256": "c68d530ff7818f5d469da647246e787517d9d213b59286d9a6f67dd647d05265"
+  },
+  "ai_result": {
+    "mode": "live",
+    "label": "Dự đoán — TF-IDF CPU vừa chạy",
+    "cve_id": "CVE-2023-38709",
+    "split": "validation",
+    "dataset_version": "t08-v1.0-20261010",
+    "model_version": "tfidf-v1-n1-reproduction-20261017",
+    "prediction_usage": "demo",
+    "pred_AV": "N",
+    "pred_AC": "L",
+    "pred_PR": "N",
+    "pred_UI": "N",
+    "pred_S": "U",
+    "pred_C": "N",
+    "pred_I": "H",
+    "pred_A": "H",
+    "predicted_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H",
+    "predicted_base_score": 9.1,
+    "vector_valid": true,
+    "prediction_error": ""
+  },
+  "rehearsal_six_minutes": "pending human rehearsal; execution timing is not narration timing",
+  "n2_content_acceptance": "pending",
+  "n1_runbook_second_machine": "pending"
+}

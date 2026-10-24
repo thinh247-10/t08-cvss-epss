@@ -1,0 +1,12 @@
+N1 integration check, 2026-10-24.
+Command: .venv/Scripts/python.exe -X utf8 -m unittest tests.test_demo_data tests.test_rankings tests.test_ranking_metrics tests.test_context_priority -q
+Exit code: 0
+Ran 65 tests in 26.689s
+OK (skipped=3)
+62 executed; 3 RealReleaseSmokeTests skipped because default received directories absent.
+Real inputs separately exercised through config/demo.yaml and scripts/run_demo.py:
+live: pass, 7 cells, 7 PNG, 32.7395188s, 224 input files unchanged.
+saved: pass, 7 cells, 7 PNG, 2.6854957s, 224 input files unchanged.
+no-ai: pass, 7 cells, 7 PNG, 1.1406521s, 119 input files unchanged.
+All three reported guard_verified=true. This is not human rehearsal timing.
+CLI summary: 396 CVE, 3 KEV, 15 mapping, 10 scored, 8 patch, 7 review.

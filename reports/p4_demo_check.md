@@ -1,5 +1,9 @@
 # Phase 4 — kiểm demo Người 3, ngày 22/10/2026
 
+> Trạng thái cập nhật 24/10: N3 đã push4c15746, N2 đã nghiệm thu kỹ thuật/nội dung
+> tại55fa749; đã tích hợp develop. Phần dưới giữ lịch sử lần chạy22/10.
+> Trạng thái nhóm hiện hành: [release checklist](release-checklist.md).
+
 Đã triển khai và chạy local: loader/CLI chỉ đọc, notebook 6 phút dự kiến,
 runner offline, prediction đã lưu và TF-IDF live validation. **Chưa nghiệm thu
 toàn nhóm**: chưa có lời thoại/xác nhận N2, runbook N1 hoặc buổi diễn tập có đo giờ.

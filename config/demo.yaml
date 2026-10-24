@@ -1,0 +1,7 @@
+dataset_version: t08-v1.0-20261010
+context_version: phase3-context-v2
+phase1: data/processed/phase1_v1_20261010
+phase2: data/processed/reviews/phase2_handoff_verified_20261017
+phase3: data/processed/reviews/phase3_handoff_verified_20261021
+# Paths are relative to repository root. Receivers may change only these paths.
+# Phase2 must include baseline/ extracted from its verified baseline.zip.
