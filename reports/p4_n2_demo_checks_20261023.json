@@ -1,0 +1,245 @@
+{
+  "status": "pass",
+  "scope": "N2 assisted technical/content acceptance; NOT human rehearsal or whole-team signoff",
+  "date_vietnam": "2026-10-23",
+  "checked_at_utc": "2026-10-23T16:21:12.045384+00:00",
+  "n3_git_ref": "origin/feat/p4-demo",
+  "n3_commit": "4c15746",
+  "snapshot_root": "C:\\Users\\chann\\OneDrive\\Tài liệu\\ChatGPT\\NT 213 - Bảo mật Web và ứng dụng\\p4-n3-review-4c15746",
+  "python": "3.13.12 (tags/v3.13.12:1cbe481, Feb  3 2026, 18:22:25) [MSC v.1944 64 bit (AMD64)]",
+  "checks": [
+    {
+      "name": "summary/counts",
+      "expected": [
+        396,
+        3,
+        15,
+        10
+      ],
+      "actual": [
+        396,
+        3,
+        15,
+        10
+      ],
+      "passed": true
+    },
+    {
+      "name": "queue",
+      "expected": {
+        "patch": 8,
+        "review_required": 7
+      },
+      "actual": {
+        "patch": 8,
+        "review_required": 7
+      },
+      "passed": true
+    },
+    {
+      "name": "dates",
+      "expected": {
+        "epss_date": "2026-09-29",
+        "kev_date_released": "2026-09-30T16:59:23.0688Z",
+        "kev_retrieved_at": "2026-10-01T11:29:35.854976+00:00"
+      },
+      "actual": {
+        "epss_date": "2026-09-29",
+        "kev_date_released": "2026-09-30T16:59:23.0688Z",
+        "kev_retrieved_at": "2026-10-01T11:29:35.854976+00:00"
+      },
+      "passed": true
+    },
+    {
+      "name": "mobile/observed",
+      "expected": [
+        9.1,
+        0.00874,
+        false,
+        30,
+        128,
+        127
+      ],
+      "actual": [
+        9.1,
+        0.00874,
+        false,
+        30,
+        128,
+        127
+      ],
+      "passed": true
+    },
+    {
+      "name": "mobile/no-heldout",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "MOB-02/review",
+      "expected": [
+        "client",
+        9.8,
+        "review_required",
+        null
+      ],
+      "actual": [
+        "client",
+        9.8,
+        "review_required",
+        null
+      ],
+      "passed": true
+    },
+    {
+      "name": "MOB-01/review",
+      "expected": [
+        "client",
+        9.8,
+        "review_required",
+        null
+      ],
+      "actual": [
+        "client",
+        9.8,
+        "review_required",
+        null
+      ],
+      "passed": true
+    },
+    {
+      "name": "API02/missing",
+      "expected": [
+        null,
+        null,
+        "review_required"
+      ],
+      "actual": [
+        null,
+        null,
+        "review_required"
+      ],
+      "passed": true
+    },
+    {
+      "name": "PgHero/ranks",
+      "expected": [
+        2,
+        1,
+        8,
+        2
+      ],
+      "actual": [
+        2,
+        1,
+        8,
+        2
+      ],
+      "passed": true
+    },
+    {
+      "name": "AI/splits",
+      "expected": [
+        69,
+        108
+      ],
+      "actual": [
+        69,
+        108
+      ],
+      "passed": true
+    },
+    {
+      "name": "AI/live-mode",
+      "expected": "live",
+      "actual": "live",
+      "passed": true
+    },
+    {
+      "name": "AI/live-saved",
+      "expected": {
+        "pred_AV": "N",
+        "pred_AC": "L",
+        "pred_PR": "N",
+        "pred_UI": "N",
+        "pred_S": "U",
+        "pred_C": "N",
+        "pred_I": "H",
+        "pred_A": "H",
+        "predicted_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H",
+        "predicted_base_score": 9.1,
+        "vector_valid": true
+      },
+      "actual": {
+        "pred_AV": "N",
+        "pred_AC": "L",
+        "pred_PR": "N",
+        "pred_UI": "N",
+        "pred_S": "U",
+        "pred_C": "N",
+        "pred_I": "H",
+        "pred_A": "H",
+        "predicted_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H",
+        "predicted_base_score": 9.1,
+        "vector_valid": true
+      },
+      "passed": true
+    },
+    {
+      "name": "AI/observed-predicted",
+      "expected": [
+        7.3,
+        9.1
+      ],
+      "actual": [
+        7.3,
+        9.1
+      ],
+      "passed": true
+    },
+    {
+      "name": "render/N-A-with-reason",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "render/observed-predicted-labels",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "CLI/CVE-2023-41387",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "name": "CLI/CVE-2023-22626",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "name": "CLI/empty-ID",
+      "expected": 2,
+      "actual": 2,
+      "passed": true
+    },
+    {
+      "name": "CLI/no-traceback",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    }
+  ],
+  "input_files_unchanged": 224,
+  "model": {
+    "bytes": 7404116,
+    "sha256": "c68d530ff7818f5d469da647246e787517d9d213b59286d9a6f67dd647d05265"
+  },
+  "rehearsal": "pending",
+  "n1_runbook": "pending"
+}

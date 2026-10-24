@@ -1,5 +1,11 @@
 # Lời thoại bảo mật — demo Phase 4 khoảng 6 phút
 
+> Cập nhật 2026-10-23: N3 đã ghép thao tác vào `reports/demo-script-n3.md` trên
+> branch `feat/p4-demo` commit `4c15746`. N2 đã chạy đủ các flow, kiểm vector AI
+> và ba mode live/saved/no-AI; xem mục 5 báo cáo nghiệm thu. Các ghi chú chưa có
+> demo/panel bên dưới ghi trạng thái lúc soạn 21/10, không còn là blocker kỹ thuật.
+> Người thật diễn tập đo thời lượng và N1 chốt script chung vẫn pending.
+
 Bản N2 ngày 2026-10-21, để N1 ghép script cuối và N3 ghép thao tác.
 **Đã soạn, chưa diễn tập đo thời gian.** Các mốc dưới là ngân sách dự kiến,
 không phải thời lượng đo. Không xác nhận notebook/CLI đã chạy.
