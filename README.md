@@ -6,6 +6,9 @@ Phase 4 đã tích hợp demo: [runbook](docs/runbook.md),
 [script trình bày](reports/demo-script.md), [kết quả chạy lại](reports/p4_reproduction.md).
 [Checklist](reports/release-checklist.md) còn chờ xác nhận runbook máy nhận và diễn tập người thật.
 
+Phase 5 — viết báo cáo và chuẩn bị bảo vệ: [Người 1](docs/phase-5-nguoi-1.md),
+[Người 2](docs/phase-5-nguoi-2.md), [Người 3](docs/phase-5-nguoi-3.md).
+
 Kế hoạch nhóm: [Lộ trình 30 ngày, 6 phase và phân công chi tiết cho 3 người](docs/05-ke-hoach-phan-cong.md).
 
 > Bắt đầu từ [Phase 0 — Phạm vi Web/mobile và thiết kế](docs/phases/phase-0-pham-vi-va-thiet-ke.md).

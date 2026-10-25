@@ -1,5 +1,19 @@
 # Phase 5 — Hoàn thiện báo cáo, đóng gói và bảo vệ
 
+## Giao việc hiện hành — 25/10/2026
+
+Hướng dẫn từng bước: [Người 1](../phase-5-nguoi-1.md),
+[Người 2](../phase-5-nguoi-2.md), [Người 3](../phase-5-nguoi-3.md).
+N2 viết `reports/sections/security.md`, N3 viết `reports/sections/ml.md`,
+N1 ghép `reports/final-report.md`. N2 gửi nội dung slide qua
+`reports/p5-security-slides.md`; chỉ N3 tổng hợp `reports/slides-outline.md`.
+Các đề cập cùng sửa slide ở phần kế hoạch dưới được thực hiện qua cách bàn giao này.
+
+DistilBERT đã huấn luyện và đánh giá; Phase5 dùng kết quả thật đã khóa, không còn
+coi Transformer là thí nghiệm chưa chạy. Phase4 đã tích hợp kỹ thuật, nhưng xác nhận
+runbook cuối trên máy nhận và diễn tập người thật vẫn chờ bằng chứng trong checklist.
+Có thể viết báo cáo song song; không tự đánh dấu hai mục này hoàn thành.
+
 **Thời gian:** ngày 26–30; khoảng **6 giờ/người** cho phần việc lên lịch, tổng 18 giờ nhóm. Ngày 29–30 là đệm sửa lỗi và nộp sớm, không dành để mở thêm tính năng.
 **Mục tiêu:** giảng viên thấy rõ nhóm hiểu ưu tiên vá lỗ hổng Web/Mobile, biết sử dụng AI có giới hạn, và có thể kiểm tra lại các kết quả đã trình bày.
 **Trạng thái:** đây là việc cần thực hiện; mọi checklist để trống cho đến khi nhóm có bằng chứng hoàn thành.
